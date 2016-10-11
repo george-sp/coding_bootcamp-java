@@ -28,6 +28,7 @@ public class Exercise1_2 {
         }
         // Print the sum of euros.
         System.out.printf("You have %d euros.", sum);
+        scanner.close();
     }
 
     /**
