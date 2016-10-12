@@ -9,10 +9,7 @@ public class Exercise2_1 {
   public static void main(String[] args){
 
     // Take input from the user.
-    System.out.print("Enter Tax Identification Number: ");
-    Scanner scanner = new Scanner(System.in);
-    String input = scanner.nextLine();
-
+    String input = getTIN();
     // Get the check digit. The last digit of the input.
     int checkDigit = Character.getNumericValue(input.charAt(input.length()-1));
     // Remove the check digit from the input.
@@ -36,5 +33,21 @@ public class Exercise2_1 {
       System.out.println("Tax Identification Number valid.");
     else
       System.out.println("Tax Identification Number not valid.");
+  }
+
+  /**
+   * Prompts user for a number.
+   */
+  public static String getTIN() {
+      // Declare and initialize a simple text scanner.
+      Scanner scanner = new Scanner(System.in);
+      String number;
+      do {
+          System.out.print("Enter Tax Identification Number: ");
+          number = scanner.nextLine();
+      } while (! (number.matches("[0-9]+") && number.length() == 9));
+      // Close the scanner.
+      scanner.close();
+      return number;
   }
 }
