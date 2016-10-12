@@ -32,13 +32,13 @@ public class Exercise2_3 {
   public static String getTenDigitNumber() {
       // Declare and initialize a simple text scanner.
       Scanner scanner = new Scanner(System.in);
-      String byteString;
+      String tenDigitNumber;
       do {
           System.out.print("Enter 10 digit number: ");
-          byteString = scanner.nextLine();
-      } while (! (byteString.matches("[0-9]+") && byteString.length() == 10));
+          tenDigitNumber = scanner.nextLine();
+      } while (! (tenDigitNumber.matches("[0-9]+") && tenDigitNumber.length() == 10));
       // Close the scanner.
       scanner.close();
-      return byteString;
+      return tenDigitNumber;
   }
 }
