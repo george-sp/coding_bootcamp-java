@@ -47,7 +47,7 @@ public class Exercise2_4 {
       Scanner scanner = new Scanner(System.in);
       String nineDigitNumber;
       do {
-          System.out.print("Enter 10 digit number: ");
+          System.out.print("Enter 9 digit number: ");
           nineDigitNumber = scanner.nextLine();
       } while (! (nineDigitNumber.matches("[0-9]+") && nineDigitNumber.length() == 9));
       // Close the scanner.
