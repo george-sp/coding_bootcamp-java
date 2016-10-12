@@ -29,9 +29,11 @@ public class Exercise1_3 {
         System.out.println("The triangle's area is: " + triangleArea);
     }
 
+    /**
+     * Prompts user for a valid input.
+     */
     public static double getSide(String sideName, Scanner scanner) {
         double side;
-        // Get a valid user input.
         while (true) {
             System.out.print("Enter side " + sideName + " : ");
             try {
