@@ -17,5 +17,8 @@ public class TestCircles {
         c2.print();
         c3.print();
         c4.print();
+        // Print the perimeter and the area of the c4.
+        System.out.println(c4.calculatePerimeter());
+        System.out.println(c4.calculateArea());
     }
 }

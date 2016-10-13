@@ -12,6 +12,8 @@ public class Circle {
     private int y;
     // the radius
     private int r;
+    // the pi
+    public static final double PI = 3.14;
 
     /**
      * Constructors
@@ -21,7 +23,6 @@ public class Circle {
 
     // Takes two arguments x,y.
     public Circle(int x, int y) {
-        super();
         this.x = x;
         this.y = y;
     }
@@ -67,5 +68,21 @@ public class Circle {
         System.out.println(
             "* I'm a circle at point (" + this.x + ", " + this.y + ")"
             + " with radius " + this.r);
+    }
+
+    /**
+     * Calculates and returns the area:
+     * (π*radius*radius, π=3.14)
+     */
+    public double calculateArea() {
+        return PI * Math.pow(r, 2);
+    }
+
+    /**
+     * Calculates and returns the perimeter:
+     * (2*π*radius, π=3.14)
+     */
+    public double calculatePerimeter() {
+        return 2*PI*r;
     }
 }
