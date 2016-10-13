@@ -23,22 +23,21 @@ public class Circle {
      */
     // Takes no arguments Default Constructor.
     public Circle() {
+        this.r = 1;
         number_of_circles ++;
     }
 
     // Takes two arguments x,y.
     public Circle(int x, int y) {
+        this();
         this.x = x;
         this.y = y;
-        number_of_circles ++;
     }
 
     // Takes arguments to initialize all field members.
     public Circle(int x, int y, int r) {
-        this.x = x;
-        this.y = y;
+        this(x, y);
         this.r = r;
-        number_of_circles ++;
     }
 
     // Copy constructor.
