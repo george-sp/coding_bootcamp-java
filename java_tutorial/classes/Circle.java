@@ -16,8 +16,17 @@ public class Circle {
     /**
      * Constructors
      */
+    // Takes no arguments Default Constructor.
     public Circle() {}
 
+    // Takes two arguments x,y.
+    public Circle(int x, int y) {
+        super();
+        this.x = x;
+        this.y = y;
+    }
+
+    // Takes arguments to initialize all field members.
     public Circle(int x, int y, int r) {
         this.x = x;
         this.y = y;
