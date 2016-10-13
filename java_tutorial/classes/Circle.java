@@ -13,6 +13,17 @@ public class Circle {
     // the radius
     private int r;
 
+    /**
+     * Constructors
+     */
+    public Circle() {}
+
+    public Circle(int x, int y, int r) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
     /*
      * Setters & Getters
      */
