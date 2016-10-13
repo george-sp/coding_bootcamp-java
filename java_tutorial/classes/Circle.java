@@ -34,6 +34,15 @@ public class Circle {
         this.r = r;
     }
 
+    // Copy constructor.
+    public Circle copy() {
+        Circle newCircle = new Circle();
+        newCircle.x = this.x;
+        newCircle.y = this.y;
+        newCircle.r = this.r;
+        return newCircle;
+    }
+
     /*
      * Setters & Getters
      */

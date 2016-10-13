@@ -20,5 +20,15 @@ public class TestCircles {
         // Print the perimeter and the area of the c4.
         System.out.println(c4.calculatePerimeter());
         System.out.println(c4.calculateArea());
+        // Create a copy of c3.
+        System.out.println("Create a copy of the third circle.");
+        Circle c5 = c3.copy();
+        c3.print();
+        c5.print();
+        c3.setX(100);
+        c3.setY(100);
+        c3.setR(100);
+        c3.print();
+        c5.print();
     }
 }
