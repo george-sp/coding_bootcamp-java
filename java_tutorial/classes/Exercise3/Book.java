@@ -84,11 +84,12 @@ public class Book {
      */
     public String toString() {
         return "Title: " + getTitle() +
-               "Author: " + getAuthor().getName() +
-               "ISBN: " + getISBN() +
-               "Physical copies: " + getPhysicalCopies() +
-               "Available copies: " + getAvailableCopies() +
-               "Times rented: " + getTimesRented();
+               "\nAuthor: " + getAuthor().getName() +
+               "\nISBN: " + getISBN() +
+               "\nPhysical copies: " + getPhysicalCopies() +
+               "\nAvailable copies: " + getAvailableCopies() +
+               "\nTimes rented: " + getTimesRented() +
+               "\n-------------------------------------------------------";
     }
 
     /**
