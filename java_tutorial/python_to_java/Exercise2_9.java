@@ -24,7 +24,8 @@ public class Exercise2_9 {
     }
 
     /**
-     *
+     * Returns a cipher text that substitutes each character in the message with a
+     * character that occurs shift places later on the alphabet
      */
     private static String cipherMessage(int shift, String message) {
         // Initialize an empty cipher message.
