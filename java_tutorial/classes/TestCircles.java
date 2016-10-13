@@ -20,6 +20,8 @@ public class TestCircles {
         // Print the perimeter and the area of the c4.
         System.out.println(c4.calculatePerimeter());
         System.out.println(c4.calculateArea());
+        // Print the number of circles created so far.
+        System.out.println("Number of circles created: " + Circle.getNumberOfCircles());
         // Create a copy of c3.
         System.out.println("Create a copy of the third circle.");
         Circle c5 = c3.copy();
@@ -35,5 +37,7 @@ public class TestCircles {
         Circle c6 = c4.copy();
         System.out.println("Check cocentric of a copy circle: "
             + Circle.cocentric(c4.getX(), c6.getX(), c4.getY(), c6.getY()));
+        // Print the number of circles created.
+        System.out.println("Number of circles created: " + Circle.getNumberOfCircles());
     }
 }

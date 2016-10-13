@@ -14,17 +14,23 @@ public class Circle {
     private int r;
     // the pi
     public static final double PI = 3.14;
+    // Counts the number of the created circles.
+    private static int number_of_circles;
+
 
     /**
      * Constructors
      */
     // Takes no arguments Default Constructor.
-    public Circle() {}
+    public Circle() {
+        number_of_circles ++;
+    }
 
     // Takes two arguments x,y.
     public Circle(int x, int y) {
         this.x = x;
         this.y = y;
+        number_of_circles ++;
     }
 
     // Takes arguments to initialize all field members.
@@ -32,6 +38,7 @@ public class Circle {
         this.x = x;
         this.y = y;
         this.r = r;
+        number_of_circles ++;
     }
 
     // Copy constructor.
@@ -68,6 +75,10 @@ public class Circle {
 
     public int getR() {
         return this.r;
+    }
+
+    public static int getNumberOfCircles() {
+        return number_of_circles;
     }
 
     /**
