@@ -30,5 +30,10 @@ public class TestCircles {
         c3.setR(100);
         c3.print();
         c5.print();
+        System.out.println("Check cocentric of the latest 2: "
+            + Circle.cocentric(c3.getX(), c5.getX(), c3.getY(), c5.getY()));
+        Circle c6 = c4.copy();
+        System.out.println("Check cocentric of a copy circle: "
+            + Circle.cocentric(c4.getX(), c6.getX(), c4.getY(), c6.getY()));
     }
 }
