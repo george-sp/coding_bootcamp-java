@@ -51,4 +51,12 @@ public class Circle {
         return this.r;
     }
 
+    /**
+     * Prints the details of the Circle.
+     */
+    public void print() {
+        System.out.pritnln(
+            "* I'm a circle at point (" + this.x + ", " + this.y + ")"
+            + " with radius " + this.r);
+    }
 }
