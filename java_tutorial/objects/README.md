@@ -1,4 +1,4 @@
-# Coding Bootcamp: Constructing and using objects
+# Coding Bootcamp: [Constructing and using objects](https://codeandwork.github.io/courses/java/objects.html)
 
 ## Aim of the course
 - Introduction to Object-Oriented Programming
