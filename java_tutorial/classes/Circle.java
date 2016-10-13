@@ -21,7 +21,7 @@ public class Circle {
     public Circle(int x, int y, int r) {
         this.x = x;
         this.y = y;
-        this.z = z;
+        this.r = r;
     }
 
     /*
@@ -55,7 +55,7 @@ public class Circle {
      * Prints the details of the Circle.
      */
     public void print() {
-        System.out.pritnln(
+        System.out.println(
             "* I'm a circle at point (" + this.x + ", " + this.y + ")"
             + " with radius " + this.r);
     }
