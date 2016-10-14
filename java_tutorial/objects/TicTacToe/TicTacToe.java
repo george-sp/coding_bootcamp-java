@@ -7,6 +7,8 @@ import java.util.Scanner;
 public class TicTacToe {
     public static void main(String[] args) {
         System.out.println("Welcome to TicTacToe!");
+        TicTacToe ticTacToe = new TicTacToe();
+        TicTacToeGame game = ticTacToe.new TicTacToeGame();
     }
 
     private class TicTacToeGame {
@@ -14,7 +16,20 @@ public class TicTacToe {
         private char[][] board;
 
         public TicTacToeGame() {
-            this.board = new char[3][3];
+            generateBoard(3);
+        }
+
+        /**
+         * Instantiate a two dimensions array NxN
+         * and genrates it with '-'.
+         */
+        private void generateBoard(int size) {
+            this.board = new char[size][size];
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    this.board[i][j] = '-';
+                }
+            }
         }
     }
 }
