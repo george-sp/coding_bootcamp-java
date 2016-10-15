@@ -10,6 +10,10 @@ public class TicTacToe {
         TicTacToe ticTacToe = new TicTacToe();
         TicTacToeGame game = ticTacToe.new TicTacToeGame(3);
         game.play(1,2);
+        game.play(4,4);
+        game.play(3,3);
+        game.play(3,0);
+        game.play(2,2);
         game.drawBoard();
     }
 
@@ -75,8 +79,25 @@ public class TicTacToe {
          * Places the appropriate mark at the specified x,y coordinates.
          * Returns true if a mark is placed, else false;
          */
-        public void play(int x, int y) {
-            board[x -1][y -1] = 'X';
+        public boolean play(int x, int y) {
+            if (areInBounds(x, y)) {
+                board[x -1][y -1] = 'X';
+                return true;
+            }
+            return false;
+        }
+
+        /**
+         * Checks if the given coordinates are in the board.
+         * If they are returns true, otherwise false.
+         */
+        public boolean areInBounds(int x, int y) {
+            if ((x >= 1) && (x <= this.boardSize)) {
+                if ((y >= 1) && (y <= this.boardSize)) {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
