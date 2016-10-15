@@ -19,8 +19,10 @@ public class TicTacToe {
         String input;
         int row, col;
         do {
-            System.out.print("Place your mark\n(input format: row,col)\n> ");
-            input = scanner.nextLine();
+            do {
+                System.out.print("Place your mark\n(input format: row,col)\n> ");
+                input = scanner.nextLine();
+            } while (! isValidInput(input));
             row = Integer.parseInt(input.split(",")[0]);
             col = Integer.parseInt(input.split(",")[1]);
             game.play(row, col);
@@ -29,6 +31,28 @@ public class TicTacToe {
 
         // Close the scanner.
         // scanner.close();
+    }
+
+    /**
+     * Checks if the given string input is of format x,y.
+     * Returns true if it is, else false.
+     */
+    private static boolean isValidInput(String input) {
+        String[] inputSplit = input.split(",");
+        if (inputSplit.length != 2) {
+            return false;
+        }
+        if (! (isNumeric(inputSplit[0]) && isNumeric(inputSplit[1]))) return false;
+        return true;
+    }
+
+    /**
+     * Checks if string input is a numeric value.
+     * Returns true if it is, else returns false.
+     */
+    private static boolean isNumeric(String input) {
+        if (! input.matches("[0-9]+")) return false;
+        return true;
     }
 
     /**
