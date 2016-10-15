@@ -30,9 +30,11 @@ public class TicTacToe {
             game.play(row, col);
             game.drawBoard();
             game.togglePlayer();
-        } while(true);
+        } while(!game.isBoardFull());
+
+        System.out.println("The board is full");
         // Close the scanner.
-        // scanner.close();
+        scanner.close();
     }
 
     /**
@@ -177,6 +179,21 @@ public class TicTacToe {
          */
         public boolean isPlayable(int x, int y) {
             if (!isInBounds(x,y) || this.isOccupied(x,y)) return false;
+            return true;
+        }
+
+        /**
+         * Checks if the board is full.
+         * Returns true if it is, otherwise false.
+         */
+        public boolean isBoardFull() {
+            for (int i = 0; i < this.boardSize; i++) {
+                for (int j = 0; j < this.boardSize; j++) {
+                    if (board[i][j] == '-') {
+                        return false;
+                    }
+                }
+            }
             return true;
         }
     }
