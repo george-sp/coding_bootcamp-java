@@ -43,9 +43,8 @@ public class TicTacToe {
      */
     private static boolean isValidInput(String input) {
         String[] inputSplit = input.split(",");
-        if (inputSplit.length != 2) {
-            return false;
-        }
+        if (inputSplit.length != 2) return false;
+        if (! hasSingleComma(input)) return false;
         if (! (isNumeric(inputSplit[0]) && isNumeric(inputSplit[1]))) return false;
         return true;
     }
@@ -57,6 +56,16 @@ public class TicTacToe {
     private static boolean isNumeric(String input) {
         if (! input.matches("[0-9]+")) return false;
         return true;
+    }
+
+    private static boolean hasSingleComma(String input) {
+        int commaCounter = 0;
+        for( int i = 0; i < input.length(); i++ ) {
+            if(input.charAt(i) == ',' ) {
+                commaCounter++;
+            }
+        }
+        return true ? commaCounter == 1 : false;
     }
 
     /**
