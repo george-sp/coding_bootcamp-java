@@ -20,15 +20,16 @@ public class TicTacToe {
         int row, col;
         do {
             do {
-                System.out.print("Place your mark\n(input format: row,col)\n> ");
-                input = scanner.nextLine();
-            } while (! isValidInput(input));
-            row = Integer.parseInt(input.split(",")[0]);
-            col = Integer.parseInt(input.split(",")[1]);
+                do {
+                    System.out.print("Place your mark (input format: row,col)\n> ");
+                    input = scanner.nextLine();
+                } while (! isValidInput(input));
+                row = Integer.parseInt(input.split(",")[0]);
+                col = Integer.parseInt(input.split(",")[1]);
+            } while (! game.areInBounds(row,col));
             game.play(row, col);
             game.drawBoard();
-        }while (true);
-
+        } while(true);
         // Close the scanner.
         // scanner.close();
     }
@@ -125,14 +126,9 @@ public class TicTacToe {
 
         /**
          * Places the appropriate mark at the specified x,y coordinates.
-         * Returns true if a mark is placed, else false;
          */
-        public boolean play(int x, int y) {
-            if (areInBounds(x, y)) {
-                board[x -1][y -1] = 'X';
-                return true;
-            }
-            return false;
+        public void play(int x, int y) {
+            board[x -1][y -1] = 'X';
         }
 
         /**
@@ -145,6 +141,7 @@ public class TicTacToe {
                     return true;
                 }
             }
+            System.out.println("Missed the board :P");
             return false;
         }
     }
