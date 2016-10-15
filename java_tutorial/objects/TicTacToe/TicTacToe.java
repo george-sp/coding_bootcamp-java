@@ -26,7 +26,7 @@ public class TicTacToe {
                 } while (! isValidInput(input));
                 row = Integer.parseInt(input.split(",")[0]);
                 col = Integer.parseInt(input.split(",")[1]);
-            } while (! game.areInBounds(row,col));
+            } while (! game.isInBounds(row,col) || game.isOccupied(row,col));
             game.play(row, col);
             game.drawBoard();
         } while(true);
@@ -135,14 +135,24 @@ public class TicTacToe {
          * Checks if the given coordinates are in the board.
          * If they are returns true, otherwise false.
          */
-        public boolean areInBounds(int x, int y) {
+        public boolean isInBounds(int x, int y) {
             if ((x >= 1) && (x <= this.boardSize)) {
                 if ((y >= 1) && (y <= this.boardSize)) {
                     return true;
                 }
             }
-            System.out.println("Missed the board :P");
+            System.out.println(">>> Missed the board!");
             return false;
+        }
+
+        /**
+         * Checks if the position targeted by the given coordinates is occupied.
+         * If it is return true, otherwise false.
+         */
+        public boolean isOccupied(int x, int y) {
+            if (this.board[x -1][y -1] == '-') return false;
+            System.out.println(">>> This cell is occupied!");
+            return true;
         }
     }
 }
