@@ -29,7 +29,7 @@ public class TicTacToe {
             } while (!game.isPlayable(row, col));
             game.play(row, col);
             game.drawBoard();
-            game.changePlayer();
+            game.togglePlayer();
         } while(true);
         // Close the scanner.
         // scanner.close();
@@ -138,7 +138,7 @@ public class TicTacToe {
         /**
          * Changes the current mark from 'X' to 'O' and vice versa.
          */
-        public void changePlayer() {
+        public void togglePlayer() {
             if (currentMark == 'X') {
                 currentMark = 'O';
             }
