@@ -30,9 +30,9 @@ public class TicTacToe {
             game.play(row, col);
             game.drawBoard();
             game.togglePlayer();
-        } while(!game.isBoardFull());
+        } while(!game.isBoardFull() && !game.hasWinner());
 
-        System.out.println("The board is full");
+        System.out.println("Game is over");
         // Close the scanner.
         scanner.close();
     }
@@ -194,6 +194,61 @@ public class TicTacToe {
                     }
                 }
             }
+            System.out.println("The board is full! It is a DRAW!");
+            return true;
+        }
+
+        /**
+         * Checks if the given (three) marks are the same (and not '-').
+         *
+         */
+        private boolean checkRowCol(char c1, char c2, char c3) {
+            return ((c1 != '-') && (c1 == c2) && (c2 == c3));
+        }
+
+        /**
+         * Iterates through rows checking for three in a row.
+         * Returns true if either player wins.
+         */
+        private boolean checkRowsForWin() {
+            for (int i = 0; i < this.boardSize; i++) {
+                if (checkRowCol(board[i][0], board[i][1], board[i][2]) == true) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /**
+         * Iterates through columns checking for three in a row.
+         * Returns true if either player wins.
+         */
+        private boolean checkColumnsForWin() {
+            for (int i = 0; i < 3; i++) {
+                if (checkRowCol(board[0][i], board[1][i], board[2][i]) == true) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /**
+         * Checks the two diagonals for three in a row.
+         * Returns true if either player wins.
+         */
+        private boolean checkDiagonalsForWin() {
+            return ((checkRowCol(board[0][0], board[1][1], board[2][2]) == true) || (checkRowCol(board[0][2], board[1][1], board[2][0]) == true));
+        }
+
+        /**
+         * Checks if there is a winner.
+         * Returns true if there is, else false.
+         */
+        public boolean hasWinner() {
+            if ((checkRowsForWin() || checkColumnsForWin() || checkDiagonalsForWin()) == false) {
+                return false;
+            }
+            System.out.println("The WINNER is: " + currentMark);
             return true;
         }
     }
