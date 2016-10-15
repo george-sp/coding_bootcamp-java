@@ -12,7 +12,7 @@ public class TicTacToe {
         Scanner scanner = new Scanner(System.in);
 
         TicTacToe ticTacToe = new TicTacToe();
-        TicTacToeGame game = ticTacToe.new TicTacToeGame(3);
+        TicTacToeGame game = ticTacToe.new TicTacToeGame(7);
 
         game.setUp();
         game.drawBoard();
@@ -221,8 +221,10 @@ public class TicTacToe {
          */
         private boolean checkRowsForWin() {
             for (int i = 0; i < this.boardSize; i++) {
-                if (checkRowCol(board[i][0], board[i][1], board[i][2]) == true) {
-                    return true;
+                for (int j = 0; j < this.boardSize - 2; j++) {
+                    if (checkRowCol(board[i][j], board[i][j + 1], board[i][j + 2]) == true) {
+                        return true;
+                    }
                 }
             }
             return false;
@@ -233,9 +235,11 @@ public class TicTacToe {
          * Returns true if either player wins.
          */
         private boolean checkColumnsForWin() {
-            for (int i = 0; i < 3; i++) {
-                if (checkRowCol(board[0][i], board[1][i], board[2][i]) == true) {
-                    return true;
+            for (int j = 0; j < this.boardSize; j++) {
+                for (int i = 0; i < this.boardSize - 2; i++) {
+                    if (checkRowCol(board[i][j], board[i + 1][j], board[i + 2][j]) == true) {
+                        return true;
+                    }
                 }
             }
             return false;
@@ -246,7 +250,33 @@ public class TicTacToe {
          * Returns true if either player wins.
          */
         private boolean checkDiagonalsForWin() {
-            return ((checkRowCol(board[0][0], board[1][1], board[2][2]) == true) || (checkRowCol(board[0][2], board[1][1], board[2][0]) == true));
+            for (int i = 0; i < this.boardSize - 2; i++) {
+                for (int j = i; j < this.boardSize - 2; j++) {
+                    if (checkRowCol(this.board[i][j], this.board[i+1][j+1], this.board[i+2][j+2]) == true) {
+                        System.out.println((i+1) + "," + (j+1) + " " + (i+1+1) + "," + (j+1+1) + " " + (i+2+1) + "," + (j+2+1));
+                        return true;
+                    }
+                }
+                for (int j = i; j < this.boardSize - 3; j++) {
+                    if (checkRowCol(this.board[j+1][i], this.board[j+2][i+1], this.board[j+3][i+2]) == true) {
+                        System.out.println((j+1+1) + "," + (i+1) + " " + (j+2+1) + "," + (i+1+1) + " " + (j+3+1) + "," + (i+2+1));
+                        return true;
+                    }
+                }
+                for (int j = this.boardSize - 1; j > i + 1; j--) {
+                    if (checkRowCol(this.board[i][j-i], this.board[i+1][j-i-1], this.board[i+2][j-i-2]) == true) {
+                        System.out.println((i+1) + "," + (j-i+1) + " " + (i+1+1) + "," + (j-i-1+1) + " " + (i+2+1) + "," + (j-i-2+1));
+                        return true;
+                    }
+                }
+                for (int j = this.boardSize - 1; j > i + 2; j--) {
+                    if (checkRowCol(this.board[j-2][this.boardSize-i-1], this.board[j-1][this.boardSize-i-2], this.board[j][this.boardSize-i-3]) == true) {
+                        System.out.println((i+1) + "," + (j-i+1) + " " + (i+1+1) + "," + (j-i-1+1) + " " + (i+2+1) + "," + (j-i-2+1));
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
         /**
