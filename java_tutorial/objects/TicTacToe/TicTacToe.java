@@ -6,9 +6,29 @@ import java.util.Scanner;
  */
 public class TicTacToe {
     public static void main(String[] args) {
+        // Welcome message.
         System.out.println("Welcome to TicTacToe!");
+        // Declare and initialize a simple text scanner.
+        Scanner scanner = new Scanner(System.in);
+
         TicTacToe ticTacToe = new TicTacToe();
         TicTacToeGame game = ticTacToe.new TicTacToeGame(3);
+
+        game.setUp();
+        game.drawBoard();
+        String input;
+        int row, col;
+        do {
+            System.out.print("Place your mark\n(input format: row,col)\n> ");
+            input = scanner.nextLine();
+            row = Integer.parseInt(input.split(",")[0]);
+            col = Integer.parseInt(input.split(",")[1]);
+            game.play(row, col);
+            game.drawBoard();
+        }while (true);
+
+        // Close the scanner.
+        // scanner.close();
     }
 
     /**
