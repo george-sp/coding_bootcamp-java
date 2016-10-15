@@ -9,6 +9,8 @@ public class TicTacToe {
         System.out.println("Welcome to TicTacToe!");
         TicTacToe ticTacToe = new TicTacToe();
         TicTacToeGame game = ticTacToe.new TicTacToeGame(3);
+        game.play(1,2);
+        game.drawBoard();
     }
 
     private class TicTacToeGame {
@@ -67,6 +69,14 @@ public class TicTacToe {
                 if (i == this.boardSize - 1) System.out.println(this.lineEdge);
                 else System.out.println(this.lineSeperator);
             }
+        }
+
+        /**
+         * Places the appropriate mark at the specified x,y coordinates.
+         * Returns true if a mark is placed, else false;
+         */
+        public void play(int x, int y) {
+            board[x -1][y -1] = 'X';
         }
     }
 }
