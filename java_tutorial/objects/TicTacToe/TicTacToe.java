@@ -29,6 +29,7 @@ public class TicTacToe {
             } while (!game.isPlayable(row, col));
             game.play(row, col);
             game.drawBoard();
+            game.changePlayer();
         } while(true);
         // Close the scanner.
         // scanner.close();
@@ -64,6 +65,8 @@ public class TicTacToe {
         private char[][] board;
         // The size of board's dimensions.
         private int boardSize;
+        // Mark to be set ('X', 'O').
+        private char currentMark;
         // Helper strings for the draw function.
         private String newLine;
         private String lineEdge;
@@ -72,6 +75,7 @@ public class TicTacToe {
         public TicTacToeGame(int size) {
             this.boardSize = size;
             this.board = new char[size][size];
+            this.currentMark = 'X';
         }
 
         /**
@@ -128,7 +132,19 @@ public class TicTacToe {
          * Places the appropriate mark at the specified x,y coordinates.
          */
         public void play(int x, int y) {
-            board[x -1][y -1] = 'X';
+            board[x -1][y -1] = currentMark;
+        }
+
+        /**
+         * Changes the current mark from 'X' to 'O' and vice versa.
+         */
+        public void changePlayer() {
+            if (currentMark == 'X') {
+                currentMark = 'O';
+            }
+            else {
+                currentMark = 'X';
+            }
         }
 
         /**
