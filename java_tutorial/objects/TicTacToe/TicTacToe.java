@@ -9,37 +9,38 @@ public class TicTacToe {
         System.out.println("Welcome to TicTacToe!");
         TicTacToe ticTacToe = new TicTacToe();
         TicTacToeGame game = ticTacToe.new TicTacToeGame(3);
-        game.play(1,2);
-        game.play(4,4);
-        game.play(3,3);
-        game.play(3,0);
-        game.play(2,2);
-        game.drawBoard();
     }
 
+    /**
+     * The actual tic tac toe game.
+     */
     private class TicTacToeGame {
         // Use a two dimensions array to store the results ('X', 'O').
         private char[][] board;
-        //
+        // The size of board's dimensions.
         private int boardSize;
-        //
-        private String newLine = "\n";
-        private String lineEdge = "-";
-        private String lineSeperator = "-";
+        // Helper strings for the draw function.
+        private String newLine;
+        private String lineEdge;
+        private String lineSeperator;
 
         public TicTacToeGame(int size) {
             this.boardSize = size;
-            generateBoard(this.boardSize);
-            generateLineFrames(this.boardSize);
-            drawBoard();
+            this.board = new char[size][size];
         }
 
         /**
-         * Instantiate a two dimensions array NxN
-         * and genrates it with '-'.
+         * Sets up the game.
+         */
+        public void setUp() {
+            generateBoard(this.boardSize);
+            generateLineFrames(this.boardSize);
+        }
+
+        /**
+         * Genrates a two dimensions array with '-'.
          */
         private void generateBoard(int size) {
-            this.board = new char[size][size];
             for (int i = 0; i < size; i++) {
                 for (int j = 0; j < size; j++) {
                     this.board[i][j] = '-';
@@ -51,6 +52,9 @@ public class TicTacToe {
          * Generate the line seperators, based on the size of the board.
          */
         private void generateLineFrames(int size) {
+            this.newLine = "\n";
+            this.lineEdge = "-";
+            this.lineSeperator = "-";
             // Generate the lineSeperator.
             for (int j = 0; j < size; j++) {
                 this.lineEdge += "----";
