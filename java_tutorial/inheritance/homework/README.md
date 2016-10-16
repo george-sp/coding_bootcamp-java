@@ -1,14 +1,18 @@
 ## HomeWork
 Create an Information System for an insurance company with the following functionality:
-```
-***** Menu *****
-1. Prints all stored insurances (life and health) for a given customer.
+1. Prints all stored insurances (life and health).
 2. Prints all stored insurances (life and health) for a given customer.
 3. Prints details and type of for a given insurance .
+
+```
+***** Menu *****
+1. Print all insurances.
+2. Search insurance by customer code.
+3. Search insurance by insurance code.
 ```
 
-• Run this menu until customer inserts “0”.
-• If an insurance or customer code does not exists do not exit program but inform him that the code is not valid and give him the chance to insert a new one.
+- Run this menu until customer inserts “0”.
+- If an insurance or customer code does not exists do not exit program but inform him that the code is not valid and give him the chance to insert a new one.
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
