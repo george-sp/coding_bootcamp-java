@@ -61,17 +61,15 @@ public class Customer {
 
     @Override
     public String toString() {
-        String customer = "Customer:\n---------"
+        String customerStr = "Customer:\n---------"
                         + "\ncustomer code: " + this.CUSTOMER_CODE
                         + "\nname: " + this.name
                         + "\nbirtyYear: " + this.birthYear;
         if (this.sex) {
-            customer += "\nsex: male";
+            customerStr += "\nsex: male";
         } else {
-            customer += "\nsex: female";
+            customerStr += "\nsex: female";
         }
-
-        return customer;
-
+        return customerStr;
     }
 }
