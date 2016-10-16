@@ -30,7 +30,7 @@ public class TicTacToe {
             game.play(row, col);
             game.drawBoard();
             game.togglePlayer();
-        } while(!game.isBoardFull() && !game.hasWinner());
+        } while(!game.isOver());
 
         System.out.println("Game is over");
         // Close the scanner.
@@ -195,7 +195,7 @@ public class TicTacToe {
          * Checks if the board is full.
          * Returns true if it is, otherwise false.
          */
-        public boolean isBoardFull() {
+        private boolean isBoardFull() {
             for (int i = 0; i < this.boardSize; i++) {
                 for (int j = 0; j < this.boardSize; j++) {
                     if (board[i][j] == '-') {
@@ -283,12 +283,16 @@ public class TicTacToe {
          * Checks if there is a winner.
          * Returns true if there is, else false.
          */
-        public boolean hasWinner() {
+        private boolean hasWinner() {
             if ((checkRowsForWin() || checkColumnsForWin() || checkDiagonalsForWin()) == false) {
                 return false;
             }
             System.out.println("The WINNER is: " + currentMark);
             return true;
+        }
+
+        public boolean isOver(){
+            return (this.isBoardFull() || this.hasWinner());
         }
     }
 }
