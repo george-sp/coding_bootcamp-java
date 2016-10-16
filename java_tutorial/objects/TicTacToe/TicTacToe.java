@@ -12,12 +12,16 @@ public class TicTacToe {
         Scanner scanner = new Scanner(System.in);
 
         TicTacToe ticTacToe = new TicTacToe();
-        TicTacToeGame game = ticTacToe.new TicTacToeGame(7);
-
-        game.setUp();
-        game.drawBoard();
         String input;
         int row, col;
+
+        do {
+            System.out.print("\nSet the dimensions of tic tac toe board (suggested [3-12))\n> ");
+            input = scanner.nextLine();
+        } while (! (isNumeric(input) && isValidBoardSize(input)));
+        TicTacToeGame game = ticTacToe.new TicTacToeGame(Integer.parseInt(input));
+        game.setUp();
+        game.drawBoard();
         do {
             game.togglePlayer();
             do {
@@ -58,6 +62,10 @@ public class TicTacToe {
         return true;
     }
 
+    /**
+     * Checks if the user input has one and only one comma symbol ','.
+     * Returns true if it has only one, else false.
+     */
     private static boolean hasSingleComma(String input) {
         int commaCounter = 0;
         for( int i = 0; i < input.length(); i++ ) {
@@ -66,6 +74,15 @@ public class TicTacToe {
             }
         }
         return true ? commaCounter == 1 : false;
+    }
+
+    /**
+     * Checks if the given number is valid as a tic tac toe boarder dimension (bigger than 3).
+     * Returns true if it is, else false.
+     */
+    private static boolean isValidBoardSize(String input) {
+        if (Integer.parseInt(input) >= 3) return true;
+        return false;
     }
 
     /**
