@@ -26,6 +26,10 @@ public class Customer {
     }
 
     /* Setters & Getters */
+    public int getCode() {
+        return this.code;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -51,5 +55,21 @@ public class Customer {
 
     public boolean getSex() {
         return this.sex;
+    }
+
+    @Override
+    public String toString() {
+        String customer = "Customer:\n---------"
+                        + "\ncode: " + this.code
+                        + "\nname: " + this.name
+                        + "\nbirtyYear: " + this.birthYear;
+        if (this.sex) {
+            customer += "\nsex: male";
+        } else {
+            customer += "\nsex: female";
+        }
+
+        return customer;
+
     }
 }
