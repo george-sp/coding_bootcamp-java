@@ -22,6 +22,13 @@ public class InsuranceOffice {
         // user input
         String userInput;
         int userOption;
+        // Arrays to store Customers, Insurances, Lifes, Healths
+        Customer[] customersArray = new Customer[10];
+        Insurance[] insurancesArray = new Insurance[10];
+        Life[] lifesArray = new Life[10];
+        Health[] healthsArray = new Health[10];
+
+        generateDummyValues(customersArray, insurancesArray, lifesArray, healthsArray);
 
         do {
             do {
@@ -63,5 +70,50 @@ public class InsuranceOffice {
      */
     private static boolean isExitChar(String input) {
         return true ? input.equals("0") : false;
+    }
+
+    private static void generateDummyValues(Customer[] customersArray,
+                                            Insurance[] insurancesArray,
+                                            Life[] lifesArray,
+                                            Health[] healthsArray) {
+        // Dummy Customers
+        Customer c1 = new Customer("George", 1991, true);
+        Customer c2 = new Customer("Spyridakis", 1990, true);
+        Customer c3 = new Customer("Panagiotis", 1989, true);
+        Customer c4 = new Customer("Dimitris", 1988, true);
+        Customer c5 = new Customer("Panos", 1987, true);
+        Customer c6 = new Customer("Sofia", 1986, false);
+        Customer c7 = new Customer("Maria", 1985, false);
+        Customer c8 = new Customer("Konstantina", 1984, false);
+        Customer c9 = new Customer("Angela", 1983, false);
+        Customer c10 = new Customer("Kostantinos", 1982, true);
+        // Dummy Insurances
+        Insurance i1 = new Insurance(c1.getCustomerCode(), 7);
+        Insurance i2 = new Insurance(c2.getCustomerCode(), 6);
+        Insurance i3 = new Insurance(c3.getCustomerCode(), 5);
+        Insurance i4 = new Insurance(c4.getCustomerCode(), 4);
+        Insurance i5 = new Insurance(c5.getCustomerCode(), 3);
+        Insurance i6 = new Insurance(c6.getCustomerCode(), 2);
+        Insurance i7 = new Insurance(c7.getCustomerCode(), 1);
+        // Dummy Lifes
+        Life l1 = new Life(c1.getCustomerCode(), 1, 20000);
+        Life l2 = new Life(c2.getCustomerCode(), 2, 3000);
+        Life l3 = new Life(c3.getCustomerCode(), 3, 420000);
+        Life l4 = new Life(c4.getCustomerCode(), 4, 200400);
+        Life l5 = new Life(c5.getCustomerCode(), 5, 2004);
+        Life l6 = new Life(c6.getCustomerCode(), 10, 50000);
+        Life l7 = new Life(c7.getCustomerCode(), 9, 670000);
+        Life l8 = new Life(c8.getCustomerCode(), 8, 120);
+        Life l9 = new Life(c9.getCustomerCode(), 7, 34200);
+        Life l10 = new Life(c10.getCustomerCode(), 6, 22002);
+        // Dummy Healths
+        Health h1 = new Health(c6.getCustomerCode(), 5, 193000);
+        Health h2 = new Health(c1.getCustomerCode(), 4, 900);
+        Health h3 = new Health(c2.getCustomerCode(), 14, 500);
+        Health h4 = new Health(c1.getCustomerCode(), 21, 3000);
+        Health h5 = new Health(c3.getCustomerCode(), 11, 5000);
+        Health h6 = new Health(c9.getCustomerCode(), 1, 53000);
+        Health h7 = new Health(c10.getCustomerCode(), 7, 30005);
+        Health h8 = new Health(c7.getCustomerCode(), 9, 30400);
     }
 }
