@@ -10,42 +10,55 @@ public class TicTacToe {
         System.out.println("Welcome to TicTacToe!");
         // Declare and initialize a simple text scanner.
         Scanner scanner = new Scanner(System.in);
-
+        // Instantiate a TicTacToe class, to get access to its private TicTacToeGame class.
         TicTacToe ticTacToe = new TicTacToe();
+        // Declare the actual game object.
+        TicTacToeGame game;
+        // User inputs.
         String input;
         int row, col;
 
+        /*
+         * Game Logic
+         */
         do {
-            System.out.print("\nSet the dimensions of tic tac toe board (suggested [3-12))\n> ");
-            input = scanner.nextLine();
-        } while (! (isNumeric(input) && isValidBoardSize(input)));
-        TicTacToeGame game = ticTacToe.new TicTacToeGame(Integer.parseInt(input));
-        game.setUp();
-        game.drawBoard();
-        do {
-            game.togglePlayer();
             do {
-                do {
-                    System.out.print("\nPlace your mark (input format: row,col)\n> ");
-                    input = scanner.nextLine();
-                } while (! isValidInput(input));
-                row = Integer.parseInt(input.split(",")[0]);
-                col = Integer.parseInt(input.split(",")[1]);
-            } while (!game.isPlayable(row, col));
-            game.play(row, col);
+                System.out.print("\nSet the dimensions of tic tac toe board (suggested [3-12))\n> ");
+                input = scanner.nextLine();
+            } while (! (isNumeric(input) && isValidBoardSize(input)));
+            game = ticTacToe.new TicTacToeGame(Integer.parseInt(input));
+            game.setUp();
             game.drawBoard();
-        } while(!game.isOver());
+            do {
+                game.togglePlayer();
+                do {
+                    do {
+                        System.out.print("\n" + game.getCurrentMark() + " Place your mark (input format: row,col)\n> ");
+                        input = scanner.nextLine();
+                    } while (! isValidMark(input));
+                    row = Integer.parseInt(input.split(",")[0]);
+                    col = Integer.parseInt(input.split(",")[1]);
+                } while (!game.isPlayable(row, col));
+                game.play(row, col);
+                game.drawBoard();
+            } while(!game.isOver());
+            System.out.println("Game is over");
+            do {
+                System.out.print("\nPlay Again? (y-N)\n> ");
+                input = scanner.nextLine();
+            } while (! isValidYesOrNo(input));
+        } while (isYesAnswer(input));
 
-        System.out.println("Game is over");
+
         // Close the scanner.
-        scanner.close();
+        // scanner.close();
     }
 
     /**
      * Checks if the given string input is of format x,y.
      * Returns true if it is, else false.
      */
-    private static boolean isValidInput(String input) {
+    private static boolean isValidMark(String input) {
         String[] inputSplit = input.split(",");
         if (inputSplit.length != 2) return false;
         if (! hasSingleComma(input)) return false;
@@ -83,6 +96,24 @@ public class TicTacToe {
     private static boolean isValidBoardSize(String input) {
         if (Integer.parseInt(input) >= 3) return true;
         return false;
+    }
+
+    /**
+     * Checks if users answered yes or no.
+     * Returns true if the answer is "y" or "N", else false.
+     */
+    private static boolean isValidYesOrNo(String input) {
+        if (input.length() != 1) return false;
+        if (! (input.charAt(0) == 'y' || input.charAt(0) == 'N')) return false;
+        return true;
+    }
+
+    /**
+     * Returns true if answer is 'y' or
+     * false if is 'N'.
+     */
+    private static boolean isYesAnswer(String input) {
+        return true ? input.charAt(0) == 'y' : false;
     }
 
     /**
