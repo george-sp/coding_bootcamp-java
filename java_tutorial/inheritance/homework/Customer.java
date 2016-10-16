@@ -4,7 +4,8 @@
 public class Customer {
     /* Fields */
     // customer's code (auto-increment)
-    private static int code;
+    private final int CUSTOMER_CODE;
+    private static int counter;
     // customer's name
     private String name;
     // year of birth
@@ -15,7 +16,8 @@ public class Customer {
     /* Constructors */
     // Default Constructor
     public Customer() {
-        this.code++;
+        counter++;
+        this.CUSTOMER_CODE = counter;
     }
 
     public Customer(String name, int birthYear, boolean sex) {
@@ -26,8 +28,8 @@ public class Customer {
     }
 
     /* Setters & Getters */
-    public int getCode() {
-        return this.code;
+    public int getCustomerCode() {
+        return this.CUSTOMER_CODE;
     }
 
     public void setName(String name) {
@@ -60,7 +62,7 @@ public class Customer {
     @Override
     public String toString() {
         String customer = "Customer:\n---------"
-                        + "\ncode: " + this.code
+                        + "\ncustomer code: " + this.CUSTOMER_CODE
                         + "\nname: " + this.name
                         + "\nbirtyYear: " + this.birthYear;
         if (this.sex) {

@@ -7,7 +7,7 @@ public class Tester {
 
         // Test Customer 1
         Customer c1 = new Customer();
-        System.out.println("c1) code: " + c1.getCode()
+        System.out.println("c1) code: " + c1.getCustomerCode()
                            + ", name: " + c1.getName()
                            + ", birtyYear:" + c1.getBirthYear()
                            + ", sex:" + c1.getSex());
@@ -16,8 +16,14 @@ public class Tester {
         c1.setSex(true);
         System.out.println(c1.toString());
 
-        // Test Customer 1
+        // Test Customer 2
         Customer c2 = new Customer("Spyridakis", 2016, true);
         System.out.println(c2.toString());
+        System.out.println(c1.toString());
+
+        // Test Customer 3
+        Customer c3 = new Customer();
+        System.out.println(c3.toString());
+
     }
 }
