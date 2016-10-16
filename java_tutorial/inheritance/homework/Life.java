@@ -34,7 +34,7 @@ public class Life extends Insurance {
         int insuranceCost = 0;
         for (int i = 0; i < 10; i++) {
             if (customersArray[i] != null && customersArray[i].getCustomerCode() == this.customerCode) {
-                insuranceCost = super.calculateInsuranceCost() + (5 * (2016 - customersArray[i].getBirthYear()));
+                insuranceCost = super.calculateInsuranceCost() + (5 * (customersArray[i].getAge()));
             }
         }
         return insuranceCost;

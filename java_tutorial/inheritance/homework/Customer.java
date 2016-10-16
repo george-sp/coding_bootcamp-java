@@ -59,6 +59,10 @@ public class Customer {
         return this.sex;
     }
 
+    public int getAge() {
+        return (2016 - this.birthYear);
+    }
+
     @Override
     public String toString() {
         String customerStr = "Customer:\n---------"
