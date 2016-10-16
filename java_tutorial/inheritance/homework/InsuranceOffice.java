@@ -10,7 +10,7 @@ public class InsuranceOffice {
 
     private static final String SET_PLAIN_TEXT = "\033[0;0m";
     private static final String SET_BOLD_TEXT = "\033[0;1m";
-    private static final String MENU = SET_BOLD_TEXT + "\t***** Menu *****" + SET_PLAIN_TEXT +
+    private static final String MENU = "\n" + SET_BOLD_TEXT + "\t***** Menu *****" + SET_PLAIN_TEXT +
                                        "\n1. Print all Insurances" +
                                        "\n2. Search insurances by customer code" +
                                        "\n3. Search insurances by insurance code";
@@ -41,7 +41,7 @@ public class InsuranceOffice {
             // Convert user input to the appropriate int.
             userOption = Integer.parseInt(userInput);
             // Execute the selected option.
-            executeOption(userOption);
+            executeOption(userOption, scanner);
 
         } while (!isExitChar(userInput));
 
@@ -74,19 +74,40 @@ public class InsuranceOffice {
     }
 
     /**
+     * Checks if string input is a numeric value.
+     * Returns true if it is, else returns false.
+     */
+    private static boolean isNumeric(String input) {
+        if (! input.matches("[0-9]+")) return false;
+        return true;
+    }
+
+    /**
+     * Uses a scanner object to get an Insurance Code from the user.
+     */
+    public static int getInsuranceCodeFromUser(Scanner scanner) {
+        String input;
+        do {
+            System.out.print("Give an Insurance Code\n" + PROMPT_USER);
+            input = scanner.nextLine();
+        } while (!isNumeric(input));
+        return Integer.parseInt(input);
+    }
+
+    /**
      * Executes the selected option.
      */
-    private static void executeOption(int option) {
+    private static void executeOption(int option, Scanner scanner) {
         switch (option) {
             case 1:
-                System.out.println("Option 1");
                 Insurance.printAllInsurances(insurancesArray);
                 break;
             case 2:
                 System.out.println("Option 2");
                 break;
             case 3:
-                System.out.println("Option 3");
+                int insuranceCode = getInsuranceCodeFromUser(scanner);
+                Insurance.printInsuranceByCode(insurancesArray, insuranceCode);
                 break;
         }
     }

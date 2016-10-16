@@ -47,7 +47,7 @@ public class Tester {
                          + "\nCost of i2: " + i2.calculateInsuranceCost() + " euro." + "\n");
 
         Insurance.printAllInsurances(insurancesArray);
-        Insurance.printAllInsurances(insurancesArray, 2);
+        Insurance.printInsuranceByCode(insurancesArray, 2);
 
         // Test Life 1
         Life l1 = new Life();

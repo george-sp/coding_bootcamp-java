@@ -69,12 +69,17 @@ public class Insurance {
     /**
      * Print a particular insurance defined by insurance code.
      */
-    public static void printAllInsurances(Insurance[] insurancesArray, int insuranceCode) {
+    public static void printInsuranceByCode(Insurance[] insurancesArray, int insuranceCode) {
         int insurancesArraySize = insurancesArray.length;
+        int counter = 0;
         for (int i = 0; i < insurancesArraySize; i++) {
             if (insurancesArray[i] != null && insurancesArray[i].getInsuranceCode() == insuranceCode){
                 System.out.println(insurancesArray[i].toString());
+                counter++;
             }
+        }
+        if (counter == 0) {
+            System.out.println("Insurance not found!");
         }
     }
 
