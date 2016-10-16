@@ -25,7 +25,6 @@ public class Life extends Insurance {
         return this.investmentAmount;
     }
 
-
     /**
      * Calculates the insurance cost and returns it.
      * The cost calculation is 100 euro plus 5 for every Customer’s year

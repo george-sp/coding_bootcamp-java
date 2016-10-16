@@ -8,6 +8,7 @@ public class Tester {
         Customer[] customersArray = new Customer[10];
         Insurance[] insurancesArray = new Insurance[10];
         Life[] lifesArray = new Life[10];
+        Health[] healthsArray = new Health[10];
 
         // Test Customer 1
         Customer c1 = new Customer();
@@ -62,6 +63,21 @@ public class Tester {
 
         System.out.println("Cost of l1: " + l1.calculateInsuranceCost(customersArray) + " euro."
                          + "\nCost of l2: " + l2.calculateInsuranceCost(customersArray) + " euro." + "\n");
+
+         // Test Health 1
+         Health h1 = new Health();
+         healthsArray[0] = h1;
+         h1.setMedicalExpense(595);
+         h1.setCustomerCode(3);
+         System.out.println("\n" + h1.toString() + "\n");
+
+         // Test Health 2
+         Health h2 = new Health(c1.getCustomerCode(), 1, 3000);
+         healthsArray[1] = h2;
+         System.out.println(h2.toString() + "\n");
+
+         System.out.println("Cost of l1: " + h1.calculateInsuranceCost(customersArray) + " euro."
+                          + "\nCost of l2: " + h2.calculateInsuranceCost(customersArray) + " euro." + "\n");
 
     }
 }
