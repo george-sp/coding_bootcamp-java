@@ -19,6 +19,7 @@ public class TicTacToe {
         String input;
         int row, col;
         do {
+            game.togglePlayer();
             do {
                 do {
                     System.out.print("\nPlace your mark (input format: row,col)\n> ");
@@ -29,7 +30,6 @@ public class TicTacToe {
             } while (!game.isPlayable(row, col));
             game.play(row, col);
             game.drawBoard();
-            game.togglePlayer();
         } while(!game.isOver());
 
         System.out.println("Game is over");
@@ -78,15 +78,43 @@ public class TicTacToe {
         private int boardSize;
         // Mark to be set ('X', 'O').
         private char currentMark;
+        // Indicates the winner of the game.
+        private char winner;
         // Helper strings for the draw function.
         private String newLine;
         private String lineEdge;
         private String lineSeperator;
 
+        /* Constructor */
         public TicTacToeGame(int size) {
             this.boardSize = size;
             this.board = new char[size][size];
-            this.currentMark = 'X';
+            this.currentMark = 'O';
+        }
+
+        /* Setters & Getters*/
+        public void setBoardSize(int size) {
+            this.boardSize = size;
+        }
+
+        public int getBoardSize() {
+            return this.boardSize;
+        }
+
+        public void setCurrentMark(char mark) {
+            this.currentMark = mark;
+        }
+
+        public char getCurrentMark() {
+            return this.currentMark;
+        }
+
+        public void setWinner(char winnerMark) {
+            this.winner = winnerMark;
+        }
+
+        public char getWinner() {
+            return this.winner;
         }
 
         /**
@@ -150,11 +178,11 @@ public class TicTacToe {
          * Changes the current mark from 'X' to 'O' and vice versa.
          */
         public void togglePlayer() {
-            if (currentMark == 'X') {
-                currentMark = 'O';
+            if (this.currentMark == 'X') {
+                this.setCurrentMark('O');
             }
             else {
-                currentMark = 'X';
+                this.setCurrentMark('X');
             }
         }
 
@@ -187,7 +215,7 @@ public class TicTacToe {
          * Returns true if they are passed, otherwise false.
          */
         public boolean isPlayable(int x, int y) {
-            if (!isInBounds(x,y) || this.isOccupied(x,y)) return false;
+            if (!this.isInBounds(x,y) || this.isOccupied(x,y)) return false;
             return true;
         }
 
@@ -222,7 +250,8 @@ public class TicTacToe {
         private boolean checkRowsForWin() {
             for (int i = 0; i < this.boardSize; i++) {
                 for (int j = 0; j < this.boardSize - 2; j++) {
-                    if (checkRowCol(board[i][j], board[i][j + 1], board[i][j + 2]) == true) {
+                    if (this.checkRowCol(this.board[i][j], this.board[i][j + 1], this.board[i][j + 2]) == true) {
+                        System.out.println((i) + "," + (j) + "-" + (i) + "," + (j+1) + "-" + (i) + "," + (j+2));
                         return true;
                     }
                 }
@@ -237,7 +266,8 @@ public class TicTacToe {
         private boolean checkColumnsForWin() {
             for (int j = 0; j < this.boardSize; j++) {
                 for (int i = 0; i < this.boardSize - 2; i++) {
-                    if (checkRowCol(board[i][j], board[i + 1][j], board[i + 2][j]) == true) {
+                    if (this.checkRowCol(this.board[i][j], this.board[i + 1][j], this.board[i + 2][j]) == true) {
+                        System.out.println((i) + "," + (j) + "-" + (i+1) + "," + (j) + "-" + (i+2) + "," + (j));
                         return true;
                     }
                 }
@@ -252,26 +282,26 @@ public class TicTacToe {
         private boolean checkDiagonalsForWin() {
             for (int i = 0; i < this.boardSize - 2; i++) {
                 for (int j = i; j < this.boardSize - 2; j++) {
-                    if (checkRowCol(this.board[i][j], this.board[i+1][j+1], this.board[i+2][j+2]) == true) {
-                        System.out.println((i+1) + "," + (j+1) + " " + (i+1+1) + "," + (j+1+1) + " " + (i+2+1) + "," + (j+2+1));
+                    if (this.checkRowCol(this.board[i][j], this.board[i+1][j+1], this.board[i+2][j+2]) == true) {
+                        System.out.println((i+1) + "," + (j+1) + "-" + (i+1+1) + "," + (j+1+1) + "-" + (i+2+1) + "," + (j+2+1));
                         return true;
                     }
                 }
                 for (int j = i; j < this.boardSize - 3; j++) {
-                    if (checkRowCol(this.board[j+1][i], this.board[j+2][i+1], this.board[j+3][i+2]) == true) {
-                        System.out.println((j+1+1) + "," + (i+1) + " " + (j+2+1) + "," + (i+1+1) + " " + (j+3+1) + "," + (i+2+1));
+                    if (this.checkRowCol(this.board[j+1][i], this.board[j+2][i+1], this.board[j+3][i+2]) == true) {
+                        System.out.println((j+1+1) + "," + (i+1) + "-" + (j+2+1) + "," + (i+1+1) + "-" + (j+3+1) + "," + (i+2+1));
                         return true;
                     }
                 }
                 for (int j = this.boardSize - 1; j > i + 1; j--) {
-                    if (checkRowCol(this.board[i][j-i], this.board[i+1][j-i-1], this.board[i+2][j-i-2]) == true) {
-                        System.out.println((i+1) + "," + (j-i+1) + " " + (i+1+1) + "," + (j-i-1+1) + " " + (i+2+1) + "," + (j-i-2+1));
+                    if (this.checkRowCol(this.board[i][j-i], this.board[i+1][j-i-1], this.board[i+2][j-i-2]) == true) {
+                        System.out.println((i+1) + "," + (j-i+1) + "-" + (i+1+1) + "," + (j-i-1+1) + "-" + (i+2+1) + "," + (j-i-2+1));
                         return true;
                     }
                 }
                 for (int j = this.boardSize - 1; j > i + 2; j--) {
-                    if (checkRowCol(this.board[j-2][this.boardSize-i-1], this.board[j-1][this.boardSize-i-2], this.board[j][this.boardSize-i-3]) == true) {
-                        System.out.println((i+1) + "," + (j-i+1) + " " + (i+1+1) + "," + (j-i-1+1) + " " + (i+2+1) + "," + (j-i-2+1));
+                    if (this.checkRowCol(this.board[j-2][this.boardSize-i-1], this.board[j-1][this.boardSize-i-2], this.board[j][this.boardSize-i-3]) == true) {
+                        System.out.println((i+1) + "," + (j-i+1) + "-" + (i+1+1) + "," + (j-i-1+1) + "-" + (i+2+1) + "," + (j-i-2+1));
                         return true;
                     }
                 }
@@ -287,7 +317,8 @@ public class TicTacToe {
             if ((checkRowsForWin() || checkColumnsForWin() || checkDiagonalsForWin()) == false) {
                 return false;
             }
-            System.out.println("The WINNER is: " + currentMark);
+            this.setWinner(this.currentMark);
+            System.out.println("The WINNER is: " + this.getCurrentMark());
             return true;
         }
 
