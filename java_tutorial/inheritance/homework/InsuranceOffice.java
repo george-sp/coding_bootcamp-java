@@ -13,8 +13,13 @@ public class InsuranceOffice {
     private static final String MENU = SET_BOLD_TEXT + "\t***** Menu *****" + SET_PLAIN_TEXT +
                                        "\n1. Print all Insurances" +
                                        "\n2. Search insurances by customer code" +
-                                       "\n3. Search insurances by insurance code";;
-    private static final String PROMPT_USER = SET_BOLD_TEXT + "> " + SET_PLAIN_TEXT
+                                       "\n3. Search insurances by insurance code";
+    private static final String PROMPT_USER = SET_BOLD_TEXT + "> " + SET_PLAIN_TEXT;
+    // Arrays to store Customers, Insurances, Lifes, Healths
+    private static Customer[] customersArray = new Customer[10];
+    private static Insurance[] insurancesArray = new Insurance[10];
+    private static Life[] lifesArray = new Life[10];
+    private static Health[] healthsArray = new Health[10];
 
     public static void main(String[] args) {
         // A simple text scanner.
@@ -22,12 +27,7 @@ public class InsuranceOffice {
         // user input
         String userInput;
         int userOption;
-        // Arrays to store Customers, Insurances, Lifes, Healths
-        Customer[] customersArray = new Customer[10];
-        Insurance[] insurancesArray = new Insurance[10];
-        Life[] lifesArray = new Life[10];
-        Health[] healthsArray = new Health[10];
-
+        // Generate some dummy values.
         generateDummyValues(customersArray, insurancesArray, lifesArray, healthsArray);
 
         do {
@@ -40,6 +40,8 @@ public class InsuranceOffice {
             } while (! (isSingleChar(userInput) && isAnOption(userInput)));
             // Convert user input to the appropriate int.
             userOption = Integer.parseInt(userInput);
+            // Execute the selected option.
+            executeOption(userOption);
 
         } while (!isExitChar(userInput));
 
@@ -71,6 +73,24 @@ public class InsuranceOffice {
         return true ? input.equals("0") : false;
     }
 
+    /**
+     * Executes the selected option.
+     */
+    private static void executeOption(int option) {
+        switch (option) {
+            case 1:
+                System.out.println("Option 1");
+                Insurance.printAllInsurances(insurancesArray);
+                break;
+            case 2:
+                System.out.println("Option 2");
+                break;
+            case 3:
+                System.out.println("Option 3");
+                break;
+        }
+    }
+
     private static void generateDummyValues(Customer[] customersArray,
                                             Insurance[] insurancesArray,
                                             Life[] lifesArray,
@@ -98,19 +118,19 @@ public class InsuranceOffice {
         customersArray[9] = c10;
         // Dummy Insurances
         Insurance i1 = new Insurance(c1.getCustomerCode(), 7);
-        insurancesArraySize[0] = i1;
+        insurancesArray[0] = i1;
         Insurance i2 = new Insurance(c2.getCustomerCode(), 6);
-        insurancesArraySize[1] = i2;
+        insurancesArray[1] = i2;
         Insurance i3 = new Insurance(c3.getCustomerCode(), 5);
-        insurancesArraySize[2] = i3;
+        insurancesArray[2] = i3;
         Insurance i4 = new Insurance(c4.getCustomerCode(), 4);
-        insurancesArraySize[3] = i4;
+        insurancesArray[3] = i4;
         Insurance i5 = new Insurance(c5.getCustomerCode(), 3);
-        insurancesArraySize[4] = i5;
+        insurancesArray[4] = i5;
         Insurance i6 = new Insurance(c6.getCustomerCode(), 2);
-        insurancesArraySize[5] = i6;
+        insurancesArray[5] = i6;
         Insurance i7 = new Insurance(c7.getCustomerCode(), 1);
-        insurancesArraySize[6] = i7;
+        insurancesArray[6] = i7;
         // Dummy Lifes
         Life l1 = new Life(c1.getCustomerCode(), 1, 20000);
         lifesArray[0] = l1;
