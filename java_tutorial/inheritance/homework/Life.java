@@ -11,6 +11,11 @@ public class Life extends Insurance {
         super();
     }
 
+    public Life(int investmentAmount) {
+        super();
+        this.investmentAmount = investmentAmount;
+    }
+
     public Life(int customerCode, int duration, int investmentAmount) {
         super(customerCode, duration);
         this.investmentAmount = investmentAmount;
@@ -27,7 +32,9 @@ public class Life extends Insurance {
 
     /**
      * Calculates the insurance cost and returns it.
-     * The cost calculation is 100 euro plus 5 for every Customer’s year
+     * The cost calculation is:
+     * + 100 euro
+     * + 5 for every Customer’s year
      */
     public int calculateInsuranceCost(Customer[] customersArray) {
         int insuranceCost = 0;

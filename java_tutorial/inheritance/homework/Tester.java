@@ -64,6 +64,11 @@ public class Tester {
         System.out.println("Cost of l1: " + l1.calculateInsuranceCost(customersArray) + " euro."
                          + "\nCost of l2: " + l2.calculateInsuranceCost(customersArray) + " euro." + "\n");
 
+        // Test Life 3
+        Life l3 = new Life(203);
+        lifesArray[2] = l3;
+        System.out.println(l3.toString() + "\n");
+
          // Test Health 1
          Health h1 = new Health();
          healthsArray[0] = h1;
@@ -79,5 +84,9 @@ public class Tester {
          System.out.println("Cost of l1: " + h1.calculateInsuranceCost(customersArray) + " euro."
                           + "\nCost of l2: " + h2.calculateInsuranceCost(customersArray) + " euro." + "\n");
 
+          // Test Health 3
+          Health h3 = new Health(301);
+          healthsArray[2] = h3;
+          System.out.println(h3.toString() + "\n");
     }
 }
