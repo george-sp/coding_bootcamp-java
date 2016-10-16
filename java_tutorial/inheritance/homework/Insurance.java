@@ -47,15 +47,6 @@ public class Insurance {
         return this.duration;
     }
 
-    @Override
-    public String toString() {
-        String insuranceStr = "Insurance:\n---------"
-                        + "\ncustomer code: " + this.customerCode
-                        + "\ninurance code: " + this.INSURANCE_CODE
-                        + "\nduration: " + this.duration;
-        return insuranceStr;
-    }
-
     /**
      * Calculates the insurance cost and returns it.
      */
@@ -85,5 +76,14 @@ public class Insurance {
                 System.out.println(insurancesArray[i].toString());
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        String insuranceStr = "Insurance:\n---------"
+                        + "\ncustomer code: " + this.customerCode
+                        + "\ninurance code: " + this.INSURANCE_CODE
+                        + "\nduration: " + this.duration;
+        return insuranceStr;
     }
 }
