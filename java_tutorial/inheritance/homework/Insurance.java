@@ -10,6 +10,8 @@ public class Insurance {
     private static int counter;
     // duration
     protected int duration;
+    // a fixed price of 100 euro
+    private static final int INSURANCE_COST = 100;
 
     /* Constructors */
     // Default Constructor
@@ -52,5 +54,36 @@ public class Insurance {
                         + "\ninurance code: " + this.INSURANCE_CODE
                         + "\nduration: " + this.duration;
         return insuranceStr;
+    }
+
+    /**
+     * Calculates the insurance cost and returns it.
+     */
+    public int calculateInsuranceCost() {
+        return INSURANCE_COST;
+    }
+
+    /**
+     * Prints all stored insurances.
+     */
+    public static void printAllInsurances(Insurance[] insurancesArray) {
+        int insurancesArraySize = insurancesArray.length;
+        for (int i = 0; i < insurancesArraySize; i++) {
+            if (insurancesArray[i] != null){
+                System.out.println(insurancesArray[i].toString());
+            }
+        }
+    }
+
+    /**
+     * Print a particular insurance defined by insurance code.
+     */
+    public static void printAllInsurances(Insurance[] insurancesArray, int insuranceCode) {
+        int insurancesArraySize = insurancesArray.length;
+        for (int i = 0; i < insurancesArraySize; i++) {
+            if (insurancesArray[i] != null && insurancesArray[i].getInsuranceCode() == insuranceCode){
+                System.out.println(insurancesArray[i].toString());
+            }
+        }
     }
 }
