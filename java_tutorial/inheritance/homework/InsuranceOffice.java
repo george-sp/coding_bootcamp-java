@@ -95,6 +95,18 @@ public class InsuranceOffice {
     }
 
     /**
+     * Uses a scanner object to get an Customer Code from the user.
+     */
+    public static int getCustomerCodeFromUser(Scanner scanner) {
+        String input;
+        do {
+            System.out.print("Give a Customer Code\n" + PROMPT_USER);
+            input = scanner.nextLine();
+        } while (!isNumeric(input));
+        return Integer.parseInt(input);
+    }
+
+    /**
      * Executes the selected option.
      */
     private static void executeOption(int option, Scanner scanner) {
@@ -103,11 +115,12 @@ public class InsuranceOffice {
                 Insurance.printAllInsurances(insurancesArray);
                 break;
             case 2:
-                System.out.println("Option 2");
+                int customerCode = getCustomerCodeFromUser(scanner);
+                Insurance.printInsuranceByCustomerCode(insurancesArray, customerCode);
                 break;
             case 3:
                 int insuranceCode = getInsuranceCodeFromUser(scanner);
-                Insurance.printInsuranceByCode(insurancesArray, insuranceCode);
+                Insurance.printInsuranceByInsuranceCode(insurancesArray, insuranceCode);
                 break;
         }
     }
