@@ -1,5 +1,8 @@
 
 public class Library {
+	// Library is responsible for accessing and modifying the author list.
+	private AuthorList authors;
+	
 	/** Constructors */
 	public Library() { 	}
 	
