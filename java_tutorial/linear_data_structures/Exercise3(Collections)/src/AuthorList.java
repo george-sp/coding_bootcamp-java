@@ -37,7 +37,7 @@ public class AuthorList {
 	 * Removes an author.
 	 */
 	public void removeAuthor(Author author) {
-		if (this.authors.has(author)) {
+		if (this.has(author)) {
 			this.authors.remove(author);
 		}
 	}
@@ -76,5 +76,20 @@ public class AuthorList {
 	 */
 	public boolean has(Author author) {
 		return this.authors.contains(author);
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder stringBuilder = new StringBuilder();
+		int authorCounter = 1;
+		for (Author author : authors) {
+			stringBuilder.append(authorCounter)
+						 .append(". ")
+						 .append(author.getName())
+						 .append("\n");
+			authorCounter++;
+		}
+		
+		return stringBuilder.toString();
 	}
 }
