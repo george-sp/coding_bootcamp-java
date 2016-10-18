@@ -1,5 +1,10 @@
 import java.util.ArrayList;
 
+/**
+ * Represents a List data structure that stores Author objects.
+ * @author george
+ *
+ */
 public class AuthorList {
 
 	/* Fields */
@@ -63,7 +68,7 @@ public class AuthorList {
 	/**
 	 * Prints the numbers of authors.
 	 */
-	public void printAuthors() {
+	public void printSize() {
 		if (!this.authors.isEmpty()) {
 			System.out.println("The number of authors is: " + this.authors.size());
 		} else {
