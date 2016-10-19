@@ -1,3 +1,4 @@
+import java.util.Date;
 
 /**
  * Stores information related to the renting and returning a book operations.
@@ -10,9 +11,9 @@ public class Transaction {
 	// The book for which the transaction is being performed.
 	private Book book;
 	// The date of requesting the current transaction.
-	private String requestedDate;
+	private Date requestedDate;
 	// The date of serving of the current transaction.
-	private String servedDate;
+	private Date servedDate;
 	// The user id of the library member requesting or return the book.
 	private int userID;
 	// A global counter that keeps the counter (auto increment).
@@ -26,7 +27,7 @@ public class Transaction {
 		this.TRANSACTION_ID = transactionsCounter;
 	}
 	
-	public Transaction(Book book, String requestedDate, String servedDate, int userID) {
+	public Transaction(Book book, Date requestedDate, Date servedDate, int userID) {
 		this();
 		this.book = book;
 		this.requestedDate = requestedDate;
@@ -43,19 +44,19 @@ public class Transaction {
 		return this.book;
 	}
 	
-	public void setRequestedDate(String date) {
+	public void setRequestedDate(Date date) {
 		this.requestedDate = date;
 	}
 	
-	public String getRequestedDate() {
+	public Date getRequestedDate() {
 		return this.requestedDate;
 	}
 	
-	public void setServedDate(String date) {
+	public void setServedDate(Date date) {
 		this.servedDate = date;
 	}
 	
-	public String getServedDate() {
+	public Date getServedDate() {
 		return this.servedDate;
 	}
 	

@@ -12,7 +12,7 @@ public class BookRental extends Transaction {
 		super();
 	}
 
-	BookRental(Book book, String requestedDate, String servedDate, int userID) {
+	BookRental(Book book, Date requestedDate, Date servedDate, int userID) {
 		super(book, requestedDate, servedDate, userID);
 	}
 
