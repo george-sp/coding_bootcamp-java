@@ -11,9 +11,9 @@ public class Transaction {
 	// The book for which the transaction is being performed.
 	private Book book;
 	// The date of requesting the current transaction.
-	private Date requestedDate;
+	private String requestedDate;
 	// The date of serving of the current transaction.
-	private Date servedDate;
+	private String servedDate;
 	// The user id of the library member requesting or return the book.
 	private int userID;
 	// A global counter that keeps the counter (auto increment).
@@ -23,11 +23,11 @@ public class Transaction {
 	
 	/* Constructors */
 	public Transaction() {
-		this.transactionsCounter++;
+		transactionsCounter++;
 		this.TRANSACTION_ID = transactionsCounter;
 	}
 	
-	public Transaction(Book book, Date requestedDate, Date servedDate, int userID) {
+	public Transaction(Book book, String requestedDate, String servedDate, int userID) {
 		this();
 		this.book = book;
 		this.requestedDate = requestedDate;
@@ -44,19 +44,19 @@ public class Transaction {
 		return this.book;
 	}
 	
-	public void setRequestedDate(Date date) {
+	public void setRequestedDate(String date) {
 		this.requestedDate = date;
 	}
 	
-	public Date getRequestedDate() {
+	public String getRequestedDate() {
 		return this.requestedDate;
 	}
 	
-	public void setServedDate(Date date) {
+	public void setServedDate(String date) {
 		this.servedDate = date;
 	}
 	
-	public Date getServedDate() {
+	public String getServedDate() {
 		return this.servedDate;
 	}
 	
@@ -68,7 +68,18 @@ public class Transaction {
 		return this.userID;
 	}
 	
-	public void setTransactionsCounter(int transactionsCounter) {
-		transactionsCounter = transactionsCounter;
+	public void setTransactionsCounter(int counter) {
+		transactionsCounter = counter;
+	}
+	
+	public int getTransactionsCounter() {
+		return transactionsCounter;
+	}
+	
+	public String toString() {
+		return "Transaction \"" + this.book.getTitle() + "\"\n" + "\ttransaction ID: " + this.TRANSACTION_ID 
+				+ "\n" + "\tdate of request: " + this.requestedDate + "\n"
+				+ "\tdate of serve: " + this.servedDate + "\n"
+				+ "\n" + "\tfrom user: " + this.userID + "\n";
 	}
 }
