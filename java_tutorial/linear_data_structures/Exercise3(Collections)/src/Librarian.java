@@ -55,4 +55,8 @@ public class Librarian {
 	public void printPendingTransactions() {
 		this.lib.printPendingTransactions();
 	}
+	
+	public void executePendingTransactions() {
+		this.lib.executePendingTransactions();
+	}
 }

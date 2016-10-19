@@ -74,17 +74,21 @@ public class Book {
 		return isbn;
 	}
 
-	public void rentPhysicalCopy() {
+	public boolean rentPhysicalCopy() {
 		if (this.available_copies > 0) {
 			this.available_copies--;
 			this.times_rented++;
+			return true;
 		} 
+		return false;
 	}
 	
-	public void returnPhysicalCopy() {
+	public boolean returnPhysicalCopy() {
 		if (this.available_copies < this.physical_copies) {
 			this.available_copies++;
+			return true;
 		}
+		return false;
 	}
 
 	@Override

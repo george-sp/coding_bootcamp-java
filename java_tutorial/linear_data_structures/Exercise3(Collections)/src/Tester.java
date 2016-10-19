@@ -96,16 +96,21 @@ public class Tester {
 		users.addUser(user3);
 		users.removeUser(user3);
 		users.addUser(user4);
-		
+
 		library.setUserList(users);
-		
+
 		the_guy.findMeUser(the_guy.getUser("George"));
 		the_guy.findMeUser(the_guy.getUser("Johny"));
-		
+
 		the_guy.rentBook("Book23", "George");
-		the_guy.rentBook("Book3", "George");
+		System.out.println("Book4 available copies: " + book4.getAvailableCopies());
+		the_guy.rentBook("Book4", "George");
+		System.out.println("Book4 available copies: " + book4.getAvailableCopies());
 		the_guy.rentBook("Book14", "George-Jason");
-		the_guy.returnBook("Book3", "George");
+		the_guy.returnBook("Book4", "George");
+		System.out.println("Book4 available copies: " + book4.getAvailableCopies());
+		the_guy.printPendingTransactions();
+		the_guy.executePendingTransactions();
 		the_guy.printPendingTransactions();
 	}
 }

@@ -38,17 +38,28 @@ public class TransactionQueue {
 		this.transactions.remove(0);
 	}
 	
+	public boolean isEmpty() {
+		return this.transactions.isEmpty();
+	}
+	
+	public Transaction getFirstInQueue() {
+		return this.transactions.get(0);
+	}
+	
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
-		int transactionsCounter = 1;
-		for (Transaction transaction : transactions) {
-			stringBuilder.append(transactionsCounter)
-						 .append(". ")
-						 .append(transaction.toString())
-						 .append("\n");
-			transactionsCounter++;
+		if (!this.isEmpty()) {
+			int transactionsCounter = 1;
+			for (Transaction transaction : transactions) {
+				stringBuilder.append(transactionsCounter)
+							 .append(". ")
+							 .append(transaction.toString())
+							 .append("\n");
+				transactionsCounter++;
+			}
+		} else {
+			stringBuilder.append("The Transaction Queue is empty.");
 		}
-		
 		return stringBuilder.toString();
 	}
 }
