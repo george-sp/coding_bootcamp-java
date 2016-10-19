@@ -8,16 +8,28 @@ public class Library {
 	private BookList books;
 	// Library is responsible for accessing and modifying the user list.
 	private UserList users;
+	// Transaction that have been validated but not yet executed should be stored in queue.
+	private TransactionQueue transactionQueue;
+	// All executed Transactions should be stored in history.
+	private TransactionHistory transactionHistory;
 	
 	/** Constructors */
-	public Library() {}
+	public Library() {
+		this.authors = new AuthorList();
+		this.books = new BookList();
+		this.users = new UserList();
+		this.transactionQueue = new TransactionQueue();
+		this.transactionHistory = new TransactionHistory();
+	}
 	
 	public Library(BookList books, AuthorList authors) {
+		this();
 		this.books = books;
 		this.authors = authors;
 	}
 	
 	public Library(BookList books, AuthorList authors, UserList users) {
+		this();
 		this.books = books;
 		this.authors = authors;
 		this.users = users;
@@ -34,6 +46,14 @@ public class Library {
 	
 	public void setUserList(UserList users) {
 		this.users = users;
+	}
+	
+	public void setTransactionQueue(TransactionQueue transactions) {
+		this.transactionQueue = transactions;
+	}
+	
+	public void setTransactionHistory(TransactionHistory transactions) {
+		this.transactionHistory = transactions;
 	}
 	
 	public void printAvailableBooks() {
@@ -110,11 +130,18 @@ public class Library {
 		if (book != null && user != null){			
 			book.rentPhysicalCopy();
 			Transaction bookRentalTransaction = new BookRental(book, new Date(), null, user.getUserID());
+			this.transactionQueue.insertTransaction(bookRentalTransaction);
 		}
 	}
 	
-	public void returnBook(String title, String user) {
-		//TODO
+	public void returnBook(String title, String userName) {
+		Book book = this.getBook(title);
+		User user = this.getUser(userName);
+		if (book != null && user != null){			
+			book.rentPhysicalCopy();
+			Transaction bookReturnTransaction = new BookReturn(book, new Date(), null, user.getUserID());
+			this.transactionQueue.insertTransaction(bookReturnTransaction);
+		}
 	}
 	
 	public void printPendingTransactions() {

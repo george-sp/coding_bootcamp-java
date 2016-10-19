@@ -30,7 +30,7 @@ public class TransactionQueue {
 		return this.transactions;
 	}
 
-	public void insetTransaction(Transaction transaction) {
+	public void insertTransaction(Transaction transaction) {
 		this.transactions.add(transaction);
 	}
 	
