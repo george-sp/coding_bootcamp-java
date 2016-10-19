@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Represents a List data structure that stores Book objects.
  * 
@@ -109,6 +111,42 @@ public class BookList {
 			}
 		}
 		return false;
+	}
+	
+	/**
+	 * Returns the available books.
+	 */
+	public ArrayList<Book> getAvailableBooks() {
+		ArrayList<Book> availableBooks = new ArrayList<>();
+		if (this.firstBook != null) {
+			if (firstBook.isAvailable()) {
+				availableBooks.add(firstBook);
+			}
+			Book currentBook = this.firstBook;
+			while (currentBook.getNext() != null) {
+				currentBook = currentBook.getNext();
+				if (currentBook.isAvailable()) {
+					availableBooks.add(currentBook);
+				}
+			}
+		}
+		return availableBooks;
+	}
+	
+	/**
+	 * Returns all books.
+	 */
+	public ArrayList<Book> getAllBooks() {
+		ArrayList<Book> availableBooks = new ArrayList<>();
+		if (this.firstBook != null) {
+			Book currentBook = this.firstBook;
+			availableBooks.add(firstBook);
+			while (currentBook.getNext() != null) {
+				currentBook = currentBook.getNext();
+				availableBooks.add(currentBook);
+			}
+		}
+		return availableBooks;
 	}
 
 	public void printSize() {

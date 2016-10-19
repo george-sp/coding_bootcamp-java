@@ -75,6 +75,16 @@ public class Book {
 	}
 
 	public void rentPhysicalCopy() {
+		if (this.available_copies > 0) {
+			this.available_copies--;
+			this.times_rented++;
+		} 
+	}
+	
+	public void returnPhysicalCopy() {
+		if (this.available_copies < this.physical_copies) {
+			this.available_copies++;
+		}
 	}
 
 	@Override

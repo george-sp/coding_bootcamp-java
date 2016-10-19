@@ -60,8 +60,6 @@ public class AuthorList {
 				return author;
 			}
 		}
-
-		System.out.println("Author " + name + " not found in the author list");
 		return null;
 	}
 

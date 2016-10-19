@@ -1,4 +1,3 @@
-import java.util.Date;
 
 /**
  * Stores information related to the renting and returning a book operations.

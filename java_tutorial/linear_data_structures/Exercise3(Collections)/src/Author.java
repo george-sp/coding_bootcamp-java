@@ -12,5 +12,5 @@ public class Author {
 	public void setName(String name) { this.name = name; }
 	
 	@Override
-	public String toString() { return "author name: " + name; }
+	public String toString() { return "Author: " + name; }
 }

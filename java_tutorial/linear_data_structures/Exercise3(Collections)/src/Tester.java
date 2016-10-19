@@ -62,7 +62,22 @@ public class Tester {
 		// Find a book in the BookList.
 		if (books.has("Book22"))
 			System.out.println(books.findBook("Book22").toString());
-
 		System.out.println(books.toString());
+
+		/* Assign the book collection to the library */
+	    Library library = new Library(books, authors);
+	    /** Librarian the_guy_who _knows_a_lot undertakes the operation of the library */
+	    Librarian the_guy = new Librarian(library);
+
+		/* Testing if the initialization of Library works correctly! */
+		the_guy.findMeAvailableBooks();
+		the_guy.findMeBook("Book13");
+		the_guy.findMeBooksFromAuthor("Ruth");
+		the_guy.findMeAuthor(the_guy.getAuthor("Joan"));
+		the_guy.findMeAuthor(the_guy.getAuthor("Joand"));
+		the_guy.addNewBookToLibrary("Book23", authors.findAuthor("George"), "345434111-1", 4, 3, 0);
+		
+		if (books.has("Book23"))
+			System.out.println(books.findBook("Book23").toString());
 	}
 }

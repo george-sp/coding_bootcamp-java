@@ -18,6 +18,10 @@ public class Librarian {
 	public void findMeBook(String book_title) {
 		this.lib.printBookDetails(book_title);
 	}
+
+	public void findMeAuthor(Author author) {
+		this.lib.printAuthor(author);
+	}
 	
 	public Author getAuthor(String name) {
 		return this.lib.getAuthor(name);
@@ -25,7 +29,7 @@ public class Librarian {
 	
 	public void addNewBookToLibrary(String book_title, Author author,
 			String isbn, int physical_copies, int available_copies, int times_rented) {
-		//TODO
+		this.lib.addNewBook(book_title, author, isbn, physical_copies, available_copies, times_rented);
 	}
 	
 	public void rentBook(String title, String user) {
