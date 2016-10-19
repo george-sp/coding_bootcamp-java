@@ -72,7 +72,6 @@ public class TransactionHistory {
 		return userTransactions;
 	}
 
-	
 	public void printSize() {
 		if (!this.transactions.isEmpty()) {
 			System.out.println("The number of transactions in history is: " + this.transactions.size());
@@ -81,17 +80,24 @@ public class TransactionHistory {
 		}
 	}
 	
+	public boolean isEmpty() {
+		return this.transactions.isEmpty();
+	}
+	
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
-		int transactionsInHistoryCounter = 1;
-		for (Transaction transaction : this.transactions) {
-			stringBuilder.append(transactionsInHistoryCounter)
-						 .append(". ")
-						 .append(transaction.toString())
-						 .append("\n");
-			transactionsInHistoryCounter++;
+		if (!this.isEmpty()) {
+			int transactionsInHistoryCounter = 1;
+			for (Transaction transaction : this.transactions) {
+				stringBuilder.append(transactionsInHistoryCounter)
+							 .append(". ")
+							 .append(transaction.toString())
+							 .append("\n");
+				transactionsInHistoryCounter++;
+			}
+		} else {
+			stringBuilder.append("The Transaction History is empty.");	
 		}
-		
 		return stringBuilder.toString();
 	}
 

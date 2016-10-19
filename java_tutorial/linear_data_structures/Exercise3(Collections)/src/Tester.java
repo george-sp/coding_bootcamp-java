@@ -109,8 +109,10 @@ public class Tester {
 		the_guy.rentBook("Book14", "George-Jason");
 		the_guy.returnBook("Book4", "George");
 		System.out.println("Book4 available copies: " + book4.getAvailableCopies());
+		the_guy.printTransactionsHistory();
 		the_guy.printPendingTransactions();
 		the_guy.executePendingTransactions();
 		the_guy.printPendingTransactions();
+		the_guy.printTransactionsHistory();
 	}
 }

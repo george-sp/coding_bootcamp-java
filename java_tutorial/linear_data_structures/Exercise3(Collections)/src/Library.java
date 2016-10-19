@@ -158,4 +158,8 @@ public class Library {
 			this.transactionQueue.removeTransaction();
 		}
 	}
+	
+	public void printTransactionsHistory() {
+		System.out.println(this.transactionHistory.toString());
+	}
 }

@@ -78,8 +78,8 @@ public class Transaction {
 	
 	public String toString() {
 		return "Transaction \"" + this.book.getTitle() + "\"\n" + "\ttransaction ID: " + this.TRANSACTION_ID 
-				+ "\n" + "\tdate of request: " + this.requestedDate + "\n"
-				+ "\tdate of serve: " + this.servedDate + "\n"
+				+ "\n" + "\tdate of requesting: " + this.requestedDate + "\n"
+				+ "\tdate of serving: " + this.servedDate + "\n"
 				+ "\tfrom user: " + this.userID + "\n";
 	}
 }
