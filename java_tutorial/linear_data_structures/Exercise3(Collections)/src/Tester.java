@@ -106,5 +106,6 @@ public class Tester {
 		the_guy.rentBook("Book3", "George");
 		the_guy.rentBook("Book14", "George-Jason");
 		the_guy.returnBook("Book3", "George");
+		the_guy.printPendingTransactions();
 	}
 }

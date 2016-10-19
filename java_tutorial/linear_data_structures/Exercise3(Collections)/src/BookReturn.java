@@ -20,7 +20,7 @@ public class BookReturn extends Transaction {
 	@Override
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.append("Book return ").append(super.toString());
+		stringBuilder.append("Book Return-").append(super.toString());
 		return stringBuilder.toString();
 	}
 }

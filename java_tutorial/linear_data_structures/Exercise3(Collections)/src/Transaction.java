@@ -80,6 +80,6 @@ public class Transaction {
 		return "Transaction \"" + this.book.getTitle() + "\"\n" + "\ttransaction ID: " + this.TRANSACTION_ID 
 				+ "\n" + "\tdate of request: " + this.requestedDate + "\n"
 				+ "\tdate of serve: " + this.servedDate + "\n"
-				+ "\n" + "\tfrom user: " + this.userID + "\n";
+				+ "\tfrom user: " + this.userID + "\n";
 	}
 }

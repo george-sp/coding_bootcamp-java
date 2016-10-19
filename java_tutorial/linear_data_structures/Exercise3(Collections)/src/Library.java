@@ -145,6 +145,6 @@ public class Library {
 	}
 	
 	public void printPendingTransactions() {
-		//TODO
+		System.out.println(this.transactionQueue.toString());
 	}
 }

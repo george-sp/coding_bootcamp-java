@@ -37,4 +37,18 @@ public class TransactionQueue {
 	public void removeTransaction() {
 		this.transactions.remove(0);
 	}
+	
+	public String toString() {
+		StringBuilder stringBuilder = new StringBuilder();
+		int transactionsCounter = 1;
+		for (Transaction transaction : transactions) {
+			stringBuilder.append(transactionsCounter)
+						 .append(". ")
+						 .append(transaction.toString())
+						 .append("\n");
+			transactionsCounter++;
+		}
+		
+		return stringBuilder.toString();
+	}
 }
