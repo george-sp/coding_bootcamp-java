@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Library {
 	// Library is responsible for accessing and modifying the author list.
@@ -103,8 +104,13 @@ public class Library {
 		books.addBook(new Book(title, author, isbn, physical_copies, available_copies, times_rented));
 	}
 	
-	public void rentBook(String title, String user) {
-		//TODO
+	public void rentBook(String title, String userName) {
+		Book book = this.getBook(title);
+		User user = this.getUser(userName);
+		if (book != null && user != null){			
+			book.rentPhysicalCopy();
+			Transaction bookRentalTransaction = new BookRental(book, new Date(), null, user.getUserID());
+		}
 	}
 	
 	public void returnBook(String title, String user) {

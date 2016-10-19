@@ -101,5 +101,7 @@ public class Tester {
 		
 		the_guy.findMeUser(the_guy.getUser("George"));
 		the_guy.findMeUser(the_guy.getUser("Johny"));
+		
+		the_guy.rentBook("Book23", "George");
 	}
 }

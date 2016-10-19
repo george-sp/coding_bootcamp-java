@@ -1,3 +1,4 @@
+import java.util.Date;
 
 /**
  * The transaction of returning a book.
