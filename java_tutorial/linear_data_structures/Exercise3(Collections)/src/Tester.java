@@ -65,9 +65,12 @@ public class Tester {
 		System.out.println(books.toString());
 
 		/* Assign the book collection to the library */
-	    Library library = new Library(books, authors);
-	    /** Librarian the_guy_who _knows_a_lot undertakes the operation of the library */
-	    Librarian the_guy = new Librarian(library);
+		Library library = new Library(books, authors);
+		/**
+		 * Librarian the_guy_who _knows_a_lot undertakes the operation of the
+		 * library
+		 */
+		Librarian the_guy = new Librarian(library);
 
 		/* Testing if the initialization of Library works correctly! */
 		the_guy.findMeAvailableBooks();
@@ -76,8 +79,20 @@ public class Tester {
 		the_guy.findMeAuthor(the_guy.getAuthor("Joan"));
 		the_guy.findMeAuthor(the_guy.getAuthor("Joand"));
 		the_guy.addNewBookToLibrary("Book23", authors.findAuthor("George"), "345434111-1", 4, 3, 0);
-		
+
 		if (books.has("Book23"))
 			System.out.println(books.findBook("Book23").toString());
+
+		/** Create Random users */
+		User user1 = new User("George");
+		User user2 = new User("John");
+		User user3 = new User("George-Jason");
+		User user4 = new User("Dimitris");
+		User user5 = new User("Olga");
+		System.out.println(user1.toString());
+		System.out.println(user2.toString());
+		System.out.println(user3.toString());
+		System.out.println(user4.toString());
+		System.out.println(user5.toString());
 	}
 }

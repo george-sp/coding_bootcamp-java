@@ -27,6 +27,10 @@ public class Librarian {
 		return this.lib.getAuthor(name);
 	}
 	
+	public Book getBook(String title) {
+		return this.lib.getBook(title);
+	}
+	
 	public void addNewBookToLibrary(String book_title, Author author,
 			String isbn, int physical_copies, int available_copies, int times_rented) {
 		this.lib.addNewBook(book_title, author, isbn, physical_copies, available_copies, times_rented);

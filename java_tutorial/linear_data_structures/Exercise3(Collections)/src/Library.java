@@ -63,6 +63,10 @@ public class Library {
 		return authors.findAuthor(author_name);
 	}
 	
+	public Book getBook(String title) {
+		return books.findBook(title);
+	}
+	
 	public void addNewBook(String title, Author author, String isbn,
 			int physical_copies, int available_copies, int times_rented) {
 		books.addBook(new Book(title, author, isbn, physical_copies, available_copies, times_rented));

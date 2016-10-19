@@ -76,7 +76,7 @@ public class BookList {
 	 * 
 	 * @param book
 	 *            The book to check if it is in the BookList.
-	 * @return True if the book is in the BookList, otherwise false.
+	 * @return The book with the specified title.
 	 */
 	public Book findBook(String title) {
 		if (this.firstBook != null) {
