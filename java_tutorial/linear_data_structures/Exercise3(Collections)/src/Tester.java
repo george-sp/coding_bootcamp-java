@@ -89,10 +89,16 @@ public class Tester {
 		User user3 = new User("George-Jason");
 		User user4 = new User("Dimitris");
 		User user5 = new User("Olga");
-		System.out.println(user1.toString());
-		System.out.println(user2.toString());
-		System.out.println(user3.toString());
-		System.out.println(user4.toString());
-		System.out.println(user5.toString());
+		UserList users = new UserList();
+		users.addUser(user1);
+		users.addUser(user2);
+		users.addUser(user3);
+		users.removeUser(user3);
+		users.addUser(user4);
+		
+		library.setUserList(users);
+		
+		the_guy.findMeUser(the_guy.getUser("George"));
+		the_guy.findMeUser(the_guy.getUser("Johny"));
 	}
 }

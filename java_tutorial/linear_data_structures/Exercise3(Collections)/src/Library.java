@@ -3,8 +3,10 @@ import java.util.ArrayList;
 public class Library {
 	// Library is responsible for accessing and modifying the author list.
 	private AuthorList authors;
-	// Library is responsible for accessing and modifying the author list.
+	// Library is responsible for accessing and modifying the book list.
 	private BookList books;
+	// Library is responsible for accessing and modifying the user list.
+	private UserList users;
 	
 	/** Constructors */
 	public Library() {}
@@ -14,7 +16,24 @@ public class Library {
 		this.authors = authors;
 	}
 	
+	public Library(BookList books, AuthorList authors, UserList users) {
+		this.books = books;
+		this.authors = authors;
+		this.users = users;
+	}
+	
 	/** Getters and Setters */
+	public void setBookList(BookList books) {
+		this.books = books;
+	}
+	
+	public void setAuthorList(AuthorList authors) {
+		this.authors = authors;
+	}
+	
+	public void setUserList(UserList users) {
+		this.users = users;
+	}
 	
 	public void printAvailableBooks() {
 		ArrayList<Book> availableBooks = books.getAvailableBooks();
@@ -59,12 +78,24 @@ public class Library {
 		}
 	}
 	
+	public void printUser(User user) {
+		if (user != null) {
+			System.out.println(user.toString());
+		} else {
+			System.out.println("User not found!");
+		}
+	}
+	
 	public Author getAuthor(String author_name) {
 		return authors.findAuthor(author_name);
 	}
 	
 	public Book getBook(String title) {
 		return books.findBook(title);
+	}
+	
+	public User getUser(String name) {
+		return users.findUser(name);
 	}
 	
 	public void addNewBook(String title, Author author, String isbn,

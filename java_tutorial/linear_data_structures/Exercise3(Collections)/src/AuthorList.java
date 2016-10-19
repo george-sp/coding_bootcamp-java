@@ -81,7 +81,6 @@ public class AuthorList {
 		return this.authors.contains(author);
 	}
 	
-	@Override
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
 		int authorCounter = 1;

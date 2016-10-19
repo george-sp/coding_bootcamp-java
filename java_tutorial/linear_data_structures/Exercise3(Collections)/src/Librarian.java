@@ -23,12 +23,20 @@ public class Librarian {
 		this.lib.printAuthor(author);
 	}
 	
+	public void findMeUser(User user) {
+		this.lib.printUser(user);
+	}
+	
 	public Author getAuthor(String name) {
 		return this.lib.getAuthor(name);
 	}
 	
 	public Book getBook(String title) {
 		return this.lib.getBook(title);
+	}
+	
+	public User getUser(String name) {
+		return this.lib.getUser(name);
 	}
 	
 	public void addNewBookToLibrary(String book_title, Author author,
