@@ -51,9 +51,26 @@ public class UserList {
 	 *            The name of user
 	 * @return The user with the given name
 	 */
-	public User findUser(String name) {
+	public ArrayList<User> findUser(String name) {
+		ArrayList<User> users = new ArrayList<>();
+		for (User user : this.users) {
+			if (user.getName().equalsIgnoreCase(name)) {
+				users.add(user);
+			}
+		}
+		return users;
+	}
+	
+	/**
+	 * Finds a user using the given ID.
+	 * 
+	 * @param id
+	 *            The ID of the user
+	 * @return The user with the given ID
+	 */
+	public User findUserByID(int id) {
 		for (User user : users) {
-			if (user.getName().equals(name)) {
+			if (user.getUserID() == id) {
 				return user;
 			}
 		}

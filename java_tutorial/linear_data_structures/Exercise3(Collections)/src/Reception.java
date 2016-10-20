@@ -2,16 +2,24 @@ import java.util.Scanner;
 
 public class Reception {
 	
-	static final String LIBRARY_SYSTEM_MENU = "=====> LIBRARY_MENU <=====\n"
+	static final String LIBRARY_SYSTEM_MENU = "=====> LIBRARY_MENU\n"
 			+ "1. Print all Books\n"
 			+ "2. Print all Available Books\n"
-			+ "3. Search Book";
-	static final String SEARCH_BOOK_MENU = "=====> SEARCH_BOOK_MENU <=====\n"
+			+ "3. Search Book\n"
+			+ "4. Users";
+	static final String SEARCH_BOOK_MENU = "=====> LIBRARY_MENU / SEARCH_BOOK_MENU\n"
 			+ "1. Search by book title\n"
 			+ "2. Search by author name";
+	static final String SEARCH_USER_MENU = "=====> LIBRARY_MENU / USER_MENU \n"
+			+ "1. Search by name\n"
+			+ "2. Search by ID\n"
+			+ "3. Add User\n"
+			+ "4. Remove User";
 	private static final String PROMPT_USER = "> ";
 	private static final String PROMPT_USER_FOR_BOOK_TITLE = "Give a Book Title\n> ";
 	private static final String PROMPT_USER_FOR_AUTHOR_NAME = "Give an Author Name\n> ";
+	private static final String PROMPT_USER_FOR_USER_NAME = "Give a User Name\n> ";
+	private static final String PROMPT_USER_FOR_USER_ID = "Give a User ID\n> ";
 	
 	private static Scanner scanner;
 	private static String userInput;
@@ -40,40 +48,91 @@ public class Reception {
 	}
 	
 	/**
-     * Executes the selected option.
+     * Executes the selected option of Main Menu of Library.
      */
     private static void executeMainMenuOption(int option) {
         switch (option) {
+        	// Print all Books.
             case 1:
             	admin.findMeAllBooks();
                 break;
+            // Print all Available Books.
             case 2:
                 admin.findMeAvailableBooks();
                 break;
+            // Search Book.
             case 3:
             	do {
             		System.out.println(SEARCH_BOOK_MENU);
             		System.out.print(PROMPT_USER);
             		userInput = scanner.nextLine();
-            	} while (!isSearchOption(userInput));
+            	} while (!isSearchBookOption(userInput));
             	executeSearchBookOption(Integer.parseInt(userInput));
+            	break;
+            // Operate on Users.
+            case 4:
+            	do {
+            		System.out.println(SEARCH_USER_MENU);
+            		System.out.print(PROMPT_USER);
+            		userInput = scanner.nextLine();
+            	} while (!isSearchUserOption(userInput));
+            	executeUserMenuOption(Integer.parseInt(userInput));
             	break;
         }
     }
 	
     /**
-     * Executes the selected option.
+     * Executes the selected option of Search Book Menu.
      */
     private static void executeSearchBookOption(int option) {
         switch (option) {
+        	// Search by book title.
             case 1:
         		System.out.println(PROMPT_USER_FOR_BOOK_TITLE);
             	admin.findMeBook(scanner.nextLine());
                 break;
+            // Search by author name.
             case 2:
         		System.out.println(PROMPT_USER_FOR_AUTHOR_NAME);
                 admin.findMeBooksFromAuthor(scanner.nextLine());
                 break;
+            // Go to previous menu.
+            case 0:
+            	userInput = "";
+            	break;
+        }
+    }
+    
+    /**
+     * Executes the selected option of User Menu.
+     */
+    private static void executeUserMenuOption(int option) {
+        switch (option) {
+        	// Search by name.																																																																																																																																																																																																											
+            case 1:
+        		System.out.println(PROMPT_USER_FOR_USER_NAME);
+            	admin.findMeUsersByName(admin.getUsers(scanner.nextLine()));
+                break;
+            // Search by ID. 
+            case 2:
+            	String input;
+            	do {
+            		System.out.println(PROMPT_USER_FOR_USER_ID);
+                    input = scanner.nextLine();
+            	} while (!isNumeric(input));
+            	admin.findMeUserByID(Integer.parseInt(input));        		
+                break;
+            // Add User.
+            case 3:
+        		System.out.println(PROMPT_USER_FOR_AUTHOR_NAME);
+                admin.findMeBooksFromAuthor(scanner.nextLine());
+                break;
+            // Remove User.
+            case 4:
+        		System.out.println(PROMPT_USER_FOR_AUTHOR_NAME);
+                admin.findMeBooksFromAuthor(scanner.nextLine());
+                break;
+            // Go to previous menu.
             case 0:
             	userInput = "";
             	break;
@@ -85,15 +144,23 @@ public class Reception {
      * Returns true if it is, otherwise false.
      */
     private static boolean isMainMenuOption(String input) {
-        return true ? input.matches("[0-3]+") : false;
+        return input.matches("[0-4]+");
     }
     
     /**
-     * Checks if string input is an option value [0,2] - Search Options.
+     * Checks if string input is an option value [0,2] - Search Book Available Options.
      * Returns true if it is, otherwise false.
      */
-    private static boolean isSearchOption(String input) {
-        return true ? input.matches("[0-2]+") : false;
+    private static boolean isSearchBookOption(String input) {
+        return input.matches("[0-2]+");
+    }
+    
+    /**
+     * Checks if string input is an option value [0,4] - Search User Available Options.
+     * Returns true if it is, otherwise false.
+     */
+    private static boolean isSearchUserOption(String input) {
+        return input.matches("[0-4]+");
     }
     
     /**
@@ -101,7 +168,7 @@ public class Reception {
      * If it is return true, else false.
      */
     private static boolean isExitChar(String input) {
-        return true ? input.equals("0") : false;
+        return input.equals("0");
     }
     
     /**

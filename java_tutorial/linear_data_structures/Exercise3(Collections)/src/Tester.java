@@ -162,12 +162,14 @@ public class Tester {
 		User user3 = new User("George-Jason");
 		User user4 = new User("Dimitris");
 		User user5 = new User("Olga");
+		User user6 = new User("George");
 		UserList users = new UserList();
 		users.addUser(user1);
 		users.addUser(user2);
 		users.addUser(user3);
 		users.addUser(user4);
 		users.addUser(user5);
+		users.addUser(user6);
 		
 		return new Library(books, authors, users);
 	}

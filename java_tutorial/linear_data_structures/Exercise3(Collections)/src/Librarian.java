@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Librarian {
 	private Library lib;
@@ -27,8 +28,12 @@ public class Librarian {
 		this.lib.printAuthor(author);
 	}
 	
-	public void findMeUser(User user) {
-		this.lib.printUser(user);
+	public void findMeUsersByName(ArrayList<User> users) {
+		this.lib.printUsers(users);
+	}
+	
+	public void findMeUserByID(int userID) {
+		this.lib.printUserByID(userID);
 	}
 	
 	public Author getAuthor(String name) {
@@ -39,8 +44,8 @@ public class Librarian {
 		return this.lib.getBook(title);
 	}
 	
-	public User getUser(String name) {
-		return this.lib.getUser(name);
+	public ArrayList<User> getUsers(String name) {
+		return this.lib.getUsers(name);
 	}
 	
 	public void addNewBookToLibrary(String book_title, Author author,

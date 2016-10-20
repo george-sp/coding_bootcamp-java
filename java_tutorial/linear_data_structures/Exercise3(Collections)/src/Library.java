@@ -108,7 +108,18 @@ public class Library {
 		}
 	}
 
-	public void printUser(User user) {
+	public void printUsers(ArrayList<User> users) {
+		if (!users.isEmpty()) {
+			for (User user : users) {
+				System.out.println(user.toString());
+			}
+		} else {
+			System.out.println("User not found!");
+		}
+	}
+	
+	public void printUserByID(int userID) {
+		User user = this.users.findUserByID(userID);
 		if (user != null) {
 			System.out.println(user.toString());
 		} else {
@@ -124,7 +135,7 @@ public class Library {
 		return books.findBook(title);
 	}
 
-	public User getUser(String name) {
+	public ArrayList<User> getUsers(String name) {
 		return users.findUser(name);
 	}
 
