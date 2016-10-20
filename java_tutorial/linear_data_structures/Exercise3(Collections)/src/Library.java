@@ -56,8 +56,17 @@ public class Library {
 		this.transactionHistory = transactions;
 	}
 
+	public void printAllBooks() {
+		ArrayList<Book> books = this.books.getAllBooks();
+		StringBuilder booksString = new StringBuilder("Books:\n");
+		for (Book book : books) {
+			booksString.append(book.getTitle()).append("\n");
+		}
+		System.out.println(booksString);
+	}
+	
 	public void printAvailableBooks() {
-		ArrayList<Book> availableBooks = books.getAvailableBooks();
+		ArrayList<Book> availableBooks = this.books.getAvailableBooks();
 		StringBuilder availableBooksString = new StringBuilder("Available Books:\n");
 		for (Book book : availableBooks) {
 			availableBooksString.append(book.getTitle()).append("\n");

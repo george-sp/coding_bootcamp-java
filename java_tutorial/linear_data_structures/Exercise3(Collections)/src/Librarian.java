@@ -10,6 +10,10 @@ public class Librarian {
 	public void findMeBooksFromAuthor(String author_name) {
 		this.lib.printBookFromAuthor(author_name);
 	}
+
+	public void findMeAllBooks() {
+		this.lib.printAllBooks();
+	}
 	
 	public void findMeAvailableBooks() {
 		this.lib.printAvailableBooks();
