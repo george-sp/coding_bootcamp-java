@@ -48,7 +48,7 @@ public class Life extends Insurance {
 
     @Override
     public String toString() {
-        String lifeStr = super.toString() + "\n(LIFE)\ninvestment amount: " + this.investmentAmount;
+        String lifeStr = "LIFE " + super.toString() + "\nninvestment amount: " + this.investmentAmount;
         return lifeStr;
     }
 }

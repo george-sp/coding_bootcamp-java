@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.util.ArrayList;
 /**
  * An Information System for an insurance company with the following functionality:
  * 1. Prints all stored insurances (life and health).
@@ -16,10 +16,8 @@ public class InsuranceOffice {
                                        "\n3. Search insurances by insurance code";
     private static final String PROMPT_USER = SET_BOLD_TEXT + "> " + SET_PLAIN_TEXT;
     // Arrays to store Customers, Insurances, Lifes, Healths
-    private static Customer[] customersArray = new Customer[10];
-    private static Insurance[] insurancesArray = new Insurance[10];
-    private static Life[] lifesArray = new Life[10];
-    private static Health[] healthsArray = new Health[10];
+    private static ArrayList<Customer> customers = new ArrayList<>();
+    private static ArrayList<Insurance> insurances = new ArrayList<>();
 
     public static void main(String[] args) {
         // A simple text scanner.
@@ -28,7 +26,7 @@ public class InsuranceOffice {
         String userInput;
         int userOption;
         // Generate some dummy values.
-        generateDummyValues(customersArray, insurancesArray, lifesArray, healthsArray);
+        generateDummyValues(customers, insurances);
 
         do {
             do {
@@ -112,96 +110,94 @@ public class InsuranceOffice {
     private static void executeOption(int option, Scanner scanner) {
         switch (option) {
             case 1:
-                Insurance.printAllInsurances(insurancesArray);
+                Insurance.printAllInsurances(insurances);
                 break;
             case 2:
                 int customerCode = getCustomerCodeFromUser(scanner);
-                Insurance.printInsuranceByCustomerCode(insurancesArray, customerCode);
+                Insurance.printInsuranceByCustomerCode(insurances, customerCode);
                 break;
             case 3:
                 int insuranceCode = getInsuranceCodeFromUser(scanner);
-                Insurance.printInsuranceByInsuranceCode(insurancesArray, insuranceCode);
+                Insurance.printInsuranceByInsuranceCode(insurances, insuranceCode);
                 break;
         }
     }
 
-    private static void generateDummyValues(Customer[] customersArray,
-                                            Insurance[] insurancesArray,
-                                            Life[] lifesArray,
-                                            Health[] healthsArray) {
+    private static void generateDummyValues(ArrayList<Customer> customers,
+                                            ArrayList<Insurance> insurances) {
         // Dummy Customers
         Customer c1 = new Customer("George", 1991, true);
-        customersArray[0] = c1;
+        customers.add(c1);
         Customer c2 = new Customer("Spyridakis", 1990, true);
-        customersArray[1] = c2;
+        customers.add(c2);
         Customer c3 = new Customer("Panagiotis", 1989, true);
-        customersArray[2] = c3;
+        customers.add(c3);
         Customer c4 = new Customer("Dimitris", 1988, true);
-        customersArray[3] = c4;
+        customers.add(c4);
         Customer c5 = new Customer("Panos", 1987, true);
-        customersArray[4] = c5;
+        customers.add(c5);
         Customer c6 = new Customer("Sofia", 1986, false);
-        customersArray[5] = c6;
+        customers.add(c6);
         Customer c7 = new Customer("Maria", 1985, false);
-        customersArray[6] = c7;
+        customers.add(c7);
         Customer c8 = new Customer("Konstantina", 1984, false);
-        customersArray[7] = c8;
+        customers.add(c8);
         Customer c9 = new Customer("Angela", 1983, false);
-        customersArray[8] = c9;
+        customers.add(c9);
         Customer c10 = new Customer("Kostantinos", 1982, true);
-        customersArray[9] = c10;
+        customers.add(c10);
         // Dummy Insurances
         Insurance i1 = new Insurance(c1.getCustomerCode(), 7);
-        insurancesArray[0] = i1;
+        insurances.add(i1);
         Insurance i2 = new Insurance(c2.getCustomerCode(), 6);
-        insurancesArray[1] = i2;
+        insurances.add(i2);
         Insurance i3 = new Insurance(c3.getCustomerCode(), 5);
-        insurancesArray[2] = i3;
+        insurances.add(i3);
         Insurance i4 = new Insurance(c4.getCustomerCode(), 4);
-        insurancesArray[3] = i4;
+        insurances.add(i4);
         Insurance i5 = new Insurance(c5.getCustomerCode(), 3);
-        insurancesArray[4] = i5;
+        insurances.add(i5);
         Insurance i6 = new Insurance(c6.getCustomerCode(), 2);
-        insurancesArray[5] = i6;
+        insurances.add(i6);
         Insurance i7 = new Insurance(c7.getCustomerCode(), 1);
-        insurancesArray[6] = i7;
+        insurances.add(i7);
         // Dummy Lifes
         Life l1 = new Life(c1.getCustomerCode(), 1, 20000);
-        lifesArray[0] = l1;
+        insurances.add(l1);
         Life l2 = new Life(c2.getCustomerCode(), 2, 3000);
-        lifesArray[1] = l2;
+        insurances.add(l2);
         Life l3 = new Life(c3.getCustomerCode(), 3, 420000);
-        lifesArray[2] = l3;
+        insurances.add(l3);
         Life l4 = new Life(c4.getCustomerCode(), 4, 200400);
-        lifesArray[3] = l4;
+        insurances.add(l4);
         Life l5 = new Life(c5.getCustomerCode(), 5, 2004);
-        lifesArray[4] = l5;
+        insurances.add(l5);
         Life l6 = new Life(c6.getCustomerCode(), 10, 50000);
-        lifesArray[5] = l6;
+        insurances.add(l6);
         Life l7 = new Life(c7.getCustomerCode(), 9, 670000);
-        lifesArray[6] = l7;
+        insurances.add(l7);
         Life l8 = new Life(c8.getCustomerCode(), 8, 120);
-        lifesArray[7] = l8;
+        insurances.add(l8);
         Life l9 = new Life(c9.getCustomerCode(), 7, 34200);
-        lifesArray[8] = l9;
+        insurances.add(l9);
         Life l10 = new Life(c10.getCustomerCode(), 6, 22002);
-        lifesArray[9] = l10;
+        insurances.add(l10);
         // Dummy Healths
         Health h1 = new Health(c6.getCustomerCode(), 5, 193000);
-        healthsArray[0] = h1;
+        insurances.add(h1);
         Health h2 = new Health(c1.getCustomerCode(), 4, 900);
-        healthsArray[1] = h2;
+        insurances.add(h2);
         Health h3 = new Health(c2.getCustomerCode(), 14, 500);
-        healthsArray[3] = h3;
+        insurances.add(h3);
         Health h4 = new Health(c1.getCustomerCode(), 21, 3000);
-        healthsArray[4] = h4;
+        insurances.add(h4);
         Health h5 = new Health(c3.getCustomerCode(), 11, 5000);
-        healthsArray[5] = h5;
+        insurances.add(h5);
         Health h6 = new Health(c9.getCustomerCode(), 1, 53000);
-        healthsArray[6] = h6;
+        insurances.add(h6);
         Health h7 = new Health(c10.getCustomerCode(), 7, 30005);
-        healthsArray[7] = h7;
+        insurances.add(h7);
         Health h8 = new Health(c7.getCustomerCode(), 9, 30400);
-        healthsArray[8] = h8;
+        insurances.add(h8);
     }
 }

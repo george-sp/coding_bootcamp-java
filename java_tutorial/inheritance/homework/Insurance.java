@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Each generated Insurance object should be stored in an array (length = 10).
  */
@@ -57,41 +59,44 @@ public class Insurance {
     /**
      * Prints all stored insurances.
      */
-    public static void printAllInsurances(Insurance[] insurancesArray) {
-        int insurancesArraySize = insurancesArray.length;
-        for (int i = 0; i < insurancesArraySize; i++) {
-            if (insurancesArray[i] != null){
-                System.out.println(insurancesArray[i].toString());
+    public static void printAllInsurances(ArrayList<Insurance> insurances) {
+        if (!insurances.isEmpty()) {
+            for (Insurance insurance : insurances) {
+                System.out.println(insurance.toString());
             }
+        } else {
+            System.out.println("No Insurances found!");
         }
     }
 
     /**
      * Print a particular insurance defined by insurance code.
      */
-    public static void printInsuranceByInsuranceCode(Insurance[] insurancesArray, int insuranceCode) {
-        int insurancesArraySize = insurancesArray.length;
-        int counter = 0;
-        for (int i = 0; i < insurancesArraySize; i++) {
-            if (insurancesArray[i] != null && insurancesArray[i].getInsuranceCode() == insuranceCode){
-                System.out.println(insurancesArray[i].toString());
-                counter++;
+    public static void printInsuranceByInsuranceCode(ArrayList<Insurance> insurances, int insuranceCode) {
+        if (!insurances.isEmpty()) {
+            int counter = 0;
+            for (Insurance insurance : insurances) {
+                if (insurance.getInsuranceCode() == insuranceCode){
+                    System.out.println(insurance.toString());
+                    counter++;
+                }
             }
-        }
-        if (counter == 0) {
-            System.out.println("Insurance not found!");
+            if (counter == 0) {
+                System.out.println("Insurance not found!");
+            }
+        } else {
+            System.out.println("Insurances not found!");
         }
     }
 
     /**
      * Print a particular insurance defined by customer code.
      */
-    public static void printInsuranceByCustomerCode(Insurance[] insurancesArray, int customerCode) {
-        int insurancesArraySize = insurancesArray.length;
+    public static void printInsuranceByCustomerCode(ArrayList<Insurance> insurances, int customerCode) {
         int counter = 0;
-        for (int i = 0; i < insurancesArraySize; i++) {
-            if (insurancesArray[i] != null && insurancesArray[i].getCustomerCode() == customerCode){
-                System.out.println(insurancesArray[i].toString());
+        for (Insurance insurance : insurances) {
+            if (insurance.getCustomerCode() == customerCode){
+                System.out.println(insurance.toString());
                 counter++;
             }
         }
