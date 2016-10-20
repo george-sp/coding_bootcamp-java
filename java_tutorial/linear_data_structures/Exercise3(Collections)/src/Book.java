@@ -103,7 +103,7 @@ public class Book {
 	}
 
 	public boolean hasAuthor(String author_name) {
-		return this.author.getName().equals(author_name);
+		return this.author.getName().equalsIgnoreCase(author_name);
 	}
 
 }

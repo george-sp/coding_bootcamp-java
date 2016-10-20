@@ -80,13 +80,13 @@ public class BookList {
 	 */
 	public Book findBook(String title) {
 		if (this.firstBook != null) {
-			if (firstBook.getTitle().equals(title)) {
+			if (firstBook.getTitle().equalsIgnoreCase(title)) {
 				return firstBook;
 			}
 			Book currentBook = this.firstBook;
 			while (currentBook.getNext() != null) {
 				currentBook = currentBook.getNext();
-				if (currentBook.getTitle().equals(title)) {
+				if (currentBook.getTitle().equalsIgnoreCase(title)) {
 					return currentBook;
 				}
 			}

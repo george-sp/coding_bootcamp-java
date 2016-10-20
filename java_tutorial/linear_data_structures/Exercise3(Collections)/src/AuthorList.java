@@ -56,7 +56,7 @@ public class AuthorList {
 	 */
 	public Author findAuthor(String name) {
 		for (Author author : authors) {
-			if (author.getName().equals(name)) {
+			if (author.getName().equalsIgnoreCase(name)) {
 				return author;
 			}
 		}
