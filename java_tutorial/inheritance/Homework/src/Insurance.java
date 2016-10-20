@@ -1,8 +1,5 @@
 import java.util.ArrayList;
 
-/**
- * Each generated Insurance object should be stored in an array (length = 10).
- */
 public class Insurance {
     /* Fields */
     // customer's code
@@ -14,6 +11,8 @@ public class Insurance {
     protected int duration;
     // a fixed price of 100 euro
     private static final int INSURANCE_COST = 100;
+    // the cost of the insurance
+    private int cost;
 
     /* Constructors */
     // Default Constructor
@@ -26,6 +25,7 @@ public class Insurance {
         this();
         this.customerCode = customerCode;
         this.duration = duration;
+        this.cost = this.calculateInsuranceCost();
     }
 
     /* Setters & Getters */
@@ -48,7 +48,7 @@ public class Insurance {
     public int getDuration() {
         return this.duration;
     }
-
+    
     /**
      * Calculates the insurance cost and returns it.
      */
@@ -62,7 +62,7 @@ public class Insurance {
     public static void printAllInsurances(ArrayList<Insurance> insurances) {
         if (!insurances.isEmpty()) {
             for (Insurance insurance : insurances) {
-                System.out.println(insurance.toString());
+                System.out.println(insurance.toString() + "\n");
             }
         } else {
             System.out.println("No Insurances found!");
@@ -77,7 +77,7 @@ public class Insurance {
             int counter = 0;
             for (Insurance insurance : insurances) {
                 if (insurance.getInsuranceCode() == insuranceCode){
-                    System.out.println(insurance.toString());
+                    System.out.println(insurance.toString() + "\n");
                     counter++;
                 }
             }
@@ -96,7 +96,7 @@ public class Insurance {
         int counter = 0;
         for (Insurance insurance : insurances) {
             if (insurance.getCustomerCode() == customerCode){
-                System.out.println(insurance.toString());
+                System.out.println(insurance.toString() + "\n");
                 counter++;
             }
         }
@@ -110,7 +110,8 @@ public class Insurance {
         String insuranceStr = "Insurance:\n---------"
                         + "\ncustomer code: " + this.customerCode
                         + "\ninurance code: " + this.INSURANCE_CODE
-                        + "\nduration: " + this.duration;
+                        + "\nduration: " + this.duration
+        				+ "\ncost: " + this.cost;
         return insuranceStr;
     }
 }

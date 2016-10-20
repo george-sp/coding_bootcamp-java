@@ -16,8 +16,8 @@ public class InsuranceOffice {
                                        "\n3. Search insurances by insurance code";
     private static final String PROMPT_USER = SET_BOLD_TEXT + "> " + SET_PLAIN_TEXT;
     // Arrays to store Customers, Insurances, Lifes, Healths
-    private static ArrayList<Customer> customers = new ArrayList<>();
-    private static ArrayList<Insurance> insurances = new ArrayList<>();
+    protected static ArrayList<Customer> customers = new ArrayList<>();
+    protected static ArrayList<Insurance> insurances = new ArrayList<>();
 
     public static void main(String[] args) {
         // A simple text scanner.

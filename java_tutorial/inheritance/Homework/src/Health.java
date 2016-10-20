@@ -38,12 +38,13 @@ public class Health extends Insurance {
      * + 7 for every Customer’s year
      * + 50 euro if he is a man.
      */
-    public int calculateInsuranceCost(Customer[] customersArray) {
+    @Override
+    public int calculateInsuranceCost() {
         int insuranceCost = 0;
-        for (int i = 0; i < 10; i++) {
-            if (customersArray[i] != null && customersArray[i].getCustomerCode() == this.customerCode) {
-                insuranceCost = super.calculateInsuranceCost() + (7 * (customersArray[i].getAge()));
-                if (customersArray[i].getSex()) insuranceCost += 50;
+        for (Customer customer : InsuranceOffice.customers) {
+            if (customer.getCustomerCode() == this.customerCode) {
+                insuranceCost = super.calculateInsuranceCost() + (7 * (customer.getAge()));
+                if (customer.getSex()) insuranceCost += 50;
             }
         }
         return insuranceCost;
@@ -51,7 +52,7 @@ public class Health extends Insurance {
 
     @Override
     public String toString() {
-        String healthStr = super.toString() + "\n(HEALTH)\nmedical expense: " + this.medicalExpense;
+        String healthStr = "HEALTH " + super.toString() + "\nmedical expense: " + this.medicalExpense;
         return healthStr;
     }
 }

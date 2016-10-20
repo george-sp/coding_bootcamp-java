@@ -1,6 +1,4 @@
-/**
- * Each generated Life object should be stored in an array (length=10).
- */
+
 public class Life extends Insurance {
     /* Fields */
     // the amount the customer decides to invest.
@@ -36,11 +34,12 @@ public class Life extends Insurance {
      * + 100 euro
      * + 5 for every Customer’s year
      */
-    public int calculateInsuranceCost(Customer[] customersArray) {
+    @Override
+    public int calculateInsuranceCost() {
         int insuranceCost = 0;
-        for (int i = 0; i < 10; i++) {
-            if (customersArray[i] != null && customersArray[i].getCustomerCode() == this.customerCode) {
-                insuranceCost = super.calculateInsuranceCost() + (5 * (customersArray[i].getAge()));
+        for (Customer customer : InsuranceOffice.customers) {
+            if (customer.getCustomerCode() == this.customerCode) {
+                insuranceCost = super.calculateInsuranceCost() + (5 * (customer.getAge()));
             }
         }
         return insuranceCost;
@@ -48,7 +47,7 @@ public class Life extends Insurance {
 
     @Override
     public String toString() {
-        String lifeStr = "LIFE " + super.toString() + "\nninvestment amount: " + this.investmentAmount;
+        String lifeStr = "LIFE " + super.toString() + "\ninvestment amount: " + this.investmentAmount;
         return lifeStr;
     }
 }
