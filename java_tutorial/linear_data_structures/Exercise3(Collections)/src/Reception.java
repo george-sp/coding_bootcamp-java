@@ -22,6 +22,8 @@ public class Reception {
 	private static final String PROMPT_USER_FOR_USER_ID = "Give a User ID\n> ";
 	private static final String PROMPT_USER_FOR_NEW_USER = "REGISTER\n> ";
 	
+	private static final String REGISTRATION_CONFIRMED = "Registration Confirmed";
+	
 	private static Scanner scanner;
 	private static String userInput;
 	private static Librarian admin;
@@ -130,6 +132,7 @@ public class Reception {
             		input = scanner.nextLine();
             	} while (!isAlphabetical(input));
                 admin.registerUser(input);
+                System.out.println(REGISTRATION_CONFIRMED);
                 break;
             // Remove User.
             case 4:
@@ -180,7 +183,7 @@ public class Reception {
      * Returns true if it is, else returns false.
      */
     private static boolean isNumeric(String input) {
-    	return input.matches("[\d]+");
+    	return input.matches("\\d+");
     }
     
     /**
