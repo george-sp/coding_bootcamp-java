@@ -53,6 +53,10 @@ public class Librarian {
 		this.lib.addNewBook(book_title, author, isbn, physical_copies, available_copies, times_rented);
 	}
 	
+	public void registerUser(String name) {
+		this.lib.registerUser(name);
+	}
+	
 	public void rentBook(String title, String user) {
 		this.lib.rentBook(title, user);
 	}

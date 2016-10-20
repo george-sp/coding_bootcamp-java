@@ -144,6 +144,10 @@ public class Library {
 		books.addBook(new Book(title, author, isbn, physical_copies, available_copies, times_rented));
 	}
 
+	public void registerUser(String name) {
+		users.addUser(new User(name));
+	}
+	
 	public void rentBook(String title, String userName) {
 		Book book = this.getBook(title);
 		User user = this.getUser(userName);

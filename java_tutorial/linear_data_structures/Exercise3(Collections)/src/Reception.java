@@ -2,24 +2,25 @@ import java.util.Scanner;
 
 public class Reception {
 	
-	static final String LIBRARY_SYSTEM_MENU = "=====> LIBRARY_MENU\n"
+	static final String LIBRARY_SYSTEM_MENU = "\n=====> LIBRARY_MENU\n"
 			+ "1. Print all Books\n"
 			+ "2. Print all Available Books\n"
 			+ "3. Search Book\n"
 			+ "4. Users";
-	static final String SEARCH_BOOK_MENU = "=====> LIBRARY_MENU / SEARCH_BOOK_MENU\n"
+	static final String SEARCH_BOOK_MENU = "\n=====> LIBRARY_MENU / SEARCH_BOOK_MENU\n"
 			+ "1. Search by book title\n"
 			+ "2. Search by author name";
-	static final String SEARCH_USER_MENU = "=====> LIBRARY_MENU / USER_MENU \n"
+	static final String SEARCH_USER_MENU = "\n=====> LIBRARY_MENU / USER_MENU \n"
 			+ "1. Search by name\n"
 			+ "2. Search by ID\n"
-			+ "3. Add User\n"
-			+ "4. Remove User";
+			+ "3. Register User\n"
+			+ "4. Unregister User";
 	private static final String PROMPT_USER = "> ";
 	private static final String PROMPT_USER_FOR_BOOK_TITLE = "Give a Book Title\n> ";
 	private static final String PROMPT_USER_FOR_AUTHOR_NAME = "Give an Author Name\n> ";
 	private static final String PROMPT_USER_FOR_USER_NAME = "Give a User Name\n> ";
 	private static final String PROMPT_USER_FOR_USER_ID = "Give a User ID\n> ";
+	private static final String PROMPT_USER_FOR_NEW_USER = "REGISTER\n> ";
 	
 	private static Scanner scanner;
 	private static String userInput;
@@ -107,6 +108,7 @@ public class Reception {
      * Executes the selected option of User Menu.
      */
     private static void executeUserMenuOption(int option) {
+    	String input;
         switch (option) {
         	// Search by name.																																																																																																																																																																																																											
             case 1:
@@ -115,7 +117,6 @@ public class Reception {
                 break;
             // Search by ID. 
             case 2:
-            	String input;
             	do {
             		System.out.println(PROMPT_USER_FOR_USER_ID);
                     input = scanner.nextLine();
@@ -124,8 +125,11 @@ public class Reception {
                 break;
             // Add User.
             case 3:
-        		System.out.println(PROMPT_USER_FOR_AUTHOR_NAME);
-                admin.findMeBooksFromAuthor(scanner.nextLine());
+            	do {
+            		System.out.println(PROMPT_USER_FOR_NEW_USER);
+            		input = scanner.nextLine();
+            	} while (!isAlphabetical(input));
+                admin.registerUser(input);
                 break;
             // Remove User.
             case 4:
@@ -176,8 +180,7 @@ public class Reception {
      * Returns true if it is, else returns false.
      */
     private static boolean isNumeric(String input) {
-        if (! input.matches("[0-9]+")) return false;
-        return true;
+    	return input.matches("[\d]+");
     }
     
     /**
@@ -185,7 +188,6 @@ public class Reception {
      * Returns true if it is an alphabetical value, else returns false.
      */
     private static boolean isAlphabetical(String input) {
-        if (input.matches("[0-9]+")) return false;
-        return true;
+        return input.matches("[a-zA-z -]+");
     }
 }

@@ -99,8 +99,8 @@ public class Tester {
 
 		library.setUserList(users);
 
-		the_guy.findMeUser(the_guy.getUser("George"));
-		the_guy.findMeUser(the_guy.getUser("Johny"));
+		the_guy.findMeUsersByName(the_guy.getUsers("George"));
+		the_guy.findMeUsersByName(the_guy.getUsers("Johny"));
 
 		the_guy.rentBook("Book23", "George");
 		System.out.println("Book4 available copies: " + book4.getAvailableCopies());
