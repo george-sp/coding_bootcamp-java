@@ -148,6 +148,10 @@ public class Library {
 		users.addUser(new User(name));
 	}
 	
+	public void unregisterUser(int userID) {
+		users.removeUser(users.findUserByID(userID));
+	}
+	
 	public void rentBook(String title, String userName) {
 		Book book = this.getBook(title);
 		User user = this.getUser(userName);

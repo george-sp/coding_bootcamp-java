@@ -20,9 +20,9 @@ public class Reception {
 	private static final String PROMPT_USER_FOR_AUTHOR_NAME = "Give an Author Name\n> ";
 	private static final String PROMPT_USER_FOR_USER_NAME = "Give a User Name\n> ";
 	private static final String PROMPT_USER_FOR_USER_ID = "Give a User ID\n> ";
-	private static final String PROMPT_USER_FOR_NEW_USER = "REGISTER\n> ";
+	private static final String PROMPT_USER_FOR_NEW_USER = "REGISTER: Enter User Name:\n> ";
 	
-	private static final String REGISTRATION_CONFIRMED = "Registration Confirmed";
+	private static final String OPERATION_CONFIRMED = "Operation Confirmed";
 	
 	private static Scanner scanner;
 	private static String userInput;
@@ -125,19 +125,23 @@ public class Reception {
             	} while (!isNumeric(input));
             	admin.findMeUserByID(Integer.parseInt(input));        		
                 break;
-            // Add User.
+            // Register User.
             case 3:
             	do {
             		System.out.println(PROMPT_USER_FOR_NEW_USER);
             		input = scanner.nextLine();
             	} while (!isAlphabetical(input));
                 admin.registerUser(input);
-                System.out.println(REGISTRATION_CONFIRMED);
+                System.out.println(OPERATION_CONFIRMED);
                 break;
-            // Remove User.
+            // Unregister User.
             case 4:
-        		System.out.println(PROMPT_USER_FOR_AUTHOR_NAME);
-                admin.findMeBooksFromAuthor(scanner.nextLine());
+            	do {
+            		System.out.println(PROMPT_USER_FOR_USER_ID);
+            		input = scanner.nextLine();
+            	} while (!isNumeric(input));
+                admin.unregisterUser(Integer.parseInt(input));
+                System.out.println(OPERATION_CONFIRMED);
                 break;
             // Go to previous menu.
             case 0:

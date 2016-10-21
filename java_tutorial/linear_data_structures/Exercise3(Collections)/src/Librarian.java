@@ -57,6 +57,10 @@ public class Librarian {
 		this.lib.registerUser(name);
 	}
 	
+	public void unregisterUser(int userID) {
+		this.lib.unregisterUser(userID);
+	}
+	
 	public void rentBook(String title, String user) {
 		this.lib.rentBook(title, user);
 	}
