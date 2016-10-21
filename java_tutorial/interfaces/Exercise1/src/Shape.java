@@ -1,4 +1,7 @@
 
-public class Shape {
+public interface Shape {
 
+	void getParameter();
+	
+	void getArea();
 }
