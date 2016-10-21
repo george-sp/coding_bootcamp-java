@@ -5,12 +5,12 @@ public class Reception {
 	static final String LIBRARY_SYSTEM_MENU = "\n=====> LIBRARY_MENU\n"
 			+ "1. Print all Books\n"
 			+ "2. Print all Available Books\n"
-			+ "3. Search Book\n"
+			+ "3. Books\n"
 			+ "4. Users";
 	static final String BOOK_MENU = "\n=====> LIBRARY_MENU / BOOK_MENU\n"
 			+ "1. Search by book title\n"
 			+ "2. Search by author name\n"
-			+ "3. Add a New Book\n";
+			+ "3. Add a New Book";
 	static final String USER_MENU = "\n=====> LIBRARY_MENU / USER_MENU \n"
 			+ "1. Search by name\n"
 			+ "2. Search by ID\n"
@@ -18,6 +18,8 @@ public class Reception {
 			+ "4. Unregister User";
 	private static final String PROMPT_USER = "> ";
 	private static final String PROMPT_USER_FOR_BOOK_TITLE = "Give a Book Title\n> ";
+	private static final String PROMPT_USER_FOR_BOOK_ISBN = "Give Book ISBN\n> ";
+	private static final String PROMPT_USER_FOR_PHYSICAL_COPIES = "Give number of Physical Copies\n> ";
 	private static final String PROMPT_USER_FOR_AUTHOR_NAME = "Give an Author Name\n> ";
 	private static final String PROMPT_USER_FOR_USER_NAME = "Give a User Name\n> ";
 	private static final String PROMPT_USER_FOR_USER_ID = "Give a User ID\n> ";
@@ -71,7 +73,7 @@ public class Reception {
             		System.out.print(PROMPT_USER);
             		userInput = scanner.nextLine();
             	} while (!isBookMenuOption(userInput));
-            	executeSearchBookOption(Integer.parseInt(userInput));
+            	executeBookMenuOption(Integer.parseInt(userInput));
             	break;
             // Operate on Users.
             case 4:
@@ -88,7 +90,7 @@ public class Reception {
     /**
      * Executes the selected option of Search Book Menu.
      */
-    private static void executeSearchBookOption(int option) {
+    private static void executeBookMenuOption(int option) {
         switch (option) {
         	// Search by book title.
             case 1:
@@ -102,13 +104,24 @@ public class Reception {
                 break;
             // Add a new Book.
             case 3:
-            	System.out.println(PROMPT_USER_FOR_BOOK_TITLE);
-            	admin.addNewBookToLibrary(scanner.nextLine(), 
-            							  admin.getAuthor(scanner.nextLine()),
-            							  scanner.nextLine(), 
-            							  Integer.parseInt(scanner.nextLine()), 
-            							  Integer.parseInt(scanner.nextLine()), 
-            							  Integer.parseInt(scanner.nextLine()));
+            	String bookTitle, authorName, isbn, physicalCopies;
+            	do {
+            		System.out.println(PROMPT_USER_FOR_BOOK_TITLE);
+            		bookTitle = scanner.nextLine();
+            		System.out.println(PROMPT_USER_FOR_AUTHOR_NAME);
+            		authorName = scanner.nextLine();
+            		System.out.println(PROMPT_USER_FOR_BOOK_ISBN);
+            		isbn = scanner.nextLine();
+            		System.out.println(PROMPT_USER_FOR_PHYSICAL_COPIES);
+            		physicalCopies = scanner.nextLine();
+            	} while (! (isAlphabetical(authorName) && isAlphabetical(authorName) && isISBN(isbn) && isNumeric(physicalCopies)));
+            	admin.addNewBookToLibrary(bookTitle, 
+            							  admin.getAuthor(authorName),
+            							  isbn, 
+            							  Integer.parseInt(physicalCopies),
+            							  Integer.parseInt(physicalCopies),
+            							  0);
+            	break;
             // Go to previous menu.
             case 0:
             	userInput = "";
@@ -206,5 +219,13 @@ public class Reception {
      */
     private static boolean isAlphabetical(String input) {
         return input.matches("[a-zA-z -]+");
+    }
+    
+    /**
+     * Checks if string input is a valid ISBN.
+     * Returns true if it is, else returns false.
+     */
+    private static boolean isISBN(String input) {
+    	return input.matches("[0-9,-]+");
     }
 }

@@ -10,6 +10,16 @@ public class Book {
 	private Book next;
 
 	/** Constructor */
+	Book(String title, Author author, String isbn, int physical_copies) {
+		super();
+		this.title = title;
+		this.author = author;
+		this.isbn = isbn;
+		this.physical_copies = physical_copies;
+		this.available_copies = physical_copies;
+		this.next = null;
+	}
+
 	Book(String title, Author author, String isbn, int physical_copies, int available_copies, int times_rented) {
 		super();
 		this.title = title;
@@ -20,7 +30,7 @@ public class Book {
 		this.times_rented = times_rented;
 		this.next = null;
 	}
-
+	
 	/** Getters and Setters */
 	public void setNext(Book book) {
 		this.next = book;
