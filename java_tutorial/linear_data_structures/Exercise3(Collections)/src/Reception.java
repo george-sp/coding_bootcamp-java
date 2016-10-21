@@ -7,10 +7,11 @@ public class Reception {
 			+ "2. Print all Available Books\n"
 			+ "3. Search Book\n"
 			+ "4. Users";
-	static final String SEARCH_BOOK_MENU = "\n=====> LIBRARY_MENU / SEARCH_BOOK_MENU\n"
+	static final String BOOK_MENU = "\n=====> LIBRARY_MENU / BOOK_MENU\n"
 			+ "1. Search by book title\n"
-			+ "2. Search by author name";
-	static final String SEARCH_USER_MENU = "\n=====> LIBRARY_MENU / USER_MENU \n"
+			+ "2. Search by author name\n"
+			+ "3. Add a New Book\n";
+	static final String USER_MENU = "\n=====> LIBRARY_MENU / USER_MENU \n"
 			+ "1. Search by name\n"
 			+ "2. Search by ID\n"
 			+ "3. Register User\n"
@@ -66,19 +67,19 @@ public class Reception {
             // Search Book.
             case 3:
             	do {
-            		System.out.println(SEARCH_BOOK_MENU);
+            		System.out.println(BOOK_MENU);
             		System.out.print(PROMPT_USER);
             		userInput = scanner.nextLine();
-            	} while (!isSearchBookOption(userInput));
+            	} while (!isBookMenuOption(userInput));
             	executeSearchBookOption(Integer.parseInt(userInput));
             	break;
             // Operate on Users.
             case 4:
             	do {
-            		System.out.println(SEARCH_USER_MENU);
+            		System.out.println(USER_MENU);
             		System.out.print(PROMPT_USER);
             		userInput = scanner.nextLine();
-            	} while (!isSearchUserOption(userInput));
+            	} while (!isUserMenuOption(userInput));
             	executeUserMenuOption(Integer.parseInt(userInput));
             	break;
         }
@@ -99,6 +100,15 @@ public class Reception {
         		System.out.println(PROMPT_USER_FOR_AUTHOR_NAME);
                 admin.findMeBooksFromAuthor(scanner.nextLine());
                 break;
+            // Add a new Book.
+            case 3:
+            	System.out.println(PROMPT_USER_FOR_BOOK_TITLE);
+            	admin.addNewBookToLibrary(scanner.nextLine(), 
+            							  admin.getAuthor(scanner.nextLine()),
+            							  scanner.nextLine(), 
+            							  Integer.parseInt(scanner.nextLine()), 
+            							  Integer.parseInt(scanner.nextLine()), 
+            							  Integer.parseInt(scanner.nextLine()));
             // Go to previous menu.
             case 0:
             	userInput = "";
@@ -162,15 +172,15 @@ public class Reception {
      * Checks if string input is an option value [0,2] - Search Book Available Options.
      * Returns true if it is, otherwise false.
      */
-    private static boolean isSearchBookOption(String input) {
-        return input.matches("[0-2]+");
+    private static boolean isBookMenuOption(String input) {
+        return input.matches("[0-3]+");
     }
     
     /**
      * Checks if string input is an option value [0,4] - Search User Available Options.
      * Returns true if it is, otherwise false.
      */
-    private static boolean isSearchUserOption(String input) {
+    private static boolean isUserMenuOption(String input) {
         return input.matches("[0-4]+");
     }
     
