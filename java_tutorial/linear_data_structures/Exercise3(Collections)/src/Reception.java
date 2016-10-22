@@ -242,7 +242,6 @@ public class Reception {
                 	userID = scanner.nextLine();
             	} while (!isNumeric(userID));
             	admin.rentBook(bookTitle, Integer.parseInt(userID));
-            	System.out.println(OPERATION_EXECUTED);
             	break;
              // Return a Book. 
             case 2:
@@ -253,7 +252,6 @@ public class Reception {
                 	userID = scanner.nextLine();
             	} while (!isNumeric(userID));
             	admin.returnBook(bookTitle, Integer.parseInt(userID));
-            	System.out.println(OPERATION_EXECUTED);
             	break;
             // Print the Transactions Queue.
             case 3:

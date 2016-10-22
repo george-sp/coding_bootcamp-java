@@ -168,7 +168,11 @@ public class Library {
 				book.rentPhysicalCopy();
 				Transaction bookRentalTransaction = new BookRental(book, new Date(), null, user.getUserID());
 				this.transactionQueue.insertTransaction(bookRentalTransaction);
+			} else {
+				System.out.println("The book is not available!");
 			}
+		} else {
+			System.out.println("Error");
 		}
 	}
 
@@ -176,9 +180,14 @@ public class Library {
 		Book book = this.getBook(title);
 		User user = this.getUserByID(userID);
 		if (book != null && user != null) {
-			book.returnPhysicalCopy();
-			Transaction bookReturnTransaction = new BookReturn(book, new Date(), null, user.getUserID());
-			this.transactionQueue.insertTransaction(bookReturnTransaction);
+			if (book.returnPhysicalCopy()) {
+				Transaction bookReturnTransaction = new BookReturn(book, new Date(), null, user.getUserID());
+				this.transactionQueue.insertTransaction(bookReturnTransaction);
+			} else {
+				System.out.println("Is this one of our book?");
+			}
+		} else {
+			System.out.println("Error");
 		}
 	}
 
