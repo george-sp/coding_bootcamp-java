@@ -160,8 +160,8 @@ public class Library {
 		Book book = this.getBook(title);
 		User user = this.getUserByID(userID);
 		if (book != null && user != null) {
-			System.out.println("rent: " + book.toString() + user.toString());
 			if (book.rentPhysicalCopy()) {
+				book.rentPhysicalCopy();
 				Transaction bookRentalTransaction = new BookRental(book, new Date(), null, user.getUserID());
 				this.transactionQueue.insertTransaction(bookRentalTransaction);
 			}
@@ -183,6 +183,9 @@ public class Library {
 	}
 
 	public void executePendingTransactions() {
+		if (this.transactionQueue.isEmpty()) {
+			System.out.println("No Pending Transactions.");
+		}
 		while (!this.transactionQueue.isEmpty()) {
 			Transaction firstTransaction = this.transactionQueue.getFirstInQueue();
 			firstTransaction.setServedDate(new Date());

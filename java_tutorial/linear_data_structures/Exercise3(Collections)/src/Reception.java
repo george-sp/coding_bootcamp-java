@@ -6,7 +6,8 @@ public class Reception {
 			+ "1. Print all Books\n"
 			+ "2. Print all Available Books\n"
 			+ "3. Books\n"
-			+ "4. Users";
+			+ "4. Users\n"
+			+ "5. Transactions";
 	static final String BOOK_MENU = "\n=====> LIBRARY_MENU / BOOK_MENU\n"
 			+ "1. Search by book title\n"
 			+ "2. Search by author name\n"
@@ -16,6 +17,12 @@ public class Reception {
 			+ "2. Search by ID\n"
 			+ "3. Register User\n"
 			+ "4. Unregister User";
+	static final String TRANSACTION_MENU = "\n=====> LIBRARY_MENU / TRANSACTION_MENU \n"
+			+ "1. Rent a Book\n"
+			+ "2. Return a Book\n"
+			+ "3. Print Transactions Queue\n"
+			+ "4. Print Transactions History\n"
+			+ "5. Execute Pending Transactions";
 	private static final String PROMPT_USER = "> ";
 	private static final String PROMPT_USER_FOR_BOOK_TITLE = "Give a Book Title\n> ";
 	private static final String PROMPT_USER_FOR_BOOK_ISBN = "Give Book ISBN\n> ";
@@ -25,7 +32,7 @@ public class Reception {
 	private static final String PROMPT_USER_FOR_USER_ID = "Give a User ID\n> ";
 	private static final String PROMPT_USER_FOR_NEW_USER = "REGISTER: Enter User Name:\n> ";
 	
-	private static final String OPERATION_CONFIRMED = "Operation Confirmed";
+	private static final String OPERATION_EXECUTED = "Operation Executed";
 	
 	private static Scanner scanner;
 	private static String userInput;
@@ -83,6 +90,15 @@ public class Reception {
             		userInput = scanner.nextLine();
             	} while (!isUserMenuOption(userInput));
             	executeUserMenuOption(Integer.parseInt(userInput));
+            	break;
+            // Operate on Transactions.
+            case 5:
+            	do {
+            		System.out.println(TRANSACTION_MENU);
+            		System.out.print(PROMPT_USER);
+            		userInput = scanner.nextLine();
+            	} while (!isTransactionMenuOption(userInput));
+            	executeTransactionMenuOption(Integer.parseInt(userInput));
             	break;
         }
     }
@@ -155,7 +171,7 @@ public class Reception {
             		input = scanner.nextLine();
             	} while (!isAlphabetical(input));
                 admin.registerUser(input);
-                System.out.println(OPERATION_CONFIRMED);
+                System.out.println(OPERATION_EXECUTED);
                 break;
             // Unregister User.
             case 4:
@@ -164,7 +180,7 @@ public class Reception {
             		input = scanner.nextLine();
             	} while (!isNumeric(input));
                 admin.unregisterUser(Integer.parseInt(input));
-                System.out.println(OPERATION_CONFIRMED);
+                System.out.println(OPERATION_EXECUTED);
                 break;
             // Go to previous menu.
             case 0:
@@ -173,58 +189,81 @@ public class Reception {
         }
     }
     
-	/**
-     * Checks if string input is an option value [0,3].
-     * Returns true if it is, otherwise false.
+    /**
+     * Executes the selected option of Transaction Menu.
      */
-    private static boolean isMainMenuOption(String input) {
-        return input.matches("[0-4]+");
+    private static void executeTransactionMenuOption(int option) {
+    	String bookTitle, userID;
+        switch (option) {
+        	// Rent a Book.																																																																																																																																																																																																											
+            case 1:
+            	do {
+            		System.out.println(PROMPT_USER_FOR_BOOK_TITLE);
+                	bookTitle = scanner.nextLine();
+                	System.out.println(PROMPT_USER_FOR_USER_ID);
+                	userID = scanner.nextLine();
+            	} while (!isNumeric(userID));
+            	admin.rentBook(bookTitle, Integer.parseInt(userID));
+            	System.out.println(OPERATION_EXECUTED);
+            	break;
+             // Return a Book. 
+            case 2:
+            	do {
+            		System.out.println(PROMPT_USER_FOR_BOOK_TITLE);
+                	bookTitle = scanner.nextLine();
+                	System.out.println(PROMPT_USER_FOR_USER_ID);
+                	userID = scanner.nextLine();
+            	} while (!isNumeric(userID));
+            	admin.returnBook(bookTitle, Integer.parseInt(userID));
+            	System.out.println(OPERATION_EXECUTED);
+            	break;
+            // Print the Transactions Queue.
+            case 3:
+            	admin.printPendingTransactions();
+                break;
+            // Print the Transactions History.
+            case 4:
+            	admin.printTransactionsHistory();
+            	break;
+            // Execute the next Transaction.
+            case 5:
+            	admin.executePendingTransactions();
+            	break;
+            // Go to previous menu.
+            case 0:
+            	userInput = "";
+            	break;
+        }
     }
     
-    /**
-     * Checks if string input is an option value [0,2] - Search Book Available Options.
-     * Returns true if it is, otherwise false.
-     */
+    private static boolean isMainMenuOption(String input) {
+        return input.matches("[0-5]+");
+    }
+    
     private static boolean isBookMenuOption(String input) {
         return input.matches("[0-3]+");
     }
     
-    /**
-     * Checks if string input is an option value [0,4] - Search User Available Options.
-     * Returns true if it is, otherwise false.
-     */
     private static boolean isUserMenuOption(String input) {
         return input.matches("[0-4]+");
     }
     
-    /**
-     * Checks if the user input is the exit character "0".
-     * If it is return true, else false.
-     */
+    private static boolean isTransactionMenuOption(String input) {
+        return input.matches("[0-5]+");
+    }
+    
     private static boolean isExitChar(String input) {
         return input.equals("0");
     }
     
-    /**
-     * Checks if string input is a numeric value.
-     * Returns true if it is, else returns false.
-     */
     private static boolean isNumeric(String input) {
     	return input.matches("\\d+");
     }
     
-    /**
-     * Checks if string input is an alphabetical value.
-     * Returns true if it is an alphabetical value, else returns false.
-     */
     private static boolean isAlphabetical(String input) {
         return input.matches("[a-zA-z -]+");
     }
     
-    /**
-     * Checks if string input is a valid ISBN.
-     * Returns true if it is, else returns false.
-     */
     private static boolean isISBN(String input) {
     	return input.matches("[0-9,-]+");
     }
