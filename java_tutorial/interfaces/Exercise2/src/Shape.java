@@ -16,4 +16,8 @@ public class Shape implements Agreeable{
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	public int calcArea() {
+		return width * height;
+	}
 }
