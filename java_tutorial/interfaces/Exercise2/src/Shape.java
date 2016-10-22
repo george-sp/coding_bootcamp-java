@@ -13,8 +13,7 @@ public class Shape implements Agreeable{
 	
 	@Override
 	public boolean isSmallerThan(Agreeable other) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.calcArea() < ((Shape)other).calcArea();
 	}
 	
 	public int calcArea() {
