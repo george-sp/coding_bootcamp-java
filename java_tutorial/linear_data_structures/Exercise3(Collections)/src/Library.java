@@ -203,7 +203,7 @@ public class Library {
 			Transaction firstTransaction = this.transactionQueue.getFirstInQueue();
 			firstTransaction.setServedDate(new Date());
 			this.transactionHistory.addTransactionToHistory(firstTransaction);
-			this.transactionQueue.removeTransaction();
+			this.transactionQueue.dequeueTransaction();
 		}
 	}
 	

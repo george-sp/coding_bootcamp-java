@@ -34,7 +34,7 @@ public class TransactionQueue {
 		this.transactions.add(transaction);
 	}
 	
-	public void removeTransaction() {
+	public void dequeueTransaction() {
 		this.transactions.remove(0);
 	}
 	
