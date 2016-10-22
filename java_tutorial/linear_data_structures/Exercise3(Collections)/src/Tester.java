@@ -1,4 +1,3 @@
-import java.util.Date;
 
 public class Tester {
 
@@ -96,7 +95,8 @@ public class Tester {
 		users.addUser(user3);
 		users.removeUser(user3);
 		users.addUser(user4);
-
+		users.addUser(user5);
+		
 		library.setUserList(users);
 
 		the_guy.findMeUsersByName(the_guy.getUsers("George"));
