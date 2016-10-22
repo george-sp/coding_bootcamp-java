@@ -102,12 +102,12 @@ public class Tester {
 		the_guy.findMeUsersByName(the_guy.getUsers("George"));
 		the_guy.findMeUsersByName(the_guy.getUsers("Johny"));
 
-		the_guy.rentBook("Book23", "George");
+		the_guy.rentBook("Book23", 1);
 		System.out.println("Book4 available copies: " + book4.getAvailableCopies());
-		the_guy.rentBook("Book4", "George");
+		the_guy.rentBook("Book4", 1);
 		System.out.println("Book4 available copies: " + book4.getAvailableCopies());
-		the_guy.rentBook("Book14", "George-Jason");
-		the_guy.returnBook("Book4", "George");
+		the_guy.rentBook("Book14", 3);
+		the_guy.returnBook("Book4", 1);
 		System.out.println("Book4 available copies: " + book4.getAvailableCopies());
 		the_guy.printTransactionsHistory();
 		the_guy.printPendingTransactions();

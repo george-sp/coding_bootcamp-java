@@ -138,6 +138,10 @@ public class Library {
 	public ArrayList<User> getUsers(String name) {
 		return users.findUser(name);
 	}
+	
+	public User getUserByID(int userID) {
+		return users.findUserByID(userID);
+	}
 
 	public void addNewBook(String title, Author author, String isbn, int physical_copies, int available_copies,
 			int times_rented) {
@@ -152,9 +156,9 @@ public class Library {
 		users.removeUser(users.findUserByID(userID));
 	}
 	
-	public void rentBook(String title, String userName) {
+	public void rentBook(String title, int userID) {
 		Book book = this.getBook(title);
-		User user = this.getUser(userName);
+		User user = this.getUserByID(userID);
 		if (book != null && user != null) {
 			System.out.println("rent: " + book.toString() + user.toString());
 			if (book.rentPhysicalCopy()) {
@@ -164,9 +168,9 @@ public class Library {
 		}
 	}
 
-	public void returnBook(String title, String userName) {
+	public void returnBook(String title, int userID) {
 		Book book = this.getBook(title);
-		User user = this.getUser(userName);
+		User user = this.getUserByID(userID);
 		if (book != null && user != null) {
 			book.returnPhysicalCopy();
 			Transaction bookReturnTransaction = new BookReturn(book, new Date(), null, user.getUserID());

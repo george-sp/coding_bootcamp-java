@@ -61,12 +61,12 @@ public class Librarian {
 		this.lib.unregisterUser(userID);
 	}
 	
-	public void rentBook(String title, String user) {
-		this.lib.rentBook(title, user);
+	public void rentBook(String title, int userID) {
+		this.lib.rentBook(title, userID);
 	}
 	
-	public void returnBook(String title, String user) {
-		this.lib.returnBook(title, user);
+	public void returnBook(String title, int userID) {
+		this.lib.returnBook(title, userID);
 	}
 	
 	public void printPendingTransactions() {
