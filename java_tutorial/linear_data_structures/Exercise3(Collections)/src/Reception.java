@@ -7,7 +7,8 @@ public class Reception {
 			+ "2. Print all Available Books\n"
 			+ "3. Books\n"
 			+ "4. Users\n"
-			+ "5. Transactions";
+			+ "5. Authors\n"
+			+ "6. Transactions";
 	static final String BOOK_MENU = "\n=====> LIBRARY_MENU / BOOK_MENU\n"
 			+ "1. Search by book title\n"
 			+ "2. Search by author name\n"
@@ -17,6 +18,9 @@ public class Reception {
 			+ "2. Search by ID\n"
 			+ "3. Register User\n"
 			+ "4. Unregister User";
+	static final String AUTHOR_MENU = "\n=====> LIBRARY_MENU / AUTHOR_MENU \n"
+			+ "1. Search by name\n"
+			+ "2. Add a New Author\n";
 	static final String TRANSACTION_MENU = "\n=====> LIBRARY_MENU / TRANSACTION_MENU \n"
 			+ "1. Rent a Book\n"
 			+ "2. Return a Book\n"
@@ -91,8 +95,17 @@ public class Reception {
             	} while (!isUserMenuOption(userInput));
             	executeUserMenuOption(Integer.parseInt(userInput));
             	break;
-            // Operate on Transactions.
+            // Operate on Authors.
             case 5:
+            	do {
+            		System.out.println(AUTHOR_MENU);
+            		System.out.println(PROMPT_USER);
+            		userInput = scanner.nextLine();
+            	} while (!isAuthorMenuOption(userInput));
+            	executeAuthorMenuOption(Integer.parseInt(userInput));
+            	break;
+            // Operate on Transactions.
+            case 6:
             	do {
             		System.out.println(TRANSACTION_MENU);
             		System.out.print(PROMPT_USER);
@@ -190,6 +203,31 @@ public class Reception {
     }
     
     /**
+     * Executes the selected option of User Menu.
+     */
+    private static void executeAuthorMenuOption(int option) {
+    	String input;
+        switch (option) {
+        	// Search by name.																																																																																																																																																																																																											
+            case 1:
+        		System.out.println(PROMPT_USER_FOR_AUTHOR_NAME);
+            	admin.findMeAuthor(admin.getAuthor(scanner.nextLine()));
+                break;
+            // Add an Author. 
+            case 2:
+            	do {
+            		System.out.println(PROMPT_USER_FOR_AUTHOR_NAME);
+                    input = scanner.nextLine();
+            	} while (!isAlphabetical(input));
+            	admin.addNewAuthor(input);
+                break;
+            case 0:
+            	userInput = "";
+            	break;
+        }
+    }
+    
+    /**
      * Executes the selected option of Transaction Menu.
      */
     private static void executeTransactionMenuOption(int option) {
@@ -237,7 +275,7 @@ public class Reception {
     }
     
     private static boolean isMainMenuOption(String input) {
-        return input.matches("[0-5]+");
+        return input.matches("[0-6]+");
     }
     
     private static boolean isBookMenuOption(String input) {
@@ -246,6 +284,10 @@ public class Reception {
     
     private static boolean isUserMenuOption(String input) {
         return input.matches("[0-4]+");
+    }
+    
+    private static boolean isAuthorMenuOption(String input) {
+        return input.matches("[0-2]+");
     }
     
     private static boolean isTransactionMenuOption(String input) {

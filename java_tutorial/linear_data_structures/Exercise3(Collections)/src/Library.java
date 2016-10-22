@@ -148,6 +148,10 @@ public class Library {
 		books.addBook(new Book(title, author, isbn, physical_copies, available_copies, times_rented));
 	}
 
+	public void addNewAuthor(String name) {
+		authors.addAuthor(new Author(name));
+	}
+	
 	public void registerUser(String name) {
 		users.addUser(new User(name));
 	}
