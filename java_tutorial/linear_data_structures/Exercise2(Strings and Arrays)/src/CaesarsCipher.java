@@ -41,6 +41,13 @@ public class CaesarsCipher {
 				} else {
 					cipher += newChar;
 				}
+			} else if (Character.isLowerCase(message.charAt(i))) {
+				char newChar = (char) (message.charAt(i) + numberOfShifts);
+				if (newChar > 'z') {
+					cipher += (char) (message.charAt(i) - (26 - numberOfShifts));
+				} else {
+					cipher += newChar;
+				}
 			} else {
 				cipher += message.charAt(i);
 			}
@@ -66,6 +73,13 @@ public class CaesarsCipher {
 				// ASCII
 				// is bigger than the last character of the alphabet.
 				if (newChar < 'A') {
+					message += (char) (cipher.charAt(i) - (numberOfShifts - 26));
+				} else {
+					message += newChar;
+				}
+			} else if (Character.isLowerCase(cipher.charAt(i))) {
+				char newChar = (char) (cipher.charAt(i) - numberOfShifts);
+				if (newChar < 'a') {
 					message += (char) (cipher.charAt(i) - (numberOfShifts - 26));
 				} else {
 					message += newChar;
