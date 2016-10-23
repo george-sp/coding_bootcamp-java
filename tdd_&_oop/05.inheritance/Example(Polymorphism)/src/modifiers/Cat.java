@@ -18,11 +18,6 @@ class Cat extends Animal {
 		return independance;
 	}
 
-	@Override
-	public String toString() {
-		return super.toString() + " also Cat [independance=" + independance + "]";
-	}
-
 	public void setIndependance(String independance) {
 		this.independance = independance;
 	}
@@ -36,5 +31,10 @@ class Cat extends Animal {
 	public void move() {
 		super.move();
 		System.out.print(" and purring\n");
+	}
+	
+	@Override
+	public String toString() {
+		return super.toString() + " also Cat [independance=" + independance + "]";
 	}
 }
