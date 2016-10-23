@@ -18,32 +18,38 @@ public class TestingBootCamp {
 		
 		//Adding all member in a BootCampCandidate array
 		BootCampCandidates[] bootCampMembers = {member1, member2, member3, member4, member5, member6, member7, member8, member9, member10};
-		for (BootCampCandidates b : bootCampMembers) {
-			System.out.println(b.toString());
-		}	
+		
 		//Create a BootCampAdministration object and pass the array of bootCampMembers as an argument
-
+		BootCampAdministration admin = new BootCampAdministration(bootCampMembers);
 		
 		//Print all BootCamp member's information
-
-		
+		for (int i = 0, n = admin.getSizeOfAnArrayListOfBootCamps(); i < n; i++) {
+			System.out.println(admin.getAnArrayListOfBootCamps().get(i).toString());
+		}
 		
 		//Add yourself as a Bootcamp candidate name, surname, and age
-
+		admin.addNewBootCampCandidate(new BootCampCandidates("George", "Spyridakis", 25));
 		
 		//Remove from the list member Marios if exist print message "success" if not "failed to find"
-		
-		//Remove from list member Vlad and Marianna
+		if (!admin.removeBootCampCandidateByName("Marios"))
+			System.out.println("Failed to find!");
 
+		//Remove from list member Vlad and Marianna
+		if (!admin.removeBootCampCandidateByName("Vlad"))
+			System.out.println("Failed to find!");
+		if (!admin.removeBootCampCandidateByName("Marianna"))
+			System.out.println("Failed to find!");
 		
 		//Show information for member with surname "Louis"
-		
+		System.out.println(admin.getBootCampCandidateBySurname("Louis"));
 		
 		//Change age for member with name "Fisayo" and surname "Caleb" to age of 28
-		
+		admin.setAgeOfBootCampCandidate("Fisayo", "Caleb", 28);
 		
 		//Print all members again
-
+		for (int i = 0, n = admin.getSizeOfAnArrayListOfBootCamps(); i < n; i++) {
+			System.out.println(admin.getAnArrayListOfBootCamps().get(i).toString());
+		}
 	}
 
 }
