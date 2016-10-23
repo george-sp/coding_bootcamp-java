@@ -18,7 +18,9 @@ public class TestingBootCamp {
 		
 		//Adding all member in a BootCampCandidate array
 		BootCampCandidates[] bootCampMembers = {member1, member2, member3, member4, member5, member6, member7, member8, member9, member10};
-	
+		for (BootCampCandidates b : bootCampMembers) {
+			System.out.println(b.toString());
+		}	
 		//Create a BootCampAdministration object and pass the array of bootCampMembers as an argument
 
 		
