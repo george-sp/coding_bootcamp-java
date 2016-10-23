@@ -2,6 +2,10 @@
 public class CaesarsCipher {
 
 	private static final int ALPHABET_SIZE = 26;
+	private static final int LOWER_START = 97;
+	private static final int LOWER_END = 122;
+	private static final int UPPER_START = 65;
+	private static final int UPPER_END = 90;
 	private int numberOfShifts;
 
 	public CaesarsCipher() {
@@ -24,35 +28,20 @@ public class CaesarsCipher {
 	 * a character that occurs shift places later on the alphabet
 	 */
 	public String cipher(String message) {
-		// Initialize an empty cipher message.
-		String cipher = "";
-		// Get the length of the message.
-		int messageLength = message.length();
-		// Iterate through the given phrase.
-		for (int i = 0; i < messageLength; i++) {
-			if (Character.isUpperCase(message.charAt(i))) {
-				// Find the new character.
-				char newChar = (char) (message.charAt(i) + numberOfShifts);
-				// Check if the numerical representation of the new character in
-				// ASCII
-				// is bigger than the last character of the alphabet.
-				if (newChar > 'Z') {
-					cipher += (char) (message.charAt(i) - (26 - numberOfShifts));
-				} else {
-					cipher += newChar;
+		StringBuilder cipherBuilder = new StringBuilder(message);
+		for (int i = 0, n = message.length(); i < n; i++) {
+			char currentChar = message.charAt(i);
+			// Check if the character is an alphabetic.
+			if (Character.isLetter(currentChar)) {
+				// Check if character is an uppercase or lowercase letter.
+				if (Character.isLowerCase(currentChar)) {
+					cipherBuilder.setCharAt(i, (char) (LOWER_START + (currentChar + this.numberOfShifts - LOWER_START) % ALPHABET_SIZE));
+				} else if (Character.isUpperCase(currentChar)) {
+					cipherBuilder.setCharAt(i, (char) (UPPER_START + (currentChar + this.numberOfShifts - UPPER_START) % ALPHABET_SIZE));
 				}
-			} else if (Character.isLowerCase(message.charAt(i))) {
-				char newChar = (char) (message.charAt(i) + numberOfShifts);
-				if (newChar > 'z') {
-					cipher += (char) (message.charAt(i) - (26 - numberOfShifts));
-				} else {
-					cipher += newChar;
-				}
-			} else {
-				cipher += message.charAt(i);
 			}
 		}
-		return cipher;
+		return cipherBuilder.toString();
 	}
 
 	/**
@@ -60,34 +49,19 @@ public class CaesarsCipher {
 	 * message with a character that occurs shift places earlier on the alphabet
 	 */
 	public String decipher(String cipher) {
-		// Initialize an empty cipher message.
-		String message = "";
-		// Get the length of the message.
-		int cipherLength = cipher.length();
-		// Iterate through the given phrase.
-		for (int i = 0; i < cipherLength; i++) {
-			if (Character.isUpperCase(cipher.charAt(i))) {
-				// Find the new character.
-				char newChar = (char) (cipher.charAt(i) - numberOfShifts);
-				// Check if the numerical representation of the new character in
-				// ASCII
-				// is bigger than the last character of the alphabet.
-				if (newChar < 'A') {
-					message += (char) (cipher.charAt(i) - (numberOfShifts - 26));
-				} else {
-					message += newChar;
+		StringBuilder messageBuilder = new StringBuilder(cipher);
+		for (int i = 0, n = cipher.length(); i < n; i++) {
+			char currentChar = cipher.charAt(i);
+			// Check if the character is an alphabetic.
+			if (Character.isLetter(currentChar)) {
+				// Check if character is an uppercase or lowercase letter.
+				if (Character.isLowerCase(currentChar)) {
+					messageBuilder.setCharAt(i, (char) (LOWER_END - (LOWER_END - currentChar + this.numberOfShifts) % ALPHABET_SIZE));
+				} else if (Character.isUpperCase(currentChar)) {
+					messageBuilder.setCharAt(i, (char) (UPPER_END - (UPPER_END - currentChar + this.numberOfShifts) % ALPHABET_SIZE));
 				}
-			} else if (Character.isLowerCase(cipher.charAt(i))) {
-				char newChar = (char) (cipher.charAt(i) - numberOfShifts);
-				if (newChar < 'a') {
-					message += (char) (cipher.charAt(i) - (numberOfShifts - 26));
-				} else {
-					message += newChar;
-				}
-			} else {
-				message += cipher.charAt(i);
 			}
 		}
-		return message;
+		return messageBuilder.toString();		
 	}
 }
