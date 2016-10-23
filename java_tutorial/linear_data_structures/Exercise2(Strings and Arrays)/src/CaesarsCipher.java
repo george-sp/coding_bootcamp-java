@@ -65,7 +65,7 @@ public class CaesarsCipher {
 				// Check if the numerical representation of the new character in
 				// ASCII
 				// is bigger than the last character of the alphabet.
-				if (newChar > 'Z') {
+				if (newChar < 'A') {
 					message += (char) (cipher.charAt(i) - (numberOfShifts - 26));
 				} else {
 					message += newChar;
