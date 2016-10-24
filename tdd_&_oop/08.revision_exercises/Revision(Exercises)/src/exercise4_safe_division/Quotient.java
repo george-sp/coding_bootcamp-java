@@ -26,6 +26,7 @@ public class Quotient {
 			}
 			scanner.nextLine();
 		} while (!success);
+		scanner.close();
 	}
 
 	public static int calcQuotient(int numerator, int denominator) throws ArithmeticException {
