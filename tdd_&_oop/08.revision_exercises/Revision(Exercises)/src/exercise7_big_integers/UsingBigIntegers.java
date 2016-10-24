@@ -17,16 +17,16 @@ public class UsingBigIntegers {
 	    //Check if your results are equal to productResults and sumResult
 	    BigInteger productResult = new BigInteger("975461059740893157555403139789971041000000000000000000");
 	    BigInteger sumResult = new BigInteger("1975308643975308642000000000");
+	    System.out.println(productResult + "\n" + product);
+	    System.out.println(sumResult + "\n" + sum);
 	}
 	
 	public BigInteger sumBigIntegers(BigInteger b1, BigInteger b2) {
-		 
-		// Add you code here
+		return b1.add(b2);
 	}
 	
 	public BigInteger mutliplyBigIntegers(BigInteger b1, BigInteger b2) {
-		
-		// Add your code here
+		return b1.multiply(b2);
 	}
 
 }
