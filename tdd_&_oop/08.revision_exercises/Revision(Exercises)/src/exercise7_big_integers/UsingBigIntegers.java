@@ -10,8 +10,8 @@ public class UsingBigIntegers {
 		BigInteger b1 = new BigInteger("987654321987654321000000000");
 		BigInteger b2 = new BigInteger("987654321987654321000000000");
 
-	    BigInteger product = b1.multiply(b2);
-	    BigInteger sum = b1.add(b2);
+	    BigInteger product = multiplyBigIntegers(b1, b2);
+	    BigInteger sum = sumBigIntegers(b1, b2);
 
 
 	    //Check if your results are equal to productResults and sumResult
@@ -21,11 +21,11 @@ public class UsingBigIntegers {
 	    System.out.println(sumResult + "\n" + sum);
 	}
 	
-	public BigInteger sumBigIntegers(BigInteger b1, BigInteger b2) {
+	public static BigInteger sumBigIntegers(BigInteger b1, BigInteger b2) {
 		return b1.add(b2);
 	}
 	
-	public BigInteger mutliplyBigIntegers(BigInteger b1, BigInteger b2) {
+	public static BigInteger multiplyBigIntegers(BigInteger b1, BigInteger b2) {
 		return b1.multiply(b2);
 	}
 
