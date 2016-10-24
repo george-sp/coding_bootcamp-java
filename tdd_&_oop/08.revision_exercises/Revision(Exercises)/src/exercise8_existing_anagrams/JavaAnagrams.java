@@ -1,36 +1,24 @@
 package exercise8_existing_anagrams;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 
 public class JavaAnagrams {
 
 	public static void main(String[] args) {
-
-		// This part of code will test your execution (Don't touch this part of
-		// code)
-		// Test Case 1
-		System.out.println("Input Testing: anargram and margana");
-		System.out.println("Expercted output: Anagrams");
-		if (isAnagram("anagram", "margana"))
-			System.out.println("Your output: Anagrams");
-		else
-			System.out.println("Your output: Not Anagrams");
-
-		// Test Case 2
-		System.out.println("\nInput Testing: anagramm and marganaa");
-		System.out.println("Expercted output: Not Anagrams");
-		if (isAnagram("anagramm", "marganaa"))
-			System.out.println("Your output: Anagrams");
-		else
-			System.out.println("Your output: Not Anagrams");
-
-		// Test Case 3
-		System.out.println("\nInput Testing: Hello and hello");
-		System.out.println("Expercted output: Anagrams");
-		if (isAnagram("Hello", "hello"))
-			System.out.println("Your output: Anagrams");
-		else
-			System.out.println("Your output: Not Anagrams");
+		Charset charset = Charset.forName("US-ASCII");
+		try (BufferedReader reader = Files.newBufferedReader(Paths.get("./src/exercise8_existing_anagrams/dictionary.txt"), charset)) {
+		    String line = null;
+		    while ((line = reader.readLine()) != null) {
+		        System.out.println(line);
+		    }
+		} catch (IOException x) {
+		    System.err.format("IOException: %s%n", x);
+		}
 	}
 
 	public static boolean isAnagram(String a, String b) {
