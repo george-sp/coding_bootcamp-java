@@ -15,9 +15,12 @@ public class TesterRectangle {
 		System.out.println("r3.isSquare() " + r3.isSquare());
 		System.out.println("r4.isSquare() " + r4.isSquare());
 		Rectangle r5 = r4.copy();
-//		r5.setSideA(5);
+		r5.setSideA(5);
 		System.out.println(r4.toString());
 		System.out.println(r5.toString());
-		System.out.println(r3.draw());
+		System.out.println(r3.getSideA() + ", " + r3.getSideB() + ": \n" + r3.draw());
+		System.out.println(r1.getSideA() + ", " + r1.getSideB() + ": \n" + r1.draw());
+		System.out.println(r2.getSideA() + ", " + r2.getSideB() + ": \n" + r2.draw());
+		System.out.println(r4.getSideA() + ", " + r4.getSideB() + ": \n" + r4.draw());
 	}
 }

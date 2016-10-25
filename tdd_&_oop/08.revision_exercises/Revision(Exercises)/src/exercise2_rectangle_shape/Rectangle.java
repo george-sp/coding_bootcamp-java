@@ -42,28 +42,30 @@ public class Rectangle {
 	}
 
 	public String draw() {
-		String str = "";
-		for (int i = 0; i <= this.sideA; i++) {
-			if (i == 0 || i == sideA) {
-				for (int j = 0; j < this.sideB; j++) {
-					str += "-";
-				}
-				str += "\n";
-			}
-			if (i < this.sideA) {
-				for (int j = 0; j < this.sideB; j++) {
-					if (j == 0 || j == this.sideA - 1) {
-						str += "| ";
-					} else {
-						str += " ";
-					}
-				}
-				str += "\n";
-			}
-		}
-		return str;
+		String newLine = "\n";
+		String lineEdge = "-";
+		String lineSeperator = "-";
+        // Generate the lineSeperator.
+        for (int z = 0; z < this.sideA; z++) {
+            lineEdge += "----";
+            if (z == this.sideA - 1) lineSeperator += "----";
+            else lineSeperator += "---+";
+        }
+		
+		StringBuilder drawBuilder = new StringBuilder();
+		drawBuilder.append(lineEdge).append(newLine);
+		for (int i = 0; i < this.getSideB(); i++) {
+            drawBuilder.append("| ");
+            for (int j = 0; j < this.getSideA(); j++) {
+            	drawBuilder.append("  | ");
+            }
+            drawBuilder.append("\n");
+            if (i == this.sideB - 1) drawBuilder.append(lineEdge);
+            else drawBuilder.append(lineSeperator).append(newLine);
+        }
+        return drawBuilder.toString();
 	}
-
+	
 	public Rectangle copy() {
 		return this;
 	}
