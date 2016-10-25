@@ -7,11 +7,13 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class JavaAnagrams {
 
 	static ArrayList<String> permutationsArrayList = new ArrayList<>();
+	static HashSet<String> anagramsInDictionary = new HashSet<>();
 	
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
@@ -35,8 +37,12 @@ public class JavaAnagrams {
 		
 		for (String permutation : permutationsArrayList) {
 			if (dictionaryArrayList.contains(permutation)){
-				System.out.println(permutation);				
+				anagramsInDictionary.add(permutation);				
 			}
+		}
+		
+		for (String anagramInDic : anagramsInDictionary) {
+			System.out.println(anagramInDic);
 		}
 		
 		try {
