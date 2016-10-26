@@ -17,6 +17,9 @@ public class Tester {
 	    // No casting is required.
 	    String str2 = list2.get(0);
 	    System.out.println(str2);
+	    
+	    Pairing<Male, Female> marryThem = new Pairing<>(new Male(), new Female());
+		System.out.println(marryThem.toString());
 	}
 
 }
