@@ -10,7 +10,7 @@ import java.sql.Statement;
 public class ConsumeData {
 	// JDBC driver name and database URL
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	static final String DB_URL = "jdbc:mysql://localhost/sakila";
+	static final String DB_URL = "jdbc:mysql://localhost/sakila?useSSL=false";
 
 	// Database credentials
 	static final String USER = "root";
