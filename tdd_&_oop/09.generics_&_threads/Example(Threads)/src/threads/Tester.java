@@ -33,5 +33,14 @@ public class Tester {
 		Thread.sleep(1000); // Waiting for 1 second before starting next thread
 		ExtendsThread tc3 = new ExtendsThread();
 		tc3.start();
+		
+		// 
+		TestInterruptingThread t4 = new TestInterruptingThread();
+		t4.start();
+		try {
+			t4.interrupt();
+		} catch (Exception e) {
+			System.out.println("Exception handled " + e);
+		}
 	}
 }
