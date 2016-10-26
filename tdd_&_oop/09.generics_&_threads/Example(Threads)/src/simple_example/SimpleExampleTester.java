@@ -46,7 +46,37 @@ public class SimpleExampleTester {
 				t.join(1000);
 				if (((System.currentTimeMillis() - startTime) > patience) && t.isAlive()) {
 					threadMessage("Tired of waiting!");
-					t.interrupt();
+					public static void main(String args[])throws InterruptedException {
+				        long patience = 1000 * 60 * 60;
+				        // If command line argument
+				        // present, gives patience
+				        // in seconds.
+				        if (args.length > 0) {
+				            try {
+				                patience = Long.parseLong(args[0]) * 1000;
+				            } catch (NumberFormatException e) {
+				                System.err.println("Argument must be an integer.");
+				                System.exit(1);
+				            }
+				        }
+
+				        threadMessage("Starting MessageLoop thread");
+				        long startTime = System.currentTimeMillis();
+				        Thread t = new Thread(new MessageLoop());
+				        t.start();
+
+				        threadMessage("Waiting for MessageLoop thread to finish");
+				        while (t.isAlive()) {
+				            threadMessage("Still waiting...");
+				            t.join(1000);
+				            if (((System.currentTimeMillis() - startTime) > patience)&& t.isAlive()) {
+				                threadMessage("Tired of waiting!");
+				                t.interrupt();
+				                t.join();
+				            }
+				        }
+				        threadMessage("Finally!");
+				    }			t.interrupt();
 					t.join();
 				}
 			}
