@@ -3,8 +3,8 @@ package simple_example;
 public class SynchronizationTester {
 
 	public static void main(String[] args) {
-		Counter variableA;
-		variableA = new Counter();
+//		System.out.println("SyncCounter");
+		Counter variableA = new Counter();
 		new Thread(variableA).start();
 		new Thread(variableA).start();
 		new Thread(variableA).start();
@@ -12,6 +12,16 @@ public class SynchronizationTester {
 		new Thread(variableA).start();
 		new Thread(variableA).start();
 		new Thread(variableA).start();
+		
+//		System.out.println("\nAsyncCounter");
+		AsyncCounter variableB = new AsyncCounter();
+		new Thread(variableB).start();
+		new Thread(variableB).start();
+		new Thread(variableB).start();
+		new Thread(variableB).start();
+		new Thread(variableB).start();
+		new Thread(variableB).start();
+		new Thread(variableB).start();
 	}
 
 }
