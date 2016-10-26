@@ -18,8 +18,9 @@ public class FindCountOfOddNumbers implements Runnable {
 	public void run() {
 		for (int i = 0; i < this.maxNumber; ++i) {
 			if (i % 2 != 0)
-				System.out.println(++count);
+				++count;
 		}
+		System.out.println("odd: " + count);
 	}
 
 }
