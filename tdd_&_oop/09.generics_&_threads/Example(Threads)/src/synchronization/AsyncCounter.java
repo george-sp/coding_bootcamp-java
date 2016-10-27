@@ -1,4 +1,4 @@
-package simple_example;
+package synchronization;
 
 public class AsyncCounter implements Runnable {
 
