@@ -28,10 +28,10 @@
   			<div class="container-fluid">
   				<div class="col-sm-12 col-lg-offset-2 col-lg-8">
 					<ul class="nav nav-pills">
-      					<li role="presentation"><a href="#">Home</a></li>
-      					<li role="presentation"><a href="#findOne">findOne()</a></li>
+                        <li role="presentation"><a href="#">Home</a></li>
+                        <li role="presentation"><a href="#create">create()</a></li>
+                        <li role="presentation"><a href="#findOne">findOne()</a></li>
     					<li role="presentation"><a href="#findAll">findAll()</a></li>
-    					<li role="presentation"><a href="#create">create()</a></li>
     					<li role="presentation"><a href="#update">update()</a></li>
     					<li role="presentation"><a href="#delete">delete()</a></li>
     					<li role="presentation"><a href="#findByLocation">findByLocation()</a></li>
@@ -51,6 +51,176 @@
                     <p>
                         <a class="btn btn-primary btn-lg" href="#" role="button">Start testing</a>
                     </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Create -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-10 col-md-offset-4 col-md-4 col-lg-offset-3 col-lg-6">
+                    <section id="create">
+                        <h2>Create Simple User</h2>
+                        <form>
+                            <div class="form-group">
+                                <div class="input-group input-group-lg ">
+                                    <span class="input-group-addon" id="basic-addon2">First Name:</span>
+                                    <input type="text" class="form-control" placeholder="type here" aria-describedby="basic-addon1" name="firstName">
+                                </div>
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-addon" id="basic-addon2">Last Name:</span>
+                                    <input type="text" class="form-control" placeholder="type here" aria-describedby="basic-addon1" name="lastName">
+                                </div>
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-addon" id="basic-addon2">Location:</span>
+                                    <input type="text" class="form-control" placeholder="type here" aria-describedby="basic-addon1" name="location">
+                                </div>
+                                <div class="col-xs-offset-5 col-sm-offset-4 col-md-offset-1 col-lg-offset-2 col-lg-6 form-input">
+                                    <input type="submit" class="btn btn-primary btn-md" value="Create" id="SubmitButton"/>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <!-- Find One -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-10 col-md-offset-4 col-md-4 col-lg-offset-3 col-lg-6">
+                    <section id="findOne">
+                        <h2>Find Simple User by ID</h2>
+                        <form>
+                            <div class="form-group">
+                                <div class="input-group input-group-lg ">
+                                    <span class="input-group-addon" id="basic-addon2">Simple User ID:</span>
+                                    <input type="text" class="form-control" placeholder="type here" aria-describedby="basic-addon1" name="simpleUserID">
+                                </div>
+                                <div class="col-xs-offset-5 col-sm-offset-4 col-md-offset-1 col-lg-offset-2 col-lg-6 form-input">
+                                    <input type="submit" class="btn btn-primary btn-md" value="Find One" id="SubmitButton"/>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <!-- Find All -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-10 col-md-offset-4 col-md-4 col-lg-offset-3 col-lg-6">
+                    <section id="findAll">
+                        <h2>Find All Simple Users</h2>
+                        <form>
+                            <div class="col-xs-offset-5 col-sm-offset-4 col-md-offset-1 col-lg-offset-2 col-lg-6 form-input">
+                                <input type="submit" class="btn btn-primary btn-md" value="Find All" id="SubmitButton"/>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <!-- Update -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-10 col-md-offset-4 col-md-4 col-lg-offset-3 col-lg-6">
+                    <section id="update">
+                        <h2>Update Simple User</h2>
+                        <form>
+                            <div class="form-group">
+                                <div class="input-group input-group-lg ">
+                                    <span class="input-group-addon" id="basic-addon2">First Name:</span>
+                                    <input type="text" class="form-control" placeholder="type here" aria-describedby="basic-addon1" name="firstName">
+                                </div>
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-addon" id="basic-addon2">Last Name:</span>
+                                    <input type="text" class="form-control" placeholder="type here" aria-describedby="basic-addon1" name="lastName">
+                                </div>
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-addon" id="basic-addon2">Location:</span>
+                                    <input type="text" class="form-control" placeholder="type here" aria-describedby="basic-addon1" name="location">
+                                </div>
+                                <div class="col-xs-offset-5 col-sm-offset-4 col-md-offset-1 col-lg-offset-2 col-lg-6 form-input">
+                                    <input type="submit" class="btn btn-primary btn-md" value="Update" id="SubmitButton"/>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-10 col-md-offset-4 col-md-4 col-lg-offset-3 col-lg-6">
+                    <section id="delete">
+                        <h2>Delete Simple User</h2>
+                        <form>
+                            <div class="form-group">
+                                <div class="input-group input-group-lg ">
+                                    <span class="input-group-addon" id="basic-addon2">Simple User ID:</span>
+                                    <input type="text" class="form-control" placeholder="type here" aria-describedby="basic-addon1" name="simpleUserID">
+                                </div>
+                                <div class="input-group input-group-lg ">
+                                    <span class="input-group-addon" id="basic-addon2">First Name:</span>
+                                    <input type="text" class="form-control" placeholder="type here" aria-describedby="basic-addon1" name="firstName">
+                                </div>
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-addon" id="basic-addon2">Last Name:</span>
+                                    <input type="text" class="form-control" placeholder="type here" aria-describedby="basic-addon1" name="lastName">
+                                </div>
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-addon" id="basic-addon2">Location:</span>
+                                    <input type="text" class="form-control" placeholder="type here" aria-describedby="basic-addon1" name="location">
+                                </div>
+                                <div class="col-xs-offset-5 col-sm-offset-4 col-md-offset-1 col-lg-offset-2 col-lg-6 form-input">
+                                    <input type="submit" class="btn btn-primary btn-md" value="Delete" id="SubmitButton"/>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <!-- Find Simple User by Location -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-10 col-md-offset-4 col-md-4 col-lg-offset-3 col-lg-6">
+                    <section id="findByLocation">
+                        <h2>Find Simple User by Location</h2>
+                        <form>
+                            <div class="form-group">
+                                <div class="input-group input-group-lg ">
+                                    <span class="input-group-addon" id="basic-addon2">Simple User ID:</span>
+                                    <input type="text" class="form-control" placeholder="type here" aria-describedby="basic-addon1" name="simpleUserID">
+                                </div>
+                                <div class="col-xs-offset-5 col-sm-offset-4 col-md-offset-1 col-lg-offset-2 col-lg-6 form-input">
+                                    <input type="submit" class="btn btn-primary btn-md" value="Find One" id="SubmitButton"/>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <!-- Find with unsigned Task -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-10 col-md-offset-4 col-md-4 col-lg-offset-3 col-lg-6">
+                    <section id="findWithUnsignedTask">
+                        <h2>Find Simple Users with Unsigned Task</h2>
+                        <form>
+                            <div class="col-xs-offset-5 col-sm-offset-4 col-md-offset-1 col-lg-offset-2 col-lg-6 form-input">
+                                <input type="submit" class="btn btn-primary btn-md" value="Find Simple Users" id="SubmitButton"/>
+                            </div>
+                        </form>
+                    </section>
                 </div>
             </div>
         </div>
