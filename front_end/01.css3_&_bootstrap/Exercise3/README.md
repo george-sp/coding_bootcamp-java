@@ -1,0 +1,1 @@
+#### Create an external CSS file, import it to an HTML page and make all paragraphs have red-coloured text.
