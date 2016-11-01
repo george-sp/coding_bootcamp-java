@@ -1,3 +1,16 @@
+.to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: 5px solid white;
+    border-radius: 50px;
+    background: green;
+}
+
+.to-top-btn .glyphicon {
+    color: white;
+}
+
 .jumbotron {
     position: relative;
     background: #000 url("images/users.png") center center;
@@ -15,6 +28,10 @@
 .jumbotron p {
     color: white;
     text-align: center;
+}
+
+.jumbotron p a {
+    background: green;
 }
 
 .jumbotron small {
