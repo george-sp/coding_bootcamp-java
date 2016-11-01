@@ -1,0 +1,22 @@
+.jumbotron {
+    position: relative;
+    background: #000 url("images/users.png") center center;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    overflow: hidden;
+}
+
+#main-header {
+    text-align: center;
+    color: white;
+}
+
+.jumbotron p {
+    color: white;
+    text-align: center;
+}
+
+.jumbotron small {
+    color: cyan;
+}
