@@ -1,0 +1,14 @@
+div {
+    height: 200px;
+    width: 100%;
+}
+
+.bottom-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.bg-blue {
+    background-color: rgba(0, 0, 255, 0.5);
+}
