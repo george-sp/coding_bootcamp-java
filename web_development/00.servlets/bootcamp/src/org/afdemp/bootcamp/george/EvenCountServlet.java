@@ -8,17 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class CountServlet
+ * Servlet implementation class EvenCountServlet
  */
-@WebServlet("/count")
-public class CountServlet extends HttpServlet {
+@WebServlet("/EvenCountServlet")
+public class EvenCountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private Counter mCounter = new Counter();   
-	
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CountServlet() {
+    public EvenCountServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,11 +26,7 @@ public class CountServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if (mCounter.increment() % 2 == 0) {
-			request.getRequestDispatcher("/EvenCountServlet").forward(request, response);
-		} else {
-			request.getRequestDispatcher("/OddCountServlet").forward(request, response);
-		}
+		response.getWriter().append("The count is even");
 	}
 
 	/**
