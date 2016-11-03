@@ -7,7 +7,7 @@
 <title>Servlet JSP project</title>
 </head>
 <body>
-	<form action="/ServletJspProject/HelloServlet" >
+	<form action="/ServletJspProject/ColorServlet" >
 		Please enter a color <br> <input type="text" name="color"
 			size="20px"> <input type="submit" value="Submit Color">
 	</form>
