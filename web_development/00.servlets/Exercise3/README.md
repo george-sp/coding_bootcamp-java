@@ -1,0 +1,1 @@
+#### Create a servlet that returns Success! if the entry query parameter is a prime number, otherwise redirects to /bootcamp/hello
