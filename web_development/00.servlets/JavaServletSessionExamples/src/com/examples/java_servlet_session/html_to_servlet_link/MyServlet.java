@@ -1,4 +1,4 @@
-package my_link;
+package html_to_servlet_link;
 
 import java.io.IOException;
 import java.io.PrintWriter;
