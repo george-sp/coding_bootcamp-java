@@ -1,4 +1,4 @@
-package com.examples.java_servlets.example_servlet_1;
+package example_servlet_1;
 
 import java.io.IOException;
 import java.io.PrintWriter;
