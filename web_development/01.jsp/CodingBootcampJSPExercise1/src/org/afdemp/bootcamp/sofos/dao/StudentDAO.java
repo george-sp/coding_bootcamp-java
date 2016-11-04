@@ -125,7 +125,22 @@ public class StudentDAO {
 
 			Student student = null;
 
-			// your code here
+			String sqlquery = "SELECT * FROM student_table WHERE = student_table.am = ?;";
+
+			PreparedStatement stmt1 = con.prepareStatement(sqlquery);
+			stmt1.setString(1, am);
+			ResultSet rs = stmt1.executeQuery();
+
+			List<Student> studentList = new ArrayList<Student>();
+
+			if (rs.next()) {
+
+				studentList.add(new Student(rs.getString("name"), rs.getString("surname"), rs.getString("am")));
+
+			}
+
+			rs.close();
+			stmt1.close();
 
 			return student;
 
