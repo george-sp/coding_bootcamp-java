@@ -77,9 +77,9 @@
 
 		<div class="alert alert-success" role="alert">
 			<ol>
-				<li><b>Όνομα:</b> <%=student.getAm() %></li>
-				<li><b>Επώνυμο:</b> <%=student.getName() %></li>
-				<li><b>Αρ.Μητρώου:</b> <%=student.getSurname() %></li>
+				<li><b>Όνομα:</b> <%=student.getName() %></li>
+				<li><b>Επώνυμο:</b> <%=student.getSurname() %></li>
+				<li><b>Αρ.Μητρώου:</b> <%=student.getAm() %></li>
 			</ol>		
 		</div>
 <% 		} %>
