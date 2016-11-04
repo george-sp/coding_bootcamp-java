@@ -117,38 +117,35 @@ public class StudentDAO {
 	 */
 	public Student findStudentByAM(String am) throws Exception {
 
+		Student student = null;
+		
 		try {
 
 			if (con == null) {
 				throw new Exception("You must open a connection first");
 			}
 
-			Student student = null;
-
-			String sqlquery = "SELECT * FROM student_table WHERE = student_table.am = ?;";
+			String sqlquery = "SELECT * FROM student_table WHERE student_table.am = ?;";
 
 			PreparedStatement stmt1 = con.prepareStatement(sqlquery);
 			stmt1.setString(1, am);
 			ResultSet rs = stmt1.executeQuery();
 
-			List<Student> studentList = new ArrayList<Student>();
-
 			if (rs.next()) {
 
-				studentList.add(new Student(rs.getString("name"), rs.getString("surname"), rs.getString("am")));
+				student = new Student(rs.getString("name"), rs.getString("surname"), rs.getString("am"));
 
 			}
 
 			rs.close();
 			stmt1.close();
 
-			return student;
-
 		} catch (Exception e) {
 
 			throw new Exception("An error occured while searching for student in the database: " + e.getMessage());
 		}
-
+		
+		return student;
 	}// End of getStudents
 
 }// End of class
