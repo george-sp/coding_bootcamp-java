@@ -1,4 +1,4 @@
-package add_to_session_servlet;
+package add_vars_to_session;
 
 import java.io.IOException;
 import java.io.PrintWriter;
