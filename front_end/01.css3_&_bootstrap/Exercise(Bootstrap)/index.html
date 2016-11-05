@@ -85,34 +85,44 @@
     </div>
 
     <!-- Create -->
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6">
-                <section id="create">
+    <section id="create" class="well well-lg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6">
                     <h2>Create Simple User</h2>
                     <form>
                         <div class="form-group">
-                            <div class="input-group input-group-lg ">
-                                <span class="input-group-addon" id="basic-addon2">First Name:</span>
-                                <input type="text" class="form-control" placeholder="type here" aria-describedby="basic-addon1" name="firstName">
-                            </div>
-                            <div class="input-group input-group-lg">
-                                <span class="input-group-addon" id="basic-addon2">Last Name:</span>
-                                <input type="text" class="form-control" placeholder="type here" aria-describedby="basic-addon1" name="lastName">
-                            </div>
-                            <div class="input-group input-group-lg">
-                                <span class="input-group-addon" id="basic-addon2">Location:</span>
-                                <input type="text" class="form-control" placeholder="type here" aria-describedby="basic-addon1" name="location">
-                            </div>
-                            <div class="col-xs-offset-5 col-sm-offset-4 col-md-offset-1 col-lg-offset-2 col-lg-6 form-input">
-                                <input type="submit" class="btn btn-primary btn-md" value="Create" id="SubmitButton" />
-                            </div>
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="surname">Surname:</label>
+                            <input type="text" class="form-control" id="surname">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" class="form-control" id="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" id="password">
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Location:</label>
+                            <input type="text" class="form-control" id="location">
+                        </div>
+                        <div class="form-button">
+                            <button type="submit" class="btn btn-lg btn-success" value="create">Create&nbsp;<span class="glyphicon glyphicon-plus-sign"></span></button>
                         </div>
                     </form>
-                </section>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Find One -->
     <div class="container">
