@@ -27,18 +27,29 @@
 <body>
     <section id="top"></section>
     <!-- Nav Bar - fixed to top -->
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
-            <div class="col-sm-12 col-lg-offset-2 col-lg-8">
-                <ul class="nav nav-pills">
-                    <li role="presentation"><a href="#">Home</a></li>
-                    <li role="presentation"><a href="#create">create()</a></li>
-                    <li role="presentation"><a href="#findOne">findOne()</a></li>
-                    <li role="presentation"><a href="#findAll">findAll()</a></li>
-                    <li role="presentation"><a href="#update">update()</a></li>
-                    <li role="presentation"><a href="#delete">delete()</a></li>
-                    <li role="presentation"><a href="#findByLocation">findByLocation()</a></li>
-                    <li role="presentation"><a href="#findWithUnsignedTask">findWithUnsignedTask()</a></li>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#servicesNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#top">SimpleUser Services</a>
+            </div>
+            <div class="collapse navbar-collapse" id="servicesNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="#create">Create</a></li>
+                    <li><a href="#update">Update</a></li>
+                    <li><a href="#delete">Delete</a></li>
+                    <li><a href="#findOne">Find One</a></li>
+                    <li><a href="#findAll">Find All</a></li>
+                    <li><a href="#findByLocation">Find by Location</a></li>
+                    <li><a href="#findWithUnsignedTask">FindWithUnsignedTask</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
             </div>
         </div>
