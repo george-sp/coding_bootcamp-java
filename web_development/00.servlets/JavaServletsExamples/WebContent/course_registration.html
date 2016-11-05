@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <title>Course registration page</title>
+    <meta http-equiv='content-type' content='text/html; charset=iso-8859-7'>
+    <link rel="stylesheet" href="css/design.css" type="text/css">
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="page">
+        <h1>Course registration form</h1>
+        <form action="servlet/RegisterCustomer" method="post" name="registrationform">
+        <fieldset>
+          <legend>Contact information</legend>
+          <table>
+          <tr>
+            <th>Name:</th>
+            <td><input name="name" type="text" size="30" > <span class="asterisc">*</span></td>
+          </tr>
+          <tr>
+            <th>Surname:</th>
+            <td><input name="surname" type="text" size="30" > <span class="asterisc">*</span></td>
+          </tr>
+          <tr>
+            <th>Email:</th>
+            <td><input name="mail" type="text" size="30" > <span class="asterisc">*</span></td>
+          </tr>
+          <tr>
+            <th>Address:</th>
+            <td><input name="address" type="text" size="30" > <span class="asterisc">*</span></td>
+          </tr>
+          <tr>
+            <th>Phone:</th>
+            <td><input name="phone" type="text" size="30" > <span class="asterisc">*</span></td>
+          </tr>
+          </table>
+        </fieldset>
+        <fieldset>
+          <legend>Personal information</legend>
+          <table>
+          <tr>
+            <th>Gender:</th>
+            <td><input type="radio" value="Male" name="gender"> male <input type="radio" value="Female" name="gender"> female <span class="asterisc">*</span></td>
+          </tr>
+          <tr>
+            <th>Date of birth:</th>
+            <td>
+            <input type="text" maxlength="2" size="2" name="dd" id="dd"> <span class="small">(DD)</span> /
+            <input type="text" maxlength="2" size="2" name="mm" id="mm"> <span class="small">(MM)</span> /
+            <input type="text" maxlength="4" size="4" name="yyyy" id="yyyy"> <span class="small">(YYYY)</span>
+            <span class="asterisc">*</span>
+            </td>
+          </tr>
+          <tr>
+            <th>Native language:</th>
+            <td>
+            <input name="language" type="text" size="30" > <span class="asterisc">*</span>
+            </td>
+          </tr>
+          <tr>
+            <th>Level of Greek:</th>
+            <td>
+            <select name="gr_level" >
+              <option value="0"> </option>
+              <option value="none">none</option>
+              <option value="weak">weak</option>
+              <option value="intermediate">intermediate</option>
+              <option value="good">good</option>
+              <option value="very good">very good</option>
+            </select>
+            <span class="asterisc">*</span>
+            </td>
+          </tr>
+          <tr>
+            <th>Occupation:</th>
+            <td>
+            <input name="occupation" type="text" size="30" id="occupation" > <span class="asterisc">*</span>
+            </td>
+          </tr>
+          </table>
+        </fieldset>
+        <fieldset>
+          <legend>Course enrollment</legend>
+          <p>
+          <span class="question">Please select which course you are applying for:</span> <span class="asterisc">*</span>
+          <br>
+          <input type="checkbox" value="Art and Design" name="course1"> Art and Design
+          <br>
+          <input type="checkbox" value="Business" name="course2"> Business
+          <br>
+          <input type="checkbox" value="Engineering" name="course3"> Engineering
+          <br>
+          <input type="checkbox" value="Computing" name="course4"> Computing
+          <br>
+          <input type="checkbox" value="Travel and Tourism" name="course5"> Travel and Tourism
+          </p>
+          <p>
+          <span class="question">Please let us know any comments or questions that you might have.</span>
+            <br>
+            <textarea name="commentsfield" cols="55" rows="3"></textarea>
+          </p>
+        </fieldset>        
+              
+        <p class="buttons">
+          <input type="submit" value="Submit" name="submit">
+          <input type="reset" value="Reset" name="reset"> Required fields <span class="asterisc">*</span>          
+        </p>
+        
+        </form>
+        
+        <div id="w3cvalidator">
+        <a href="http://validator.w3.org/check?uri=referer"><img
+          src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01 Transitional" height="31" width="88"></a>
+        </div> <!-- end of w3cvalidator link and icon-->
+        
+      </div> <!-- end of page -->
+    </div>  <!-- end of wrapper -->
+  </body>
+</html>

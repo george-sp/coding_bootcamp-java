@@ -1,0 +1,68 @@
+body { 
+  color: #444444;
+  font-family: "Lucida Sans Unicode",Tahoma,sans-serif;
+  background-color: LightGoldenRodYellow; 
+}
+
+h1 { text-align: center; }
+
+th, td {
+  text-align: left;
+  padding: 2px;
+}
+
+td {  font-size: 16px; }
+
+th {
+  font-weight: normal;
+  font-size: 18px;
+}
+
+fieldset {
+  border: 5px solid #FF9E99;
+  margin: 10px;
+}
+
+legend {
+  font-weight: bold;
+  font-size: 18px;
+  color: #000000;
+}
+#wrapper { width: 80%;  min-width: 600px; margin: 20px auto; }
+#page {  font-size: 12px; background-color: #fafafa; border-radius: 10px; border: 1px solid #ababab;}
+#w3cvalidator { padding: 10px; text-align: right; }
+
+.asterisc {
+  color: #FF0000;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.small { 
+  font-size: 12px;
+  vertical-align: bottom;
+}
+
+.question { 
+  font-size: 14px;
+  color: #444444;
+}
+
+.buttons { 
+  text-align: center;
+  margin: 0 0 10px 10px;
+}
+
+.buttons input { 
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #121212;
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid #ababab;
+  cursor: pointer;
+}
+
+.buttons input:hover { 
+  background-color: orange;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Data sending form</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body bgcolor="#CCFFFF">
+	<h1>Data Sending to Session Form</h1>
+	<br>
+	<br>
+	<form name="form1" method="post"
+		action="/JavaServletSessionExamples/AddDataToSessionServlet">
+		<table style="width:20%; border=0;">
+			<tr>
+				<td width="13%"><strong><font size="4"
+						face="Times New Roman, Times, serif">Name:</font></strong></td>
+				<td width="87%"><input name="nameField" type="text" id="name">
+				</td>
+			</tr>
+			<tr>
+				<td><strong><font size="4"
+						face="Times New Roman, Times, serif">Surname:</font></strong></td>
+				<td><input name="surnameField" type="text" id="surname">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div align="right">
+						<input name="clear" type="reset" id="clear" value="Clear">
+					</div>
+				</td>
+				<td>
+					<div align="left">
+						<input type="submit" name="Submit2" value="Next">
+					</div>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
