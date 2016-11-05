@@ -45,7 +45,7 @@ public class DataPrinterServlet extends HttpServlet {
 		String password = request.getParameter("passwordField");
 		String preferences = request.getParameter("preferencesField");
 		String gender = request.getParameter("genderField");
-		String age = request.getParameter("ageField");
+//		String age = request.getParameter("ageField");
 
 		try {
 			/*
