@@ -39,8 +39,8 @@
 }
 
 .input-group-addon {
-    min-width:170px;
-    text-align:left;
+    min-width: 170px;
+    text-align: left;
 }
 
 .form-input {
@@ -48,18 +48,18 @@
 }
 
 form .btn {
-	background: none;
+    background: none;
     min-width: 100%;
-	padding: 12px 22px;
+    padding: 12px 22px;
 }
 
 form .btn-primary {
-	border: 2px solid green;
-	color: green;
+    border: 2px solid green;
+    color: green;
 }
 
 form .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-	color: white;
+    color: white;
     background: green;
-	border-color: green;
+    border-color: green;
 }
