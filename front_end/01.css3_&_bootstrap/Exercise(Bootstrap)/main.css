@@ -63,6 +63,7 @@ body {
 
 .well {
     padding-top:34px;
+    padding-bottom:34px;
     padding-left: 0px;
     margin-bottom: 0px;
 }
@@ -73,6 +74,16 @@ body {
 
 .well-dark {
     background: rgba(255, 255, 255, 0.4);
+}
+
+h2 {
+    text-align: center;
+}
+
+form {
+    padding: 10px;
+    border: 2px solid #222222;
+    border-radius: 20px;
 }
 
 .form-button {
