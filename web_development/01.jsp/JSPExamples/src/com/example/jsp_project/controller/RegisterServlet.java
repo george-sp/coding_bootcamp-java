@@ -44,6 +44,9 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// Define RequestDispatcher to forward if student registered successfully in db.
+		RequestDispatcher successDispatcher = getServletContext().getRequestDispatcher("/registration_success.jsp");
+		
 		// Read parameters from request
 		String registrationNumber = request.getParameter("rn");
 		String name = request.getParameter("name");
@@ -55,7 +58,10 @@ public class RegisterServlet extends HttpServlet {
 		StudentService studentService = new StudentService();
 		try {
 			studentService.registerStudent(student);
-			response.getWriter().append("sucess!");
+			// Add Student object to request
+			request.setAttribute("student", student);
+			// Forward request to registration_success.jsp
+			successDispatcher.forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
