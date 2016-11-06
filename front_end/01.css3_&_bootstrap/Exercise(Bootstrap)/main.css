@@ -62,6 +62,7 @@ body {
 }
 
 .well {
+    padding-top:34px;
     padding-left: 0px;
     margin-bottom: 0px;
 }
