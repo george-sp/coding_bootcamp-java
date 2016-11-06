@@ -57,6 +57,18 @@
     color: #AAAAAA;
 }
 
+.well {
+    margin-bottom: 0px;
+}
+
+.well-light {
+    background: rgba(0, 0, 0, 0);
+}
+
+.well-dark {
+    background: rgba(255, 255, 255, 0.5);
+}
+
 .form-button {
     text-align: center;
 }
