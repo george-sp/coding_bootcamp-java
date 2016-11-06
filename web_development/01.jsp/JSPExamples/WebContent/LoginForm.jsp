@@ -12,10 +12,18 @@
 <title>Login Form</title>
 </head>
 <body>
+	<%-- 
+		Include the "header.jsp" page, passing the parameter "exampleNumber" 
+		via jsp:include action.
+	--%>
+	<jsp:include page="Header.jsp">
+		<jsp:param name="exampleNumber" value="1st Example" />
+	</jsp:include>
+
 	<div style="height: 500px; text-align: center;">
 		<h1>
 			<font color="#000066"><strong>"LoginForm.jsp" <small>is
-					running...</small></strong></font>
+						running...</small></strong></font>
 		</h1>
 		<br />
 		<h2>
@@ -57,8 +65,8 @@
 			</font></strong>
 		</p>
 	</div>
-	
+
 	<%-- Include the footer html page "footer.html" --%>
-	<%@ include file="footer.html" %>
+	<%@ include file="footer.html"%>
 </body>
 </html>
