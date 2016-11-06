@@ -9,7 +9,7 @@ package domain;
  */
 public class Student {
 
-	private String rm;
+	private String rn;
 	private String name;
 	private String surname;
 	private String username;
@@ -18,20 +18,20 @@ public class Student {
 	public Student() {
 	}
 
-	public Student(String rm, String name, String surname, String username, String password) {
-		this.rm = rm;
+	public Student(String rn, String name, String surname, String username, String password) {
+		this.rn = rn;
 		this.name = name;
 		this.surname = surname;
 		this.username = username;
 		this.password = password;
 	}
 
-	public String getRm() {
-		return rm;
+	public String getRn() {
+		return rn;
 	}
 
-	public void setRm(String rm) {
-		this.rm = rm;
+	public void setRn(String rn) {
+		this.rn = rn;
 	}
 
 	public String getName() {
@@ -67,7 +67,7 @@ public class Student {
 	}
 
 	public String toString() {
-		return "Student:" + " am/" + this.rm + ", name" + this.name + ", surname" + this.surname + ", username"
+		return "Student:" + " rn/" + this.rn + ", name" + this.name + ", surname" + this.surname + ", username"
 				+ this.username + ", password" + this.password;
 	}
 
