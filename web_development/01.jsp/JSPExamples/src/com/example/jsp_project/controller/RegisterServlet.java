@@ -44,9 +44,13 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// Define RequestDispatcher to forward if student registered successfully in db.
+		// Define RequestDispatcher to forward if student registered
+		// successfully in db.
 		RequestDispatcher successDispatcher = getServletContext().getRequestDispatcher("/registration_success.jsp");
-		
+		// Define RequestDispatcher to forward any errors occurred during
+		// registration.
+		RequestDispatcher errorDispatcher = getServletContext().getRequestDispatcher("/registration_error.jsp");
+
 		// Read parameters from request
 		String registrationNumber = request.getParameter("rn");
 		String name = request.getParameter("name");
@@ -63,7 +67,10 @@ public class RegisterServlet extends HttpServlet {
 			// Forward request to registration_success.jsp
 			successDispatcher.forward(request, response);
 		} catch (Exception e) {
-			e.printStackTrace();
+			// Add error to request
+			request.setAttribute("error", e.getMessage());
+			// Forward errors to the registration_error.jsp
+			errorDispatcher.forward(request, response);
 		}
 	}
 

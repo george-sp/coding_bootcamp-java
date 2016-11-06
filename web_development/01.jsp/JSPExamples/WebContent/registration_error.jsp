@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="domain.Student"%>
+<%@ page errorPage="error.jsp"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,14 +12,11 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Registration Succeeded</title>
+<title>Registration Error</title>
 
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- Custom styles for this template -->
-<link href="css/mystyle.css" rel="stylesheet">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
@@ -29,37 +26,27 @@
 </head>
 
 <body>
+
 	<div class="container theme-showcase" role="main">
+
 		<!-- Main jumbotron for a primary marketing message or call to action -->
 		<div class="jumbotron">
-			<h1>Registration</h1>
+			<h1>Registration Failed</h1>
 		</div>
-		<div class="page-header">
-			<h1>Registration Successfully</h1>
-		</div>
-		<%
-			Student student = (Student) request.getAttribute("student");
-			if (student == null) {
-				request.setAttribute("errormessage", "Bad request");
-		%>
-		<jsp:forward page="registration_error.jsp" />
-		<%
-			} else {
-		%>
 
-		<div class="alert alert-success" role="alert">
-			<ol>
-				<li><b>Registration Number:</b> <%=student.getRn()%></li>
-				<li><b>Name:</b> <%=student.getName()%></li>
-				<li><b>Surname:</b> <%=student.getSurname()%></li>
-				<li><b>Username:</b> <%=student.getUsername()%></li>
-				<li><b>Password:</b> <%=student.getPassword()%></li>				
-			</ol>
+		<div class="page-header">
+			<h1>Error</h1>
 		</div>
+		<%
+			if (request.getAttribute("error") != null) {
+		%>
+		<div class="alert alert-danger" role="alert"><%=request.getAttribute("error").toString()%></div>
 		<%
 			}
 		%>
+
 	</div>
+
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->

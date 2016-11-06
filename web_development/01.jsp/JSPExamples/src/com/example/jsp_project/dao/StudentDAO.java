@@ -55,7 +55,7 @@ public class StudentDAO {
 			preStmt.setString(5, student.getPassword());
 			preStmt.executeUpdate();
 		} catch (SQLException e) {
-			throw new SQLException("Student with RM: " + student.getRn() + " already exists!");
+			throw new SQLException("Student with RN: " + student.getRn() + " already exists!");
 		} catch (Exception e) {
 			throw new Exception("An error occured while registering student to database: " + e.getMessage());
 		} finally {
