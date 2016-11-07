@@ -35,26 +35,30 @@
 <body>
 	<!-- Fixed navbar -->
 	<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed"
-				data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-				aria-controls="navbar">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="register.jsp">LESSON 2</a>
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="register.jsp">LESSON 2</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="register.jsp">Register</a></li>
+					<li class="active"><a href="viewstudents.jsp">View</a></li>
+					<li><a href="findstudent.jsp">Find</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="logout.jsp"><span
+							class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
 		</div>
-		<div id="navbar" class="navbar-collapse collapse">
-			<ul class="nav navbar-nav">
-				<li><a href="register.jsp">Register</a></li>
-				<li class="active"><a href="viewstudents.jsp">View</a></li>
-				<li><a href="findstudent.jsp">Find</a></li>
-			</ul>
-		</div>
-		<!--/.nav-collapse -->
-	</div>
 	</nav>
 
 	<div class="container theme-showcase" role="main">
@@ -68,7 +72,7 @@
 			<h1>Προβολή Φοιτητών</h1>
 		</div>
 
-		<%! StudentDAO studentDAO = new StudentDAO();%>
+		<%!StudentDAO studentDAO = new StudentDAO();%>
 
 		<table class="table table-bordered table-contest table-hover">
 			<tr style="background-color: #e2c072">
@@ -77,22 +81,22 @@
 				<td>Επώνυμο</td>
 			</tr>
 			<%
-			try {
-				studentDAO.open();
-				List<Student> students = studentDAO.getStudents();
-				for (Student s : students) {
+				try {
+					studentDAO.open();
+					List<Student> students = studentDAO.getStudents();
+					for (Student s : students) {
 			%>
 			<tr>
-				<td><%= s.getAm()%></td>
-				<td><%= s.getName()%></td>
-				<td><%= s.getSurname()%></td>
+				<td><%=s.getAm()%></td>
+				<td><%=s.getName()%></td>
+				<td><%=s.getSurname()%></td>
 			</tr>
 			<%
 				}
-				studentDAO.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+					studentDAO.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			%>
 		</table>
 	</div>
@@ -100,14 +104,14 @@
 
 	<!-- footer -->
 	<footer class="navbar-inverse">
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<p class="text-center">&copy; Copyright 2016 by "το
-					Ονοματεπώνυμο σας"</p>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<p class="text-center">&copy; Copyright 2016 by "το
+						Ονοματεπώνυμο σας"</p>
+				</div>
 			</div>
 		</div>
-	</div>
 	</footer>
 	<!-- End footer -->
 

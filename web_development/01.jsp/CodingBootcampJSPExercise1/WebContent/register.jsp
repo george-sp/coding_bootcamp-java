@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page errorPage="error.jsp"%>
-<%@ page import="org.afdemp.bootcamp.sofos.domain.User" %>
+<%@ page import="org.afdemp.bootcamp.sofos.domain.User"%>
 <%
 	if (session.getAttribute("user-object") == null) {
 		RequestDispatcher loginDispatcher = getServletContext().getRequestDispatcher("/login.jsp");
@@ -51,6 +51,10 @@
 					<li><a href="viewstudents.jsp">View</a></li>
 					<li><a href="findstudent.jsp">Find</a></li>
 				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="logout.jsp"><span
+							class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+				</ul>
 			</div>
 			<!--/.nav-collapse -->
 		</div>
@@ -60,7 +64,9 @@
 
 		<!-- Main jumbotron for a primary marketing message or call to action -->
 		<div class="jumbotron">
-			<h1>Hello, <%= ((User)session.getAttribute("user-object")).getUsername() %></h1>
+			<h1>
+				Hello,
+				<%=((User) session.getAttribute("user-object")).getUsername()%></h1>
 		</div>
 
 		<div class="page-header">

@@ -66,3 +66,11 @@ footer {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.well {
+	background-color: rgb(122, 211, 143);
+}
+
+.green-text {
+	color: green;
+}
