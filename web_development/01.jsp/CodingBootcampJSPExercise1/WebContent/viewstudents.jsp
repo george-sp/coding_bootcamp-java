@@ -3,6 +3,13 @@
 <%@ page import="org.afdemp.bootcamp.sofos.dao.StudentDAO"%>
 <%@ page import="org.afdemp.bootcamp.sofos.domain.Student"%>
 <%@ page import="java.util.List"%>
+<%
+	if (session.getAttribute("user-object") == null) {
+		RequestDispatcher loginDispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+		request.setAttribute("msg", "Please login first");
+		loginDispatcher.forward(request, response);
+	}
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>

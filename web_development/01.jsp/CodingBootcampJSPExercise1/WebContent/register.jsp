@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page errorPage="error.jsp"%>
+<%@ page import="org.afdemp.bootcamp.sofos.domain.User" %>
+<%
+	if (session.getAttribute("user-object") == null) {
+		RequestDispatcher loginDispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+		request.setAttribute("msg", "Please login first");
+		loginDispatcher.forward(request, response);
+	}
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +60,7 @@
 
 		<!-- Main jumbotron for a primary marketing message or call to action -->
 		<div class="jumbotron">
-			<h1>LESSON 2</h1>
+			<h1>Hello, <%= ((User)session.getAttribute("user-object")).getUsername() %></h1>
 		</div>
 
 		<div class="page-header">
