@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+
+body {
+	background-color: #9FDFDF;
+}
+
+#page {
+	text-align: center;
+}
+
+h1 {
+	font-size: 1.5em;
+}
