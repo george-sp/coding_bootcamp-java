@@ -35,7 +35,7 @@
 
 		<form class="form-signin" method="post" action="login">
 			<h2 class="form-signin-heading">Είσοδος</h2>
-			<label for="inputusername" class="sr-only">Email address</label> 
+			<label for="inputusername" class="sr-only">Username</label>
 			<input type="text" name="username" id="inputusername" class="form-control" placeholder="username" required autofocus>
 			<label for="inputpassword" class="sr-only">Password</label>
 			<input name="password" type="password" id="inputpassword" class="form-control" placeholder="password" required>
