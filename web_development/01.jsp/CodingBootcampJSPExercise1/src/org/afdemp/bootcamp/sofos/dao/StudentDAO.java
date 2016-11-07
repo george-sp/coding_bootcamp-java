@@ -25,7 +25,7 @@ public class StudentDAO {
 		try {
 			// establish a connection with the database and creates a Connection
 			// object (con)
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bootcamp", "root", "pass");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bootcamp_db", "root", "pass");
 		} catch (Exception e) {
 			con = null;
 			// throw SQLException if a database access error occurs
