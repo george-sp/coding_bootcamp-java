@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.bids4job</groupId>
+  <artifactId>simple_user_services</artifactId>
+  <version>1.0.0</version>
+
+  <packaging>war</packaging>
+  <name>SimpleUser Services</name>
+  <description>An admintration panel for creating, updating, deleting and finding SimpleUsers in Bids4Job web platform.</description>
+
+  <build>
+      <finalName>simple-user-services</finalName>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.5</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>5.1.6</version>
+    </dependency>
+  </dependencies>
+
+</project>
