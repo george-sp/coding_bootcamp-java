@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.afdemp</groupId>
-  <artifaceId>hello_maven</artifactId>
+  <artifactId>hello_maven</artifactId>
   <version>1.0.0</version>
 
   <packaging>jar</packaging>
