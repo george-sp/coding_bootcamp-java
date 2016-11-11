@@ -3,8 +3,10 @@ package servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.ServletConfig;
 
 /**
  * A simple Servlet that handles a GET request.
@@ -12,6 +14,18 @@ import javax.servlet.http.HttpServletResponse;
  * @author George Spyridakis
  */
 public class HelloServlet extends HttpServlet {
+
+    // author's name
+    private String name;
+
+    /**
+     * Runs when HelloServlet is created.
+     * Stores the parameter value from the servlet configuration object to private field name.
+     */
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
+        this.name = config.getInitParameter("param-name");
+    }
 
     /**
      * Handles GET requests.
@@ -30,7 +44,7 @@ public class HelloServlet extends HttpServlet {
          * because PrintWriter implements AutoCloseable interface.
          */
         try (PrintWriter out = response.getWriter()){
-            out.println("<h1>" + "Hello Servlet!" + "</h1>");
+            out.println("<h1>" + "Hello " + this.name + "!" + "</h1>");
         }
     }
 }

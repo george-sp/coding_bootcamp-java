@@ -10,6 +10,10 @@
   <servlet>
         <servlet-name>HelloServletMaven</servlet-name>
         <servlet-class>servlets.HelloServlet</servlet-class>
+        <init-param>
+            <param-name>param-name</param-name>
+            <param-value>George</param-value>
+        </init-param>
   </servlet>
 
   <servlet-mapping>
