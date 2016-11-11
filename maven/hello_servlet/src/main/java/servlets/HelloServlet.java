@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletConfig;
+import org.json.*;
 
 /**
  * A simple Servlet that handles a GET request.
@@ -38,9 +39,17 @@ public class HelloServlet extends HttpServlet {
         // Set the content type of the response
         response.setContentType("text/html");
 
+        JSONObject json;
+        try {
+            json =  new JSONObject("{'id': 1,'name': 'Leanne Graham'}");
+            this.name = json.getString("name");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
         // Get the value of the request parameter name
-        String nameParam = request.getParameter("name");
-        this.name = nameParam != null ? nameParam : this.name;
+        // String nameParam = request.getParameter("name");
+        // this.name = nameParam != null ? nameParam : this.name;
 
         /*
          * Use an instance of PrintWriter to print to a text-output stream.
