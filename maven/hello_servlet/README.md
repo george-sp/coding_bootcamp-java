@@ -17,6 +17,7 @@
             -- servlets
                 -- HelloServlet.java
         -- resources
+            -- config.properties
             -- users.json
         -- webapp
             -- WEB-INF
