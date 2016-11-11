@@ -37,6 +37,11 @@ public class HelloServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // Set the content type of the response
         response.setContentType("text/html");
+
+        // Get the value of the request parameter name
+        String nameParam = request.getParameter("name");
+        this.name = nameParam != null ? nameParam : this.name;
+
         /*
          * Use an instance of PrintWriter to print to a text-output stream.
          *
