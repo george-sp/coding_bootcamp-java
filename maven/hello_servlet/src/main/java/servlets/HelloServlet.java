@@ -1,6 +1,8 @@
 package servlets;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.FileInputStream;
 import java.io.PrintWriter;
 import java.io.File;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletConfig;
+import java.util.Properties;
 import java.util.Scanner;
 import org.json.*;
 
@@ -20,6 +23,11 @@ public class HelloServlet extends HttpServlet {
 
     // author's name
     private String name;
+    // A persistent set of properties
+    private Properties properties;
+    private String propertiesStr;
+    // An object responsible for loading classes
+    private ClassLoader classLoader;
 
     /**
     * Runs when HelloServlet is created.
@@ -28,6 +36,10 @@ public class HelloServlet extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
         this.name = config.getInitParameter("param-name");
+        // Create an empty properties list with no default values
+        this.properties = new Properties();
+        // Get the ClassLoader for the class
+        this.classLoader = getClass().getClassLoader();
     }
 
     /**
@@ -41,8 +53,6 @@ public class HelloServlet extends HttpServlet {
         // Set the content type of the response
         response.setContentType("text/html");
 
-        // Get the ClassLoader for the class
-        ClassLoader classLoader = getClass().getClassLoader();
         // Find a resource with the given name
         File file = new File(classLoader.getResource("users.json").getFile());
 
@@ -72,14 +82,20 @@ public class HelloServlet extends HttpServlet {
         String nameParam = request.getParameter("name");
         this.name = nameParam != null ? nameParam : this.name;
 
+        // Read a property list from the input byte stream
+        try (InputStream is = classLoader.getResourceAsStream("config.properties")) {
+            this.properties.load(is);
+            this.propertiesStr = "username: " + properties.getProperty("username") + ", password: " + properties.getProperty("password");
+        }
+
         /*
-        * Use an instance of PrintWriter to print to a text-output stream.
-        *
-        * NOTE: Use the try-with-resources Statement
-        * because PrintWriter implements AutoCloseable interface.
-        */
+         * Use an instance of PrintWriter to print to a text-output stream.
+         *
+         * NOTE: Use the try-with-resources Statement
+         * because PrintWriter implements AutoCloseable interface.
+         */
         try (PrintWriter out = response.getWriter()){
-            out.println("<h1>" + "Hello " + this.name + " !" + "</h1>");
+            out.println("<h1>" + this.propertiesStr + "</h1><br><h2>" + "Hello " + this.name + " !" + "</h2>");
         }
     }
 }
