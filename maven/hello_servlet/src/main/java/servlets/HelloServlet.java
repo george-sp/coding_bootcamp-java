@@ -21,8 +21,19 @@ public class HelloServlet extends HttpServlet {
      * @throws IOException in case an I/O occurs
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        // Set the content type of the response
         response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<h1>" + "Hello Servlet!" + "</h1>");
+        // Initialize a PrintWriter object to null
+        PrintWriter out = null;
+        try {
+            // Get a PrintWriter object
+            out = response.getWriter();
+            out.println("<h1>" + "Hello Servlet!" + "</h1>");
+        } finally {
+            if (out != null) {
+                // Close the stream and release the resources
+                out.close();
+            }
+        }
     }
 }
