@@ -23,17 +23,14 @@ public class HelloServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // Set the content type of the response
         response.setContentType("text/html");
-        // Initialize a PrintWriter object to null
-        PrintWriter out = null;
-        try {
-            // Get a PrintWriter object
-            out = response.getWriter();
+        /*
+         * Use an instance of PrintWriter to print to a text-output stream.
+         *
+         * NOTE: Use the try-with-resources Statement
+         * because PrintWriter implements AutoCloseable interface.
+         */
+        try (PrintWriter out = response.getWriter()){
             out.println("<h1>" + "Hello Servlet!" + "</h1>");
-        } finally {
-            if (out != null) {
-                // Close the stream and release the resources
-                out.close();
-            }
         }
     }
 }
