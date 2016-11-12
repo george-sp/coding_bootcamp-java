@@ -50,11 +50,8 @@
 	<%
 		session.invalidate();
 	%>
-	<div class="container">
-		<div class="well">
-			<p class="text-center green-text">H έξοδος πραγματοποιήθηκε με
-				επιτυχία!</p>
-		</div>
+	<div class="alert alert-success">
+		<p>H έξοδος πραγματοποιήθηκε με επιτυχία!</p>
 	</div>
 </body>
 </html>
