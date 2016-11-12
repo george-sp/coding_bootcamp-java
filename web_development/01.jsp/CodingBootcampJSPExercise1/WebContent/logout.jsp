@@ -5,6 +5,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="refresh" content="3, login.jsp">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="Student registration page">
@@ -50,11 +51,8 @@
 	<%
 		session.invalidate();
 	%>
-	<div class="container">
-		<div class="well">
-			<p class="text-center green-text">H έξοδος πραγματοποιήθηκε με
-				επιτυχία!</p>
-		</div>
+	<div class="alert alert-success">
+		<p>H έξοδος πραγματοποιήθηκε με επιτυχία!</p>
 	</div>
 </body>
 </html>

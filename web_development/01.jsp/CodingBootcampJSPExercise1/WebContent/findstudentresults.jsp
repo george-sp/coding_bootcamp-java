@@ -96,6 +96,7 @@
 					studentDAO.close();
 				}
 			%>
+		</table>
 
 			</div>
 			<!-- /container -->

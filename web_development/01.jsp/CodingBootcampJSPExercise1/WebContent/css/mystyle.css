@@ -67,10 +67,8 @@ footer {
   border-top-right-radius: 0;
 }
 
-.well {
-	background-color: rgb(122, 211, 143);
-}
-
-.green-text {
-	color: green;
+.alert-success {
+	margin: 10px;
+	padding: 10px;
+	text-align: center;
 }
