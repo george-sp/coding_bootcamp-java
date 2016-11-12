@@ -10,15 +10,20 @@ public class PrimeNumber {
     public static void main(String[] args) {
         int num;
 
-        // Get an integer from user
-        try(Scanner scanner = new Scanner(System.in)){
-            num = getNumber(scanner);
+        if (args.length > 0) {
+            try {
+                // Get an integer from user as a command-line argument
+                num = Integer.parseInt(args[0]);
+                // Print if it is prime or not
+                if (isPrime(num))
+                    System.out.println("The number " + num + " is prime.");
+                else
+                    System.out.println("The number " + num + " is not prime.");
+            } catch (NumberFormatException e) {
+                System.err.println("Argument" + args[0] + " must be an integer.");
+                System.exit(1);
+            }
         }
-
-        if (isPrime(num))
-            System.out.println("The number " + num + " is prime.");
-        else
-            System.out.println("The number " + num + " is not prime.");
     }
 
     /**
@@ -33,27 +38,5 @@ public class PrimeNumber {
                 return false;
         }
         return true;
-    }
-
-    /**
-     * Gets a number from user.
-     *
-     * @return The (integer)number given by user
-     * @param The scanner object to read the user input
-     */
-    public static int getNumber(Scanner scanner) {
-        int number;
-        while (true) {
-            // Prompt user to give a number
-            System.out.print("Give a number: \n> ");
-            try {
-                number = scanner.nextInt();
-                break;
-            } catch (InputMismatchException e) {
-                System.out.println("Give a number (integer).");
-                scanner.next();
-            }
-        }
-        return number;
     }
 }
