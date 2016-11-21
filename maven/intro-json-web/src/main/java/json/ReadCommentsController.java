@@ -40,7 +40,7 @@ public class ReadCommentsController extends HttpServlet {
 			throws ServletException, IOException {
 		try {
 			response.getWriter().append("Served at: ").append(request.getContextPath()).append("\nJSON file to open: ")
-					.append(this.JSONFileName).append("\n").append(new JSONParser().parseComments("JSONFileName"));
+					.append(this.JSONFileName).append("\n").append(new JSONParser().parseComments(JSONFileName));
 		} catch (JSONException e) {
 			response.getWriter().append("JSONException:\n").append(ExceptionUtils.getStackTrace(e));
 		} catch (IOException e) {
