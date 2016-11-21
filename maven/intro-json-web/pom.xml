@@ -26,6 +26,12 @@
         <artifactId>json</artifactId>
         <version>20090211</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+    <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.5</version>
+    </dependency>
   </dependencies>
   <build>
       <finalName>intro-json-web</finalName>

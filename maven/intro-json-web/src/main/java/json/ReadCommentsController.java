@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONException;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 
 /**
  * Servlet implementation class ReadCommentsController
@@ -39,13 +40,13 @@ public class ReadCommentsController extends HttpServlet {
 			throws ServletException, IOException {
 		try {
 			response.getWriter().append("Served at: ").append(request.getContextPath()).append("\nJSON file to open: ")
-					.append(this.JSONFileName).append("\n").append(new JSONParser().parseComments(JSONFileName));
+					.append(this.JSONFileName).append("\n").append(new JSONParser().parseComments("JSONFileName"));
 		} catch (JSONException e) {
-			response.getWriter().append("JSONException:\n").append(e.getStackTrace().toString());
+			response.getWriter().append("JSONException:\n").append(ExceptionUtils.getStackTrace(e));
 		} catch (IOException e) {
-			response.getWriter().append("IOException:\n").append(e.getStackTrace().toString());
+			response.getWriter().append("IOException:\n").append(ExceptionUtils.getStackTrace(e));
 		} catch (Exception e) {
-			response.getWriter().append("Exception:\n").append(e.getStackTrace().toString());
+			response.getWriter().append("Exception:\n").append(ExceptionUtils.getStackTrace(e));
 		}
 	}
 
