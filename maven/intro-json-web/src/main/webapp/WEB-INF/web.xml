@@ -3,5 +3,19 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+	<display-name>Archetype Created Web Application</display-name>
+	<servlet>
+		<servlet-name>ReadCommentsController</servlet-name>
+		<display-name>ReadCommentsController</display-name>
+		<description></description>
+		<servlet-class>json.ReadCommentsController</servlet-class>
+		<init-param>
+			<param-name>file-name</param-name>
+			<param-value>comments.json</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ReadCommentsController</servlet-name>
+		<url-pattern>/json/read_comments</url-pattern>
+	</servlet-mapping>
 </web-app>
