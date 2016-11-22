@@ -9,11 +9,19 @@ import java.net.URL;
  */
 public class App {
 	public static void main(String[] args) {
-		System.out.println("Hello World!\nFetching data from: https://jsonplaceholder.typicode.com/todos\n");
+		String url = "https://jsonplaceholder.typicode.com/posts";
+		String jsonResponse = "";
+		
+		System.out.println("Hello World!\nFetching data from: " + url + "\n");
+		
+		// Fetch data from jsonplaceholder.typicode.com
 		try {
-			System.out.println(DataFetcher.fromURL(new URL("https://jsonplaceholder.typicode.com/posts")));
+			jsonResponse = DataFetcher.fromURL(new URL(url));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
+		
+		// Print the parsed JSON response of posts
+		System.out.println(DataFetcher.parsePosts(jsonResponse));
 	}
 }
