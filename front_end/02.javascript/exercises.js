@@ -19,3 +19,15 @@ if (n === 0) {
 } else if (n !== 0) {
   isZero = false;
 }
+
+//Syntax: Control flow (loops)
+/*
+You are provided with a variable named counter and value 0 (you don’t have to declare it).
+Create either a for or a while loop that will run 5 times and will increment the value of counter by 1 during each step.
+The final value of counter should be 5.
+*/
+var counter = 0;
+for (i = 0; i < 5; i++) {
+	counter++;
+}
+
