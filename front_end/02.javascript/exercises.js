@@ -39,3 +39,10 @@ The value of n can be controled using the input below.
 function cube(x) {
     return x*x*x;
 }
+
+// DOM: Creating HTML elements
+/*
+Create a <img></img> element and append it to the element with id parent.
+*/
+var imgElement = document.createElement('img');
+document.getElementById('parent').appendChild(imgElement);
