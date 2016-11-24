@@ -46,3 +46,9 @@ Create a <img></img> element and append it to the element with id parent.
 */
 var imgElement = document.createElement('img');
 document.getElementById('parent').appendChild(imgElement);
+
+// DOM: Modifying HTML elements
+/*
+Modify the src attribute of the img element with id avatar to https://github.com/parisk.png.
+*/
+document.getElementById('avatar').src = 'https://github.com/parisk.png';
