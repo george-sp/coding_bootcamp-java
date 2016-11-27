@@ -1,7 +1,5 @@
 package exercise6;
 
-import java.math.BigInteger;
-
 public class MainClass {
 
    public static void main(String[] args) {
@@ -21,11 +19,4 @@ public class MainClass {
        System.exit(1);
    }
 
-    public static BigInteger fibonacciRecursion(int number) {
-        if (number == 0 || number == 1) {
-            return BigInteger.ONE;
-        }
-
-        return fibonacciRecursion(number - 1).add(fibonacciRecursion(number - 2)); // tail recursion
-    }
 }
