@@ -5,7 +5,7 @@ public class Hello {
 	private String to;
 
 	public Hello() {
-		this.to = "world";
+		this.to = null;
 	}
 
 	public Hello(String to) {
