@@ -95,11 +95,13 @@ public class UploadImageController extends HttpServlet {
 			try (InputStream input = imagePart.getInputStream()) {
 				Files.copy(input, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
 				status = "success";
-				message = "<b>Image Uploaded Successfully!</b>" + "<br>name: " + name + "<br>contentType: " + contentType
-						+ "<br>image size: " + imagePart.getSize() + "<br>appPath: " + appPath + "<br>savePath: " + savePath
-						+ "<br>uploadFileName: " + uploadFileName;
+				message = "<b>Image Uploaded Successfully!</b>" + "<br>name: " + name + "<br>contentType: "
+						+ contentType + "<br>image size: " + imagePart.getSize() + "<br>appPath: " + appPath
+						+ "<br>savePath: " + savePath + "<br>uploadFileName: " + uploadFileName + "<br><b>"
+						+ UPLOAD_LOCATION + "/" + uploadFileName + "</b>";
 				request.setAttribute("status", status);
 				request.setAttribute("message", message);
+				request.setAttribute("uploaded", uploadFileName);
 				indexDispatcher.forward(request, response);
 				return;
 			} catch (IOException e) {
