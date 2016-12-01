@@ -5,7 +5,7 @@
 	<artifactId>upload-image</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>upload-image Maven Webapp</name>
+	<name>upload-image</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>

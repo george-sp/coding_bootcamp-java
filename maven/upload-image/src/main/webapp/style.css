@@ -1,0 +1,23 @@
+@CHARSET "UTF-8";
+
+.panel {
+	margin-top: 10px;
+}
+
+p {
+	word-wrap: break-word;
+}
+
+.error {
+	background-color: #F7902D;
+	padding: 10px 0px 10px 10px;
+	margin: 20px 0px 10px 0px;
+	border-radius: 4px;
+}
+
+.success {
+	background-color: #48e0a4;
+	padding: 10px 0px 10px 10px;
+	margin: 20px 0px 10px 0px;
+	border-radius: 4px;
+}
