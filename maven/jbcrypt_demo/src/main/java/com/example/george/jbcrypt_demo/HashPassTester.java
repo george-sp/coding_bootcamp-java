@@ -20,16 +20,18 @@ public class HashPassTester {
 
 		// Check that an unencrypted password matches one that has
 		// previously been hashed
-		String wrongPassword = "mySecr3tP@ssword1";
+		String wrongPassword = "mySecr3tP@ssword1111";
+		System.out.print(wrongPassword);
 		if (BCrypt.checkpw(wrongPassword, hashed))
-			System.out.println("It matches");
+			System.out.println(" ==> It matches");
 		else
-			System.out.println("It does not match");
+			System.out.println(" ==> It does not match");
 
 		String correctPassword = "mySecr3tP@ssword!";
+		System.out.print(correctPassword);
 		if (BCrypt.checkpw(correctPassword, hashed))
-			System.out.println("It matches");
+			System.out.println(" ==> It matches");
 		else
-			System.out.println("It does not match");
+			System.out.println(" ==> It does not match");
 	}
 }
