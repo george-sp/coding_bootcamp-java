@@ -4,3 +4,4 @@
 - [Introduction to Web Development](https://github.com/george-sp/coding_bootcamp-java/tree/web_development/web_development)
 - [Databases and user management](https://github.com/george-sp/coding_bootcamp-java/tree/db_user_mgmt/db_%26_user_mgmt)
 - [Front-end technologies](https://github.com/george-sp/coding_bootcamp-java/tree/front_end)
+- [Structure, depend and built](https://github.com/george-sp/coding_bootcamp-java/tree/maven)
