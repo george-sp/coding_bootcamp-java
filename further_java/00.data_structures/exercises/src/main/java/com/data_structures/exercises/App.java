@@ -25,7 +25,6 @@ public class App {
 
 		System.out.println("listOne: " + listOne + "\nlistTwo: " + listTwo + "\nintersectionList: "
 				+ ListUtils.intersection(listOne, listTwo) + "\nunionList: " + ListUtils.union(listOne, listTwo));
-
 		/* Exercise 2 - PriorityQueue */
 		System.out.println("Exercise2 starts!");
 		// Define an IntegerComparator and a Priority Queue
@@ -33,7 +32,9 @@ public class App {
 		Queue<Integer> queue = new PriorityQueue<Integer>(50, integerComparator);
 		//
 		for (int i = 60; i >= 1; i--) {
-			System.out.println(i + " added to PriorityQueue: " + queue.offer(new Integer(i)));
+			if (queue.size() <= 50) {
+				System.out.println(i + " added to PriorityQueue: " + queue.offer(i));
+			}
 		}
 		System.out.println(queue);
 		Iterator<Integer> integerIterator = queue.iterator();
