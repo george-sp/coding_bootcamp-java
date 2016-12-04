@@ -6,3 +6,4 @@
 - [Front-end technologies](https://github.com/george-sp/coding_bootcamp-java/tree/front_end)
 - [Structure, depend and built](https://github.com/george-sp/coding_bootcamp-java/tree/maven)
 - [Spring Framework](https://github.com/george-sp/coding_bootcamp-java/tree/spring)
+- [Further Java](https://github.com/george-sp/coding_bootcamp-java/tree/further_java)
