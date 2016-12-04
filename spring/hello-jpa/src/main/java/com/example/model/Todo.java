@@ -5,18 +5,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "TodoList")
 public class Todo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	// @Column(name="xxx")
 	private String text;
+
+	@ManyToOne
+	private Person person;
 
 	protected Todo() {
 
@@ -33,5 +35,9 @@ public class Todo {
 
 	public String getText() {
 		return this.text;
+	}
+
+	public Person getPerson() {
+		return this.person;
 	}
 }
