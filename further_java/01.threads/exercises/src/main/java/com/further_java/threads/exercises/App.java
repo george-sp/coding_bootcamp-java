@@ -8,6 +8,10 @@ import com.further_java.threads.exercises.exercise1.CounterLoop;
  */
 public class App {
 	public static void main(String[] args) {
+		/*
+		 * Exercise 1
+		 */
+		System.out.println("Exercise 1");
 		int patience = Integer.parseInt(args[0]);
 
 		Thread counterLoop = new CounterLoop(Integer.parseInt(args[1]));
