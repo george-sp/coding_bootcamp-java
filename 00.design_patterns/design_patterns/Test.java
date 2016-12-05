@@ -14,6 +14,14 @@ public class Test {
 
 	}
 
+	String getSomething() {
+
+	}
+
+	void setSomething(Object newSomething) {
+		
+	}
+
 	private static class InnerClass {
 
 	}
@@ -32,5 +40,9 @@ public class Test {
 }
 
 class Test1 {
+
+}
+
+	class Test2 {
 
 }

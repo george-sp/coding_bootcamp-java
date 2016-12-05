@@ -28,16 +28,16 @@ public class MetricsUtils {
 	 * @return the number of Classes
 	 */
 	public static int countClasses(String codeSnippet) {
-		int lineCounter = 0;
+		int classCounter = 0;
 		Matcher m = Pattern
 				.compile(
 						"(?m)^.*(((public|private|protected)|(static|final))\\s{1}|(|static|final)\\s{1})class\\s+.+\\s{1}\\{$")
 				.matcher(codeSnippet);
 		while (m.find()) {
-			lineCounter++;
-			System.out.println("line " + lineCounter + ": " + m.group());
+			classCounter++;
+			System.out.println("line " + classCounter + ": " + m.group());
 		}
-		return lineCounter;
+		return classCounter;
 	}
 
 	/**
@@ -47,15 +47,15 @@ public class MetricsUtils {
 	 * @return the number of Classes
 	 */
 	public static int countMethods(String codeSnippet) {
-		int lineCounter = 0;
+		int methodCounter = 0;
 		Matcher m = Pattern
 				.compile(
-						"(?m)^\\s*((public|private|protected)\\s{1}|(static|final)\\s{1}|(|static|final)\\s{1})((\\w+|void)\\s{1})\\w+\\s+\\w+\\(.*\\)\\s+\\{$")
+						"(?m)^\\s*(((public|private|protected)\\s{1})?)(((|static|final)\\s{1})?)(((|static|final)\\s{1})?)((\\w+|void)\\s{1})\\w+\\(.*\\)\\s+\\{$")
 				.matcher(codeSnippet);
 		while (m.find()) {
-			lineCounter++;
-			System.out.println("line " + lineCounter + ": " + m.group());
+			methodCounter++;
+			System.out.println("line " + methodCounter + ": " + m.group());
 		}
-		return lineCounter;
+		return methodCounter;
 	}
 }
