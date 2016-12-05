@@ -9,7 +9,7 @@ import com.advanced_oop.exercises.exercise1.Student;
  * Hello world!
  *
  */
-public class App {
+public class AppEx1 {
 	public static void main(String[] args) {
 		Course course = new Course("10:00");
 
