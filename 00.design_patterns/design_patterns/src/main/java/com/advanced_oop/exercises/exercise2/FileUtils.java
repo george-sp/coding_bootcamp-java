@@ -1,4 +1,4 @@
-package com.advanced_oop.exercises.exercises2;
+package com.advanced_oop.exercises.exercise2;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -21,7 +21,7 @@ public final class FileUtils {
 		try (BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(filePath)))) {
 			String line = "";
 			while ((line = bufferedReader.readLine()) != null) {
-				stringBuilder.append(line + "\n");
+				stringBuilder.append(line + System.lineSeparator());
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

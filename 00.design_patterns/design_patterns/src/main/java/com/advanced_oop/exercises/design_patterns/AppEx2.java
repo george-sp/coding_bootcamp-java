@@ -1,6 +1,6 @@
 package com.advanced_oop.exercises.design_patterns;
 
-import com.advanced_oop.exercises.exercises2.FileUtils;
+import com.advanced_oop.exercises.exercise2.FileUtils;
 
 public class AppEx2 {
 	public static void main(String[] args) {
