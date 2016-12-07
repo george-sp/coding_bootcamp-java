@@ -1,8 +1,8 @@
 package com.advanced_oop.design_patterns_examples;
 
-import com.advanced_oop.design_patterns_examples.students_factory.Student;
-import com.advanced_oop.design_patterns_examples.students_factory.StudentFactory;
-import com.advanced_oop.design_patterns_examples.students_factory.StudentType;
+import com.advanced_oop.design_patterns_examples.factory_students.Student;
+import com.advanced_oop.design_patterns_examples.factory_students.StudentFactory;
+import com.advanced_oop.design_patterns_examples.factory_students.StudentType;
 
 public class AcademyDepartment {
 

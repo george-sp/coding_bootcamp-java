@@ -1,4 +1,4 @@
-package com.advanced_oop.design_patterns_examples.students_factory;
+package com.advanced_oop.design_patterns_examples.factory_students;
 
 public class Master implements Student {
 
