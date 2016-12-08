@@ -15,6 +15,9 @@ BEGIN
     OR actor_id = @last;
 END $
 
+
+DELIMITER ;
+
 CALL first_and_last_actors();
 
--- DROP PROCEDURE first_and_last_actors;
+DROP PROCEDURE first_and_last_actors;
