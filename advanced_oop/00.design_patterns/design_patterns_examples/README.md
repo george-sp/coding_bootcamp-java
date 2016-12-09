@@ -6,9 +6,10 @@ Simple examples that demonstrate how the different design patterns are implement
 
 - **creational**
 	- Factory
-	- Abstract Factory Pattern
+	- Abstract Factory
 - **structural**
 	- Facade
+	- Composite
 - **behavioral**
 	- Strategy
 
