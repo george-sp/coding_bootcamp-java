@@ -1,5 +1,5 @@
 public class Test {
-	public static void main(String[] args) {
+ public static void main(String[] args) {
 
  		// System out println
 		System.out.println("Hello Test");
@@ -19,10 +19,11 @@ public class Test {
 	}
 
 	void setSomething(Object newSomething) {
-		
+
+  
 	}
 
-	private static class InnerClass {
+	private static class InnerClass InnerClass {
 
 	}
 
@@ -39,10 +40,14 @@ public class Test {
 	}
 }
 
-class Test1 {
+class Test1 {	
 
 }
 
-	class Test2 {
+	class Test2 {   
+
+}
+
+	class 3Test {   
 
 }
