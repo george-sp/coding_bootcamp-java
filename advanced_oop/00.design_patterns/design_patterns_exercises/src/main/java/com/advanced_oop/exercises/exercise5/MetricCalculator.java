@@ -51,7 +51,12 @@ public abstract class MetricCalculator {
 		this.metricSet.setNumberOfMethods(calculateNoM(javaCode));
 	}
 
-	public String displayMetricSet() {
+	public String getMetricSet() {
 		return this.metricSet.toString();
+	}
+
+	public String getCsv() {
+		return this.metricSet.getNumberOfLines() + ", " + this.metricSet.getNumberOfClasses() + ", "
+				+ this.metricSet.getNumberOfMethods();
 	}
 }
