@@ -8,26 +8,31 @@ import javax.persistence.Id;
 @Entity
 public class Person {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-	private String name;
+    private String name;
 
-	protected Person() {
+    protected Person() {
 
-	}
+    }
 
-	public Person(Long id, String name) {
-		this.id = id;
-		this.name = name;
-	}
+    public Person(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
-	public Long getId() {
-		return this.id;
-	}
+    public Long getId() {
+        return this.id;
+    }
 
-	public String getName() {
-		return this.name;
-	}
+    public String getName() {
+        return this.name;
+    }
+
+    public Person setName(String name) {
+        this.name = name;
+        return this;
+    }
 }

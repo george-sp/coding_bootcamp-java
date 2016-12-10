@@ -9,4 +9,5 @@ public class HelloJpaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(HelloJpaApplication.class, args);
 	}
+
 }

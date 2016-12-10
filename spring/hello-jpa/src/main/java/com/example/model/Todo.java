@@ -1,41 +1,37 @@
 package com.example.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Todo {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+    @ManyToOne
+    private Person person;
 
-	private String text;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-	@ManyToOne
-	private Person person;
+    private String text;
 
-	protected Todo() {
+    protected Todo() {
 
-	}
+    }
 
-	public Todo(Long id, String text) {
-		this.id = id;
-		this.text = text;
-	}
+    public Todo(Long id, String text) {
+        this.id = id;
+        this.text = text;
+    }
 
-	public Long getId() {
-		return this.id;
-	}
+    public Long getId() {
+        return this.id;
+    }
 
-	public String getText() {
-		return this.text;
-	}
+    public String getText() {
+        return this.text;
+    }
 
-	public Person getPerson() {
-		return this.person;
-	}
+    public Person getPerson() {
+        return this.person;
+    }
 }
