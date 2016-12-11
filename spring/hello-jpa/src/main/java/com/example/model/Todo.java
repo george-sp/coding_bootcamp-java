@@ -6,6 +6,7 @@ import javax.persistence.*;
 public class Todo {
 
     @ManyToOne
+    @JoinColumn(name = "person_id")
     private Person person;
 
     @Id
@@ -16,6 +17,15 @@ public class Todo {
 
     protected Todo() {
 
+    }
+
+    public Todo(String text) {
+        this.text = text;
+    }
+
+    public Todo(String text, long personID) {
+        this.text = text;
+        this.person = new Person(personID);
     }
 
     public Todo(Long id, String text) {
