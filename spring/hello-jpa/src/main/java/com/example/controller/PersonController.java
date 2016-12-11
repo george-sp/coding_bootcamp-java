@@ -3,10 +3,7 @@ package com.example.controller;
 import com.example.dao.PersonDAO;
 import com.example.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by george on 10/12/2016.
@@ -28,9 +25,14 @@ public class PersonController {
         return repository.findOne(personID);
     }
 
+    @RequestMapping(value = "/findByName/{firstName}")
+    public Iterable<Person> getByName(@PathVariable String firstName) {
+        return repository.findByName(firstName);
+    }
+
     @RequestMapping(value = "/saveOne")
-    public Person createOne(@RequestParam(value = "id") long personID, @RequestParam(value = "name") String personName) {
-        return repository.save(new Person(personID, personName));
+    public Person createOne(@RequestParam(value = "id") long personID, @RequestParam(value = "name") String personName, @RequestParam(value = "surname", required = false) String personSurname) {
+        return repository.save(new Person(personID, personName, personSurname));
     }
 
     @RequestMapping(value = "/deleteOne")
