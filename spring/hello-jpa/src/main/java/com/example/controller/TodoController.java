@@ -17,8 +17,8 @@ public class TodoController {
         return repository.findAll();
     }
 
-    @GetMapping(value = "/findOne")
-    public Todo getOne(@RequestParam(value = "id") long todoID) {
+    @GetMapping(value = "/findOne/{todoID}")
+    public Todo getOne(@PathVariable long todoID) {
         return repository.findOne(todoID);
     }
 
