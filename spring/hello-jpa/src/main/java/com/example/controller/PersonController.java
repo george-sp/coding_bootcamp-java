@@ -30,6 +30,21 @@ public class PersonController {
         return repository.findByName(firstName);
     }
 
+    @RequestMapping(value = "/findByNameOrSurname/{nameOrSurname}")
+    public Iterable<Person> getByNameOrSurname(@PathVariable String nameOrSurname) {
+        return repository.findByNameOrSurname(nameOrSurname, nameOrSurname);
+    }
+
+    @GetMapping(value = "/countByName/{firstName}")
+    public long getNumberOfName(@PathVariable String firstName) {
+        return repository.countByName(firstName);
+    }
+
+    @GetMapping(value = "/countByLastName/{lastName}")
+    public long getNumberOfSurname(@PathVariable String lastName) {
+        return repository.countByLastName(lastName);
+    }
+
     @RequestMapping(value = "/saveOne")
     public Person createOne(@RequestParam(value = "id") long personID, @RequestParam(value = "name") String personName, @RequestParam(value = "surname", required = false) String personSurname) {
         return repository.save(new Person(personID, personName, personSurname));
