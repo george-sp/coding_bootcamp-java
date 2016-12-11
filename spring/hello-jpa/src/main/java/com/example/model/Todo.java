@@ -1,8 +1,11 @@
 package com.example.model;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 import javax.persistence.*;
 
 @Entity
+@JsonPropertyOrder({"id", "text", "person"})
 public class Todo {
 
     @ManyToOne
