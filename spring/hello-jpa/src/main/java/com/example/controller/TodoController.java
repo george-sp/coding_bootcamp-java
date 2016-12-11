@@ -22,6 +22,11 @@ public class TodoController {
         return repository.findOne(todoID);
     }
 
+    @GetMapping(value = "/findByPersonID/{personID}")
+    public Iterable<Todo> getOneByPersonID(@PathVariable long personID) {
+        return repository.findByPersonID(personID);
+    }
+
     @RequestMapping(value = "/saveOne", method = RequestMethod.GET)
     public Todo createOne(@RequestParam(value = "person_id") long personID, @RequestParam(value = "text") String todoText) {
         return repository.save(new Todo(todoText, personID));
