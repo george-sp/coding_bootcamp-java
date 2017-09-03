@@ -1,37 +1,50 @@
 package com.example.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+import javax.persistence.*;
 
 @Entity
-@Table(name = "TodoList")
+@JsonPropertyOrder({"id", "text", "person"})
 public class Todo {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+    @ManyToOne
+    @JoinColumn(name = "person_id")
+    private Person person;
 
-	// @Column(name="xxx")
-	private String text;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-	protected Todo() {
+    private String text;
 
-	}
+    protected Todo() {
 
-	public Todo(Long id, String text) {
-		this.id = id;
-		this.text = text;
-	}
+    }
 
-	public Long getId() {
-		return this.id;
-	}
+    public Todo(String text) {
+        this.text = text;
+    }
 
-	public String getText() {
-		return this.text;
-	}
+    public Todo(String text, long personID) {
+        this.text = text;
+        this.person = new Person(personID);
+    }
+
+    public Todo(Long id, String text) {
+        this.id = id;
+        this.text = text;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public String getText() {
+        return this.text;
+    }
+
+    public Person getPerson() {
+        return this.person;
+    }
 }

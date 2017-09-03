@@ -1,22 +1,48 @@
 package com.example.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.example.dao.TodoDAO;
 import com.example.model.Todo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/todos")
 public class TodoController {
 
-	@Autowired
-	private TodoDAO repository;
+    @Autowired
+    private TodoDAO repository;
 
-	@RequestMapping(method = RequestMethod.GET)
-	public Iterable<Todo> get() {
-		return repository.findAll();
-	}
+    @RequestMapping(value = "/findAll", method = RequestMethod.GET)
+    public Iterable<Todo> getAll() {
+        return repository.findAll();
+    }
+
+    @GetMapping(value = "/findOne/{todoID}")
+    public Todo getOne(@PathVariable long todoID) {
+        return repository.findOne(todoID);
+    }
+
+    @GetMapping(value = "/findByPersonID/{personID}")
+    public Iterable<Todo> getOneByPersonID(@PathVariable long personID) {
+        return repository.findByPersonID(personID);
+    }
+
+    @RequestMapping(value = "/saveOne", method = RequestMethod.GET)
+    public Todo createOne(@RequestParam(value = "person_id") long personID, @RequestParam(value = "text") String todoText) {
+        return repository.save(new Todo(todoText, personID));
+    }
+
+    @RequestMapping(value = "/deleteOne", method = RequestMethod.GET)
+    public Todo deleteOne(@RequestParam(value = "id") long todoID) {
+        Todo deletedTodo = repository.findOne(todoID);
+        repository.delete(deletedTodo);
+        return deletedTodo;
+    }
+
+    @RequestMapping(value = "/deleteAll", method = RequestMethod.GET)
+    public Iterable<Todo> deleteAll() {
+        Iterable<Todo> deletedTodos = repository.findAll();
+        repository.delete(deletedTodos);
+        return deletedTodos;
+    }
 }
